@@ -57,6 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Protagonist.cs" />
+    <Compile Include="Assets\Scripts\Interactable\Interactable.cs" />
+    <Compile Include="Assets\Scripts\Trigger.cs" />
+    <Compile Include="Assets\Scripts\Usable.cs" />
+    <Compile Include="Assets\Scripts\CameraSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
