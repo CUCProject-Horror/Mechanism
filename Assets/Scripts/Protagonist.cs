@@ -85,6 +85,7 @@ public class Protagonist : MonoBehaviour {
 
 	public void Start() {
 		camera = GetComponentInChildren<Camera>();
+		camera.tag = "MainCamera";
 		controller = GetComponent<CharacterController>();
 		Cursor.lockState = CursorLockMode.Locked;
 

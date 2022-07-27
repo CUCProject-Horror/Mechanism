@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fd9acd3473085419d8abaacec89f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagMask: Protagonist
+  tagMask: Player
   oneTime: 0
   onEnter:
     m_PersistentCalls:

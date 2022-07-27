@@ -20,7 +20,7 @@
                     "id": "4a819b1d-6845-4a4e-9f0e-6a1743a29c2c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
@@ -29,7 +29,7 @@
                     "id": "5aeeafab-589b-432c-affc-2706d555da2e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -47,7 +47,7 @@
                     "name": "",
                     "id": "307b7723-9807-4fe0-b8ee-20bb6c1236af",
                     "path": "<Keyboard>/c",
-                    "interactions": "Press",
+                    "interactions": "",
                     "processors": "",
                     "groups": "PC",
                     "action": "Crouch",
