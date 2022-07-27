@@ -1,51 +1,61 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using NaughtyAttributes;
 
 [RequireComponent(typeof(CharacterController))]
 public class Protagonist : MonoBehaviour {
-	// Inspector properties
+	[NonSerialized] public CharacterController controller;
+	[NonSerialized] public new Camera camera;
 
 	[Header("Movement")]
-	[Range(1, 300)] public float runningSpeed;
-	[Range(1, 300)] public float walkingSpeed;
-	[Range(1, 300)] public float crouchingSpeed;
-	bool running = false;
-	bool crouching = false;
-	public float movementSpeed => crouching ? crouchingSpeed : running ? runningSpeed : walkingSpeed;
-	public InputAction movementInput;
-	public InputAction runningInput;
+	[Range(1, 500)] public float sprintingSpeed;
+	[Range(1, 500)] public float walkingSpeed;
+	bool sprinting = false;
+	Vector3 inputVelocity = Vector3.zero;
+
+	[Header("Crouching")]
+	[Range(1, 500)] public float crouchingSpeed;
 	[MinMaxSlider(0, 2)] public Vector2 height;
 	[NonSerialized] public float eyeHangingOffset;
+	bool crouching = false;
 	public float Height => crouching ? height.x : height.y;
-	public InputAction crouchingInput;
+
+	public float movementSpeed => crouching ? crouchingSpeed : sprinting ? sprintingSpeed : walkingSpeed;
 
 	[Header("Orientation")]
 	[Range(1, 10)] public float orientingSpeed;
 	[MinMaxSlider(-90, 90)] public Vector2 pitchRange;
-	public InputAction orientationInput;
+	Vector2 inputRotation = Vector2.zero;
 
-	[Header("Misc")]
+	[Header("Falling")]
 	[Range(1, 30)] public float fallingLimit = 5;
 	[NonSerialized] public float lastGroundHeight;
+	public UnityEvent onDieFalling;
 	
-	// Private properties
-
-	[NonSerialized] public CharacterController controller;
-	[NonSerialized] public new Camera camera;
-
-	public void Move(Vector3 velocity) {
+	void UpdateMovement() {
+		Vector3 velocity = inputVelocity * movementSpeed * Time.deltaTime;
 		velocity = transform.localToWorldMatrix.MultiplyVector(velocity);
 		controller.SimpleMove(velocity);
+		if(controller.isGrounded) {
+			if(lastGroundHeight - transform.position.y > fallingLimit)
+				onDieFalling.Invoke();
+			lastGroundHeight = transform.position.y;
+		}
+	}
+	public void OnMove(InputValue value) {
+		inputVelocity = value.Get<Vector2>();
+		inputVelocity.z = inputVelocity.y;
+		inputVelocity.y = 0;
 	}
 
-	public void SetRunning(bool value) {
-		running = value;
+	public void OnSprint(InputValue value) {
+		sprinting = value.isPressed;
 	}
 
-	public void SetCrouching(bool value) {
-		crouching = value;
+	public void OnCrouch(InputValue _) {
+		crouching = !crouching;
 		GetComponentInChildren<CapsuleCollider>().height = Height;
 		controller.height = Height;
 		controller.center = new Vector3(0, Height / 2, 0);
@@ -54,21 +64,23 @@ public class Protagonist : MonoBehaviour {
 		camera.transform.localPosition = camPos;
 	}
 
-	public void Orient(Vector2 delta) {
+	void UpdateOrientation() {
+		Vector2 rotation = inputRotation * orientingSpeed * Time.deltaTime;
+		rotation.y = -rotation.y;
+
 		Vector3 body = transform.rotation.eulerAngles;
-		body.y += delta.x;
+		body.y += rotation.x;
 		transform.rotation = Quaternion.Euler(body);
 
 		Vector3 cam = camera.transform.rotation.eulerAngles;
-		cam.x += delta.y;
+		cam.x += rotation.y;
 		if(cam.x >= 180)
 			cam.x -= 360;
 		cam.x = Mathf.Clamp(cam.x, pitchRange.x, pitchRange.y);
 		camera.transform.rotation = Quaternion.Euler(cam);
 	}
-
-	public void DieFalling() {
-		Debug.Log("Protagonist fell from high and died.");
+	public void OnOrient(InputValue value) {
+		inputRotation = value.Get<Vector2>();
 	}
 
 	public void Start() {
@@ -76,32 +88,13 @@ public class Protagonist : MonoBehaviour {
 		controller = GetComponent<CharacterController>();
 		Cursor.lockState = CursorLockMode.Locked;
 
-		movementInput.Enable();
-		runningInput.Enable();
-		runningInput.performed += (InputAction.CallbackContext cb) => SetRunning(cb.ReadValue<float>() >= .5f);
-		crouchingInput.Enable();
-		crouchingInput.performed += (InputAction.CallbackContext cb) => SetCrouching(!crouching);
-		eyeHangingOffset = height.y - camera.transform.position.y;
-		SetCrouching(false);
-		orientationInput.Enable();
-
+		eyeHangingOffset = height.y - camera.transform.localPosition.y;
 		lastGroundHeight = transform.position.y;
 	}
 
 	public void FixedUpdate() {
-		Vector3 velocity = movementInput.ReadValue<Vector2>();
-		Vector3 inputVelocity = new Vector3(velocity.x, 0, velocity.y);
-		Move(inputVelocity * movementSpeed * Time.deltaTime);
-
-		Vector2 rotation = orientationInput.ReadValue<Vector2>();
-		rotation.y = -rotation.y;
-		Vector2 inputRotation = rotation;
-		Orient(inputRotation * orientingSpeed * Time.deltaTime);
-
-		if(controller.isGrounded) {
-			if(lastGroundHeight - transform.position.y > fallingLimit)
-				DieFalling();
-			lastGroundHeight = transform.position.y;
-		}
+		InputSystem.Update();
+		UpdateMovement();
+		UpdateOrientation();
 	}
 }

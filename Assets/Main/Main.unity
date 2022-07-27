@@ -1009,6 +1009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 723131984}
   - component: {fileID: 723131986}
+  - component: {fileID: 723131981}
   - component: {fileID: 723131985}
   m_Layer: 0
   m_Name: Protagonist
@@ -1017,6 +1018,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &723131981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723131980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 9cccd548d5576c447b91a3b12006ca49, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Protagonist
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!4 &723131984
 Transform:
   m_ObjectHideFlags: 0
@@ -1045,113 +1076,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e530d28e6ab111046971ae813ec58c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runningSpeed: 300
+  sprintingSpeed: 300
   walkingSpeed: 180
   crouchingSpeed: 60
-  movementInput:
-    m_Name: Movement Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 87b6a8cb-232b-48a2-bead-111fd2b7369b
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: Keyboard Movement
-      m_Id: 4277c437-1b67-4f1c-a236-639f9508a76b
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 3353513c-131b-4be0-9ce8-d0c4add558c4
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 0045775e-4724-4cef-a8b4-cb860e0de31e
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 68a24e53-9911-4c9b-8ac7-011e059cbd30
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 932a809c-af97-403d-bbca-a3ed9201662b
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement Input
-      m_Flags: 8
-    m_Flags: 0
-  runningInput:
-    m_Name: Running Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 662a10c9-085c-415d-bd67-db48eefae9a8
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: e8ea9acd-5210-4322-ba7c-5aee6edac0f9
-      m_Path: <Keyboard>/leftShift
-      m_Interactions: Press(behavior=2)
-      m_Processors: 
-      m_Groups: 
-      m_Action: Running Input
-      m_Flags: 0
-    m_Flags: 0
   height: {x: 1.3, y: 2}
-  crouchingInput:
-    m_Name: Crouching Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 6342aaf3-5833-42ab-8e4d-9e7a5813da41
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: ad227375-7a88-4355-aea1-5cb8a6773052
-      m_Path: <Keyboard>/c
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Crouching Input
-      m_Flags: 0
-    m_Flags: 0
   orientingSpeed: 5
   pitchRange: {x: -60, y: 60}
-  orientationInput:
-    m_Name: Orientation Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 502ce09d-b2a0-4203-a0e5-4ab1e54e6776
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 5d7d8a7d-9a18-4fdf-bf30-c7f3949fd83f
-      m_Path: <Mouse>/delta
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Orientation Input
-      m_Flags: 0
-    m_Flags: 0
   fallingLimit: 5
+  onDieFalling:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &723131986
 CharacterController:
   m_ObjectHideFlags: 0
