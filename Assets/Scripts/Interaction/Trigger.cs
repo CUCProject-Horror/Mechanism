@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
+using NaughtyAttributes;
 
 public class Trigger : MonoBehaviour {
-	public string tagMask = "";
+	[Tag] public string tagMask;
 	public UnityEvent<Collider> onEnter;
 	public UnityEvent<Collider> onExit;
 

@@ -981,6 +981,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6322761753364695761, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
+      propertyPath: m_Size.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6322761753364695761, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
+      propertyPath: m_Size.z
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623301650172520740, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6623301650172520740, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
+      propertyPath: m_Size.z
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7044008031958330616, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: m_Size.x
       value: 6
@@ -1013,7 +1029,7 @@ GameObject:
   - component: {fileID: 723131985}
   m_Layer: 0
   m_Name: Protagonist
-  m_TagString: Player
+  m_TagString: Protagonist
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1657,7 +1673,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 1
+  m_Intensity: 4
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -1771,7 +1787,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

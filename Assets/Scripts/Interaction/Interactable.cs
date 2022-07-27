@@ -1,23 +1,28 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
+using NaughtyAttributes;
 
 public class Interactable : MonoBehaviour {
-	public string tagMask = "Player";
-	public RawImage indicator;
-	public Texture outerIndicator;
+	[Tag] public string tagMask;
+	public SpriteRenderer indicator;
+
+	[Header("Outer")]
+	public Sprite outerIndicator;
 	public Trigger outerTrigger;
-	public Texture innerIndicator;
+
+	[Header("Inner")]
+	public Sprite innerIndicator;
 	public Trigger innerTrigger;
+
 	bool canInteract = false;
 	public UnityEvent onInteract;
 
 	public void Start() {
-		outerTrigger.tag = tagMask;
+		outerTrigger.tagMask = tagMask;
 		outerTrigger.onEnter.AddListener((Collider other) => OnOuterChange(true));
 		outerTrigger.onExit.AddListener((Collider other) => OnOuterChange(false));
 
-		innerTrigger.tag = tagMask;
+		innerTrigger.tagMask = tagMask;
 		innerTrigger.onEnter.AddListener((Collider other) => OnInnerChange(true));
 		innerTrigger.onExit.AddListener((Collider other) => OnInnerChange(false));
 
@@ -25,12 +30,12 @@ public class Interactable : MonoBehaviour {
 	}
 
 	public void OnOuterChange(bool enter) {
-		indicator.texture = enter ? outerIndicator : null;
+		indicator.sprite = enter ? outerIndicator : null;
 		indicator.enabled = enter;
 	}
 
 	public void OnInnerChange(bool enter) {
-		indicator.texture = enter ? innerIndicator : outerIndicator;
+		indicator.sprite = enter ? innerIndicator : outerIndicator;
 		canInteract = enter;
 	}
 
