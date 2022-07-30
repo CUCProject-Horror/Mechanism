@@ -12,7 +12,7 @@ public class CameraSelector : MonoBehaviour {
 
 	public void Use() {
 		foreach(Usable usable in lastSelected)
-			usable.onUse.Invoke(this);
+			usable.BroadcastMessage("OnUse", this, SendMessageOptions.DontRequireReceiver);
 	}
 
 	public void Start() {

@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using NaughtyAttributes;
 
 public class Interactable : MonoBehaviour {
+	public Usable user;
 	[Tag] public string tagMask;
 	public SpriteRenderer indicator;
 
@@ -15,9 +16,17 @@ public class Interactable : MonoBehaviour {
 	public Trigger innerTrigger;
 
 	bool canInteract = false;
-	public UnityEvent onInteract;
+	public UnityEvent<Component> onInteract;
 
 	public void Start() {
+		if(user == null)
+			user = GetComponent<Usable>();
+		if(user == null)
+			Debug.LogWarning("User of interactable is not set", this);
+		else
+			user.onUse.AddListener(onInteract.Invoke);
+		indicator.enabled = false;
+
 		outerTrigger.tagMask = tagMask;
 		outerTrigger.onEnter.AddListener((Collider other) => OnOuterChange(true));
 		outerTrigger.onExit.AddListener((Collider other) => OnOuterChange(false));
@@ -25,8 +34,6 @@ public class Interactable : MonoBehaviour {
 		innerTrigger.tagMask = tagMask;
 		innerTrigger.onEnter.AddListener((Collider other) => OnInnerChange(true));
 		innerTrigger.onExit.AddListener((Collider other) => OnInnerChange(false));
-
-		indicator.enabled = false;
 	}
 
 	public void OnOuterChange(bool enter) {
@@ -39,10 +46,10 @@ public class Interactable : MonoBehaviour {
 		canInteract = enter;
 	}
 
-	public void OnInteract() {
+	public void OnInteract(Component source) {
 		if(!canInteract)
 			return;
-		onInteract.Invoke();
+		onInteract.Invoke(source);
 		Debug.Log("Interact");
 	}
 }

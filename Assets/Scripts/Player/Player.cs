@@ -1,9 +1,10 @@
 using UnityEngine;
-using UnityEngine.Events;
 using NaughtyAttributes;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour {
+	#region Inspector Properties
+	#region Movability
 	[Header("Movement")]
 	[Range(1, 500)] public float sprintingSpeed;
 	[Range(1, 500)] public float walkingSpeed;
@@ -32,19 +33,19 @@ public class Player : MonoBehaviour {
 	[Header("Falling")]
 	[Range(1, 30)] public float fallingLimit = 5;
 	protected float lastGroundHeight;
-	public UnityEvent onDieFalling;
+	#endregion
+
+	[Header("Inventory")]
+	public Inventory inventory = new Inventory();
+	#endregion
 
 	protected CharacterController controller;
-
-	public void Start() {
-		controller = GetComponent<CharacterController>();
-	}
 
 	public void Move(Vector3 velocity) {
 		controller.SimpleMove(velocity);
 		if(controller.isGrounded) {
 			if(lastGroundHeight - transform.position.y > fallingLimit)
-				onDieFalling.Invoke();
+				DieFalling();
 			lastGroundHeight = transform.position.y;
 		}
 	}
@@ -53,5 +54,13 @@ public class Player : MonoBehaviour {
 		Vector3 body = transform.rotation.eulerAngles;
 		body.y += rotation.x;
 		transform.rotation = Quaternion.Euler(body);
+	}
+
+	public void DieFalling() {
+		Debug.Log($"{gameObject.name} fell and died");
+	}
+
+	public void Start() {
+		controller = GetComponent<CharacterController>();
 	}
 }
