@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using NaughtyAttributes;
 
+[ExecuteInEditMode]
+[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class ItemSource : MonoBehaviour {
 	public Interactable interactor;
 	public Item item;
@@ -10,6 +12,7 @@ public class ItemSource : MonoBehaviour {
 	[HideIf("infinite")] public bool destroyOnEmpty;
 	public UnityEvent onDeliver;
 	[HideIf("infinite")] public UnityEvent onEmpty;
+	public bool view = true;
 
 	public void Deliver(Inventory inventory) {
 		if(item == null) {
@@ -25,9 +28,15 @@ public class ItemSource : MonoBehaviour {
 				Destroy(gameObject);
 			}
 		}
+		if(view) {
+			PickupView view = FindObjectOfType<PickupView>(true);
+			view?.View(item);
+		}
 	}
 
 	public void Start() {
+		if(!Application.isPlaying)
+			return;
 		if(interactor) {
 			interactor.onInteract.AddListener((Component source) => {
 				Inventory inventory = source?.GetComponent<Player>().inventory;
@@ -35,6 +44,21 @@ public class ItemSource : MonoBehaviour {
 					return;
 				Deliver(inventory);
 			});
+		}
+	}
+
+	public void Update() {
+		if(!Application.isPlaying) {
+			Mesh mesh = item.mesh ?? GetComponent<MeshFilter>().sharedMesh;
+			if(mesh == null)
+				return;
+			GetComponent<MeshFilter>().sharedMesh = mesh;
+			if(item.material)
+				GetComponent<MeshRenderer>().sharedMaterial = item.material;
+			MeshCollider collider = GetComponent<MeshCollider>();
+			if(collider)
+				collider.sharedMesh = mesh;
+			return;
 		}
 	}
 }

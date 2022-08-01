@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   name: Apple
-  displayName: Apple
+  mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}

@@ -60,13 +60,14 @@
     <Compile Include="Assets\Main\Animated Platform\Platform.cs" />
     <Compile Include="Assets\Scripts\Interaction\Usable.cs" />
     <Compile Include="Assets\Scripts\Player\Protagonist.cs" />
-    <Compile Include="Assets\Scripts\Event\Item.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Item.cs" />
     <Compile Include="Assets\Scripts\Interaction\Trigger.cs" />
     <Compile Include="Assets\Scripts\Presenting\Billboard.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Interaction\CameraSelector.cs" />
-    <Compile Include="Assets\Scripts\Event\Inventory.cs" />
-    <Compile Include="Assets\Scripts\Event\ItemSource.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemSource.cs" />
+    <Compile Include="Assets\Scripts\Inventory\PickupView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
