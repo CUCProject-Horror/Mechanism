@@ -1,10 +1,12 @@
 .DS_Store
 .vsconfig
+.vs
 
 [Ll]ibrary
 [Ll]ogs
 [Pp]ackages
 [Tt]emp
 [Uu]serSettings
+[Oo]bj
 
 /*.sln
