@@ -56,18 +56,18 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Interaction\Interactable.cs" />
+    <Compile Include="Assets\Interaction\Interactable\Interactable.cs" />
     <Compile Include="Assets\Main\Animated Platform\Platform.cs" />
-    <Compile Include="Assets\Scripts\Interaction\Usable.cs" />
-    <Compile Include="Assets\Scripts\Player\Protagonist.cs" />
-    <Compile Include="Assets\Scripts\Inventory\Item.cs" />
-    <Compile Include="Assets\Scripts\Interaction\Trigger.cs" />
-    <Compile Include="Assets\Scripts\Presenting\Billboard.cs" />
-    <Compile Include="Assets\Scripts\Player\Player.cs" />
-    <Compile Include="Assets\Scripts\Interaction\CameraSelector.cs" />
-    <Compile Include="Assets\Scripts\Inventory\Inventory.cs" />
-    <Compile Include="Assets\Scripts\Inventory\ItemSource.cs" />
-    <Compile Include="Assets\Scripts\Inventory\PickupView.cs" />
+    <Compile Include="Assets\Interaction\Usable.cs" />
+    <Compile Include="Assets\Player\Protagonist.cs" />
+    <Compile Include="Assets\Inventory\Item.cs" />
+    <Compile Include="Assets\Interaction\Trigger.cs" />
+    <Compile Include="Assets\Presenting\Billboard.cs" />
+    <Compile Include="Assets\Player\Player.cs" />
+    <Compile Include="Assets\Interaction\CameraSelector.cs" />
+    <Compile Include="Assets\Inventory\Inventory.cs" />
+    <Compile Include="Assets\Inventory\ItemSource.cs" />
+    <Compile Include="Assets\Inventory\PickupView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

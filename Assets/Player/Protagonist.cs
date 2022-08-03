@@ -60,12 +60,21 @@ public class Protagonist : Player {
 	}
 	#endregion
 
+	public GameObject aimUI;
+	public bool Input {
+		set {
+			GetComponent<PlayerInput>().enabled = value;
+			Cursor.lockState = value ? CursorLockMode.Locked : CursorLockMode.None;
+			aimUI?.SetActive(value);
+		}
+	}
+
 	public new void Start() {
 		base.Start();
 
 		camera = GetComponentInChildren<Camera>();
 		camera.tag = "MainCamera";
-		Cursor.lockState = CursorLockMode.Locked;
+		Input = true;
 
 		eyeHangingOffset = height.y - camera.transform.localPosition.y;
 		lastGroundHeight = transform.position.y;

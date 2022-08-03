@@ -9,4 +9,8 @@ public class PickupView : MonoBehaviour {
 		renderer.sharedMaterial = item.material;
 		gameObject.SetActive(true);
 	}
+
+	public void Start() {
+		gameObject.SetActive(false);
+	}
 }

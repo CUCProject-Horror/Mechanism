@@ -30,7 +30,10 @@ public class ItemSource : MonoBehaviour {
 		}
 		if(view) {
 			PickupView view = FindObjectOfType<PickupView>(true);
-			view?.View(item);
+			if(view) {
+				FindObjectOfType<Protagonist>().Input = false;
+				view.View(item);
+			}
 		}
 	}
 
