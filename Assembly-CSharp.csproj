@@ -56,18 +56,45 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Interaction\Interactable\Interactable.cs" />
-    <Compile Include="Assets\Main\Animated Platform\Platform.cs" />
-    <Compile Include="Assets\Interaction\Usable.cs" />
-    <Compile Include="Assets\Player\Protagonist.cs" />
-    <Compile Include="Assets\Inventory\Item.cs" />
-    <Compile Include="Assets\Interaction\Trigger.cs" />
-    <Compile Include="Assets\Presenting\Billboard.cs" />
-    <Compile Include="Assets\Player\Player.cs" />
-    <Compile Include="Assets\Interaction\CameraSelector.cs" />
-    <Compile Include="Assets\Inventory\Inventory.cs" />
-    <Compile Include="Assets\Inventory\ItemSource.cs" />
-    <Compile Include="Assets\Inventory\PickupView.cs" />
+    <Compile Include="Assets\Modules\Interaction\Interactable\Interactable.cs" />
+    <Compile Include="Assets\Data\Scenes\Main\Animated Platform\Platform.cs" />
+    <Compile Include="Assets\Modules\Inventory\Types\Prop.cs" />
+    <Compile Include="Assets\Modules\Interaction\Usable.cs" />
+    <Compile Include="Assets\Modules\Player\Protagonist.cs" />
+    <Compile Include="Assets\Modules\Inventory\Types\Item.cs" />
+    <Compile Include="Assets\Modules\Inventory\UI\InventoryUI.cs" />
+    <Compile Include="Assets\Modules\Interaction\Trigger.cs" />
+    <Compile Include="Assets\Modules\Presenting\Billboard.cs" />
+    <Compile Include="Assets\Modules\Player\Player.cs" />
+    <Compile Include="Assets\Modules\Utils.cs" />
+    <Compile Include="Assets\Modules\Inventory\Types\CD.cs" />
+    <Compile Include="Assets\Modules\Interaction\CameraSelector.cs" />
+    <Compile Include="Assets\Modules\Inventory\Types\Collective.cs" />
+    <Compile Include="Assets\Modules\Inventory\Inventory.cs" />
+    <Compile Include="Assets\Modules\Inventory\ItemSource.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
