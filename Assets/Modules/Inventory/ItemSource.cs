@@ -26,8 +26,6 @@ public class ItemSource : MonoBehaviour {
 				Destroy(gameObject);
 			}
 		}
-		if(view)
-			FindObjectOfType<InventoryUI>(true)?.SetModel(item);
 	}
 
 	public void DeliverToProtagonist() {

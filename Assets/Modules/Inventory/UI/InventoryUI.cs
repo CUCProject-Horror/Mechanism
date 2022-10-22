@@ -70,20 +70,6 @@ public class InventoryUI : MonoBehaviour {
 	GameObject currentModel;
 	List<Item> items;
 
-	public void SetModel(Item item) {
-		if(currentModel) {
-			Destroy(currentModel);
-			currentModel = null;
-		}
-		currentItem = item;
-		if(!item)
-			return;
-		currentModel = Instantiate(currentItem.prefab, transform);
-		currentModel.layer = LayerMask.NameToLayer("Inventory");
-		var renderer = currentModel.GetComponentInChildren<Renderer>();
-		renderer.renderingLayerMask = 2;
-	}
-
 	public void UpdateItems(CategoryTab cat) {
 		items = Protagonist.instance.inventory.items
 			.Select(record => record.item)
@@ -119,9 +105,20 @@ public class InventoryUI : MonoBehaviour {
 	}
 
 	public void ViewItem(Item item) {
-		SetModel(item);
-		if(item == null)
+		if(currentModel) {
+			Destroy(currentModel);
+			currentModel = null;
+		}
+		if(currentItem = item) {
+			currentModel = Instantiate(item.prefab, transform);
+			currentModel.layer = LayerMask.NameToLayer("Inventory");
+			var renderer = currentModel.GetComponentInChildren<Renderer>();
+			renderer.renderingLayerMask = 2;
+		}
+		if(!item) {
+			UpdateButtons();
 			return;
+		}
 		CategoryTab cat = categories.First(cat => cat.type == item.GetType());
 		SwitchCategoryTab(cat);
 		UpdateButtons();
@@ -151,10 +148,7 @@ public class InventoryUI : MonoBehaviour {
 		pivots.items.DestroyAllChildren();
 		pivots.actions.DestroyAllChildren();
 
-		if(Item)
-			ViewItem(Item);
-		else
-			SwitchCategoryTab(categories[0]);
+		ViewItem(Item);
 	}
 
 	void OnDisable() {
