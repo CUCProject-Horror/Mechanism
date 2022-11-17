@@ -114,6 +114,7 @@ namespace Game {
 		public void UpdateButtons() {
 			pivots.actions.DestroyAllChildren();
 			var actions = new List<KeyValuePair<string, Action>> {
+				new KeyValuePair<string, Action>("Inspect", () => GameManager.instance.InspectItem(currentItem)),
 				new KeyValuePair<string, Action>("Close", () => GameManager.instance.CloseUI())
 			};
 			foreach(var pair in actions) {
@@ -123,35 +124,18 @@ namespace Game {
 			}
 		}
 
-		public void ViewItem(Item item) {
-			if(currentModel) {
-				Destroy(currentModel);
-				currentModel = null;
-			}
-			if(currentItem = item) {
-				currentModel = Instantiate(item.prefab, transform);
-				currentModel.layer = LayerMask.NameToLayer("Inventory");
-				var renderer = currentModel.GetComponentInChildren<Renderer>();
-				renderer.renderingLayerMask = 2;
-				Category cat = categories.First(cat => cat.type == item.GetType());
-				SwitchCategoryTab(cat);
-			}
-			UpdateButtons();
-		}
-
 		public Item Item {
 			get => currentItem;
 			set {
-				if(value != Item)
-					ViewItem(value);
+				GameManager.instance.SetInspectItem(currentItem = value);
+				UpdateButtons();
 			}
 		}
 
 		void OnEnable() {
 			pivots.items.DestroyAllChildren();
 			pivots.actions.DestroyAllChildren();
-
-			ViewItem(Item);
+			Item = currentItem;
 		}
 		#endregion
 	}
