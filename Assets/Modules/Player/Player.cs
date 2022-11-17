@@ -61,7 +61,7 @@ namespace Game {
 			Debug.Log($"{gameObject.name} fell and died");
 		}
 
-		public void Start() {
+		protected void Start() {
 			controller = GetComponent<CharacterController>();
 		}
 	}
