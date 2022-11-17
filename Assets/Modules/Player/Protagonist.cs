@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using PixelCrushers;
 
 namespace Game {
 	[RequireComponent(typeof(PlayerInput))]
@@ -55,13 +56,6 @@ namespace Game {
 			inputRotation = value.Get<Vector2>();
 		}
 
-		public void OnInteract() {
-			CameraSelector selector = GetComponentInChildren<CameraSelector>();
-			if(selector == null)
-				return;
-			selector.Use();
-		}
-
 		public void OnInventory() {
 			GameManager.instance.OpenInventory();
 		}
@@ -73,6 +67,7 @@ namespace Game {
 
 			camera = GetComponentInChildren<Camera>();
 			input = GetComponent<PlayerInput>();
+			InputDeviceManager.RegisterInputAction("Interact", input.actions.FindAction("Interact"));
 
 			eyeHangingOffset = height.y - camera.transform.localPosition.y;
 			lastGroundHeight = transform.position.y;

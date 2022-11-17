@@ -1,4 +1,5 @@
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 using System;
 
 namespace Game {
@@ -14,6 +15,7 @@ namespace Game {
 		#region Core fields
 		[NonSerialized] public UIManager ui;
 		[NonSerialized] public Protagonist protagonist;
+		[NonSerialized] public DialogueSystemController dialogue;
 
 		State controlState = State.Protagonist;
 		#endregion
@@ -24,7 +26,6 @@ namespace Game {
 			Protagonist = 1,
 			Inventory
 		}
-
 		public void SwitchState(State state) {
 			switch(state) {
 				case State.Invalid:
@@ -55,6 +56,8 @@ namespace Game {
 		void Start() {
 			ui = GetComponent<UIManager>();
 			protagonist = FindObjectOfType<Protagonist>();
+			dialogue = GetComponent<DialogueSystemController>();
+
 			SwitchState(State.Protagonist);
 		}
 		#endregion

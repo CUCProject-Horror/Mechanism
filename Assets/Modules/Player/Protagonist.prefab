@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3215353861071126016}
   - component: {fileID: 3215353861071126018}
   - component: {fileID: 3215353861071126045}
-  - component: {fileID: 3215353861071126046}
   - component: {fileID: 3215353861071126017}
   m_Layer: 0
   m_Name: Protagonist
@@ -85,29 +84,6 @@ MonoBehaviour:
   m_DefaultActionMap: Protagonist
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &3215353861071126046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3215353861071126044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b97f0906ed7a12c429ee22f15b647525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 3215353861493200612}
-  maxDistance: 10
-  useInput:
-    m_Name: Use Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: ea05994b-e342-43e0-b918-51a1f9f77da1
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
 --- !u!114 &3215353861071126017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +105,6 @@ MonoBehaviour:
   fallingLimit: 5
   inventory:
     items: []
-  input: {fileID: 3215353861071126045}
 --- !u!1 &3215353861302313044
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +215,7 @@ GameObject:
   - component: {fileID: 3215353861493200612}
   - component: {fileID: 3215353861493200614}
   - component: {fileID: 3215353861493200611}
+  - component: {fileID: 6806286891718228089}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -438,3 +414,52 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3215353861493200610}
   m_Enabled: 1
+--- !u!114 &6806286891718228089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215353861493200610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624654ff0a68ee844994f728ddf3d991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectAt: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  distanceFrom: 0
+  maxSelectionDistance: 30
+  runRaycasts: 1
+  raycastAll: 0
+  useDefaultGUI: 1
+  guiSkin: {fileID: 0}
+  guiStyleName: label
+  alignment: 1
+  textStyle: 0
+  textStyleColor: {r: 0, g: 0, b: 0, a: 1}
+  inRangeColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  outOfRangeColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  reticle:
+    inRange: {fileID: 0}
+    outOfRange: {fileID: 0}
+    width: 64
+    height: 64
+  useKey: 32
+  useButton: Interact
+  defaultUseMessage: '- Click to Interact -'
+  broadcastToChildren: 1
+  actorTransform: {fileID: 0}
+  tooFarMessage: 
+  onSelectedUsable:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeselectedUsable:
+    m_PersistentCalls:
+      m_Calls: []
+  tooFarEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  debug: 0
