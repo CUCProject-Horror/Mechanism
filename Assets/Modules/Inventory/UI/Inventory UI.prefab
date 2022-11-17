@@ -942,6 +942,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f25a1830f4cd042a08be8229e6de9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabs:
+    categoryBtn: {fileID: 4198100522587684923, guid: 3466453215cacaf44a8c6481c6301a37, type: 3}
+    itemBtn: {fileID: 1723264641998966390, guid: e032186811db3624a8935b9ce949c17c, type: 3}
+    actionBtn: {fileID: 8732798907845838944, guid: 3762c2104d472154c953a0510ad94b47, type: 3}
   pivots:
     categories: {fileID: 6400678264867999333}
     items: {fileID: 8654528428562506519}

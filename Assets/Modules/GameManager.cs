@@ -1,6 +1,7 @@
 using UnityEngine;
 using PixelCrushers.DialogueSystem;
 using System;
+using System.Collections;
 
 namespace Game {
 	public class GameManager : MonoBehaviour {
@@ -10,23 +11,22 @@ namespace Game {
 		#endregion
 
 		#region Inspector fields
+		public float inventoryViewingDistance;
+		public float inspectingDistance;
 		#endregion
 
 		#region Core fields
 		[NonSerialized] public UIManager ui;
 		[NonSerialized] public Protagonist protagonist;
 		[NonSerialized] public DialogueSystemController dialogue;
+		[NonSerialized] public Inspect inspect;
+		[NonSerialized] public InventoryUI inventoryUI;
 
 		State controlState = State.Protagonist;
 		#endregion
 
-		#region Public interfaces
-		public enum State {
-			Invalid = 0,
-			Protagonist = 1,
-			Inventory
-		}
-		public void SwitchState(State state) {
+		#region Auxiliray
+		IEnumerator _SwitchState(State state) {
 			switch(state) {
 				case State.Invalid:
 					controlState = State.Invalid;
@@ -35,28 +35,60 @@ namespace Game {
 					ui.Deactivate();
 					break;
 				case State.Protagonist:
+					yield return new WaitForEndOfFrame();
 					controlState = State.Protagonist;
-					Cursor.lockState = CursorLockMode.Locked;
 					protagonist.input.enabled = true;
+					Cursor.lockState = CursorLockMode.Locked;
 					ui.SwitchTo(ui.aim);
 					break;
 				case State.Inventory:
 					Cursor.lockState = CursorLockMode.None;
 					protagonist.input.enabled = false;
+					inspect.ShowCloseButton = false;
+					inspect.ViewingDistance = inventoryViewingDistance;
+					if(inventoryUI.currentCat != null)
+						inventoryUI.SwitchCategoryTab(inventoryUI.currentCat);
 					ui.SwitchTo(ui.inventory);
+					ui.Activate(ui.inspect);
+					break;
+				case State.Inspect:
+					Cursor.lockState = CursorLockMode.None;
+					protagonist.input.enabled = false;
+					inspect.ShowCloseButton = true;
+					inspect.ViewingDistance = inspectingDistance;
+					ui.SwitchTo(ui.inspect);
 					break;
 			}
 		}
+		#endregion
+
+		#region Public interfaces
+		public enum State {
+			Invalid = 0,
+			Protagonist = 1,
+			Inventory,
+			Inspect
+		}
+		public void SwitchState(State state) => StartCoroutine(_SwitchState(state));
 
 		public void CloseUI() => SwitchState(controlState);
+
 		public void OpenInventory() => SwitchState(State.Inventory);
+
+		public void SetInspectItem(Item item) => inspect.SetItem(item);
+		public void InspectItem(Item item) {
+			SetInspectItem(item);
+			SwitchState(State.Inspect);
+		}
 		#endregion
 
 		#region Life cycle
 		void Start() {
 			ui = GetComponent<UIManager>();
-			protagonist = FindObjectOfType<Protagonist>();
+			protagonist = FindObjectOfType<Protagonist>(true);
 			dialogue = GetComponent<DialogueSystemController>();
+			inventoryUI = FindObjectOfType<InventoryUI>(true);
+			inspect = FindObjectOfType<Inspect>(true);
 
 			SwitchState(State.Protagonist);
 		}

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Game {
 	public class InventoryUI : MonoBehaviour {
-		#region Static
+		#region Gameplay irrelavant
 		public class Category {
 			public class Item {
 				public readonly Game.Item item;
@@ -57,45 +57,25 @@ namespace Game {
 			),
 		};
 
-		struct Prefabs {
+		[Serializable] public struct Prefabs {
 			public GameObject categoryBtn;
 			public GameObject itemBtn;
 			public GameObject actionBtn;
 		}
-		Prefabs prefabs;
+		public Prefabs prefabs;
 
-		void Awake() {
-			prefabs.categoryBtn = Resources.Load<GameObject>("Category Button");
-			prefabs.itemBtn = Resources.Load<GameObject>("Item Button");
-			prefabs.actionBtn = Resources.Load<GameObject>("Action Button");
-		}
-		#endregion
-
-		#region Gameplay irrelavant
-		[Serializable]
-		public struct Pivots {
+		[Serializable] public struct Pivots {
 			public Transform categories;
 			public Transform items;
 			public Transform actions;
 		}
 		public Pivots pivots;
-
-		void Start() {
-			pivots.categories.DestroyAllChildren();
-			foreach(Category tab in categories) {
-				tab.element = Instantiate(prefabs.categoryBtn, pivots.categories);
-				tab.text = tab.element.GetComponentInChildren<Text>();
-				tab.text.text = tab.name;
-				tab.button = tab.element.GetComponentInChildren<Button>();
-				tab.button.onClick.AddListener(() => SwitchCategoryTab(tab));
-			}
-		}
 		#endregion
 
 		#region Gameplay
 		Item currentItem;
-		GameObject currentModel;
 		List<Item> items;
+		public Category currentCat;
 
 		public void UpdateItems(Category cat) {
 			items = GameManager.instance.protagonist.inventory.items
@@ -105,6 +85,7 @@ namespace Game {
 		}
 
 		public void SwitchCategoryTab(Category cat) {
+			currentCat = cat;
 			UpdateItems(cat);
 			pivots.items.DestroyAllChildren();
 			if(items.Count == 0) {
@@ -123,6 +104,7 @@ namespace Game {
 		public void UpdateButtons() {
 			pivots.actions.DestroyAllChildren();
 			var actions = new List<KeyValuePair<string, Action>> {
+				new KeyValuePair<string, Action>("Inspect", () => GameManager.instance.InspectItem(currentItem)),
 				new KeyValuePair<string, Action>("Close", () => GameManager.instance.CloseUI())
 			};
 			foreach(var pair in actions) {
@@ -132,35 +114,32 @@ namespace Game {
 			}
 		}
 
-		public void ViewItem(Item item) {
-			if(currentModel) {
-				Destroy(currentModel);
-				currentModel = null;
-			}
-			if(currentItem = item) {
-				currentModel = Instantiate(item.prefab, transform);
-				currentModel.layer = LayerMask.NameToLayer("Inventory");
-				var renderer = currentModel.GetComponentInChildren<Renderer>();
-				renderer.renderingLayerMask = 2;
-				Category cat = categories.First(cat => cat.type == item.GetType());
-				SwitchCategoryTab(cat);
-			}
-			UpdateButtons();
-		}
-
 		public Item Item {
 			get => currentItem;
 			set {
-				if(value != Item)
-					ViewItem(value);
+				GameManager.instance.SetInspectItem(currentItem = value);
+				UpdateButtons();
 			}
 		}
+		#endregion
 
+		#region Life cycle
 		void OnEnable() {
 			pivots.items.DestroyAllChildren();
 			pivots.actions.DestroyAllChildren();
+			Item = currentItem;
+		}
 
-			ViewItem(Item);
+		void Start() {
+			currentCat = categories[0];
+			pivots.categories.DestroyAllChildren();
+			foreach(Category tab in categories) {
+				tab.element = Instantiate(prefabs.categoryBtn, pivots.categories);
+				tab.text = tab.element.GetComponentInChildren<Text>();
+				tab.text.text = tab.name;
+				tab.button = tab.element.GetComponentInChildren<Button>();
+				tab.button.onClick.AddListener(() => SwitchCategoryTab(tab));
+			}
 		}
 		#endregion
 	}

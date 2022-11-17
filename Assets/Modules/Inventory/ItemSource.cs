@@ -37,6 +37,7 @@ namespace Game {
 			if(inventory == null)
 				return;
 			Deliver(inventory);
+			GameManager.instance.InspectItem(item);
 		}
 		#endregion
 
