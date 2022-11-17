@@ -70,23 +70,12 @@ namespace Game {
 			public Transform actions;
 		}
 		public Pivots pivots;
-
-		void Start() {
-			pivots.categories.DestroyAllChildren();
-			foreach(Category tab in categories) {
-				tab.element = Instantiate(prefabs.categoryBtn, pivots.categories);
-				tab.text = tab.element.GetComponentInChildren<Text>();
-				tab.text.text = tab.name;
-				tab.button = tab.element.GetComponentInChildren<Button>();
-				tab.button.onClick.AddListener(() => SwitchCategoryTab(tab));
-			}
-		}
 		#endregion
 
 		#region Gameplay
 		Item currentItem;
-		GameObject currentModel;
 		List<Item> items;
+		public Category currentCat;
 
 		public void UpdateItems(Category cat) {
 			items = GameManager.instance.protagonist.inventory.items
@@ -96,6 +85,7 @@ namespace Game {
 		}
 
 		public void SwitchCategoryTab(Category cat) {
+			currentCat = cat;
 			UpdateItems(cat);
 			pivots.items.DestroyAllChildren();
 			if(items.Count == 0) {
@@ -131,11 +121,25 @@ namespace Game {
 				UpdateButtons();
 			}
 		}
+		#endregion
 
+		#region Life cycle
 		void OnEnable() {
 			pivots.items.DestroyAllChildren();
 			pivots.actions.DestroyAllChildren();
 			Item = currentItem;
+		}
+
+		void Start() {
+			currentCat = categories[0];
+			pivots.categories.DestroyAllChildren();
+			foreach(Category tab in categories) {
+				tab.element = Instantiate(prefabs.categoryBtn, pivots.categories);
+				tab.text = tab.element.GetComponentInChildren<Text>();
+				tab.text.text = tab.name;
+				tab.button = tab.element.GetComponentInChildren<Button>();
+				tab.button.onClick.AddListener(() => SwitchCategoryTab(tab));
+			}
 		}
 		#endregion
 	}

@@ -20,6 +20,7 @@ namespace Game {
 		[NonSerialized] public Protagonist protagonist;
 		[NonSerialized] public DialogueSystemController dialogue;
 		[NonSerialized] public Inspect inspect;
+		[NonSerialized] public InventoryUI inventoryUI;
 
 		State controlState = State.Protagonist;
 		#endregion
@@ -45,6 +46,8 @@ namespace Game {
 					protagonist.input.enabled = false;
 					inspect.ShowCloseButton = false;
 					inspect.ViewingDistance = inventoryViewingDistance;
+					if(inventoryUI.currentCat != null)
+						inventoryUI.SwitchCategoryTab(inventoryUI.currentCat);
 					ui.SwitchTo(ui.inventory);
 					ui.Activate(ui.inspect);
 					break;
@@ -82,9 +85,10 @@ namespace Game {
 		#region Life cycle
 		void Start() {
 			ui = GetComponent<UIManager>();
-			protagonist = FindObjectOfType<Protagonist>();
+			protagonist = FindObjectOfType<Protagonist>(true);
 			dialogue = GetComponent<DialogueSystemController>();
-			inspect = FindObjectOfType<Inspect>();
+			inventoryUI = FindObjectOfType<InventoryUI>(true);
+			inspect = FindObjectOfType<Inspect>(true);
 
 			SwitchState(State.Protagonist);
 		}
