@@ -1,15 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 namespace Game {
 	[RequireComponent(typeof(PlayerInput))]
 	public class Protagonist : Player {
-		public static Protagonist instance;
-		public Protagonist() {
-			instance = this;
-		}
-
 		new Camera camera;
+		[NonSerialized] public PlayerInput input;
 		float eyeHangingOffset;
 
 		public new void Rotate(Vector2 rotation) {
@@ -66,46 +63,22 @@ namespace Game {
 		}
 
 		public void OnInventory() {
-			InventoryUI.instance.Open();
+			GameManager.instance.OpenInventory();
 		}
 		#endregion
 
-		public GameObject aimUI;
-		PlayerInput input;
-		public bool Input {
-			set {
-				if(value) {
-					UI = false;
-					Cursor.lockState = CursorLockMode.Locked;
-					input.SwitchCurrentActionMap("Protagonist");
-				}
-				aimUI?.SetActive(value);
-			}
-		}
-
-		public bool UI {
-			set {
-				if(value) {
-					Input = false;
-					Cursor.lockState = CursorLockMode.None;
-					input.SwitchCurrentActionMap("UI");
-				}
-			}
-		}
-
-		public new void Start() {
+		#region Life cycle
+		protected new void Start() {
 			base.Start();
 
 			camera = GetComponentInChildren<Camera>();
-			camera.tag = "MainCamera";
 			input = GetComponent<PlayerInput>();
-			Input = true;
 
 			eyeHangingOffset = height.y - camera.transform.localPosition.y;
 			lastGroundHeight = transform.position.y;
 		}
 
-		public void Update() {
+		void Update() {
 			Vector3 velocity = inputVelocity * movementSpeed * Time.deltaTime;
 			velocity = transform.localToWorldMatrix.MultiplyVector(velocity);
 			Move(velocity);
@@ -114,5 +87,6 @@ namespace Game {
 			rotation.y = -rotation.y;
 			Rotate(rotation);
 		}
+		#endregion
 	}
 }

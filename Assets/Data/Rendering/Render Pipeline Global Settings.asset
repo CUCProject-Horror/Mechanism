@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 781cc897cf8675041a751163b51f97dd, type: 3}
-  m_Name: HDRenderPipelineGlobalSettings
+  m_Name: Render Pipeline Global Settings
   m_EditorClassIdentifier: 
   m_DefaultVolumeProfile: {fileID: 11400000, guid: d9bafd57015864b42b8bc7db3e9a73cc, type: 2}
   m_LookDevVolumeProfile: {fileID: 11400000, guid: 67418192fbbb8f34483972227aaf9058, type: 2}
