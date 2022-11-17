@@ -806,6 +806,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{E1B9C5A2-DDBF-2268-FC68-087119B4B063}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="NaughtyAttributes.Editor.csproj">
       <Project>{FDEC9F22-4E35-221A-B564-9ED0324D0B02}</Project>
       <Name>NaughtyAttributes.Editor</Name>
