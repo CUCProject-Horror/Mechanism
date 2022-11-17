@@ -1,5 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item/Prop")]
-public class Prop : Item {
+namespace Game {
+	[CreateAssetMenu(menuName = "Item/Prop")]
+	public class Prop : Item {
+	}
 }

@@ -74,11 +74,33 @@
                 },
                 {
                     "name": "",
+                    "id": "b091d483-b6e8-4699-a990-eded9b5b79a3",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9dd0b412-6285-4d02-836c-c1c6e9dc2091",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
+                    "action": "Orient",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d8f2186-9e38-4787-b975-bbc5710fbde8",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
                     "action": "Orient",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -140,11 +162,33 @@
                 },
                 {
                     "name": "",
+                    "id": "7ca2d428-1f43-4792-bbb2-14af07ef0886",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6393a5dc-2e19-4000-9595-018affc12ccd",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0eac60dd-b9a0-49b3-acf0-7b1734bc9788",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
                     "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -162,11 +206,11 @@
                 },
                 {
                     "name": "",
-                    "id": "3931e006-f563-4720-b89c-bd65620a5659",
-                    "path": "<Keyboard>/e",
+                    "id": "53a157ba-5d50-465d-8948-53d3832cc761",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PC",
+                    "groups": "Controller",
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -177,7 +221,18 @@
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "PC",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0314b9a-5a45-4c72-807b-189c94d7b7b2",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
                     "action": "Inventory",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -221,11 +276,33 @@
                 },
                 {
                     "name": "",
+                    "id": "fdd1262d-2020-4459-974d-fc54366dab6c",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "40b2121a-a837-4904-bb24-7a187c2e9b3a",
                     "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42e3b177-65c3-47ba-b02c-cef8f3fdda18",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
                     "action": "Point",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -245,6 +322,17 @@
                 },
                 {
                     "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }
