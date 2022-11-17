@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Game {
 	public class InventoryUI : MonoBehaviour {
-		#region Static
+		#region Gameplay irrelavant
 		public class Category {
 			public class Item {
 				public readonly Game.Item item;
@@ -57,23 +57,14 @@ namespace Game {
 			),
 		};
 
-		struct Prefabs {
+		[Serializable] public struct Prefabs {
 			public GameObject categoryBtn;
 			public GameObject itemBtn;
 			public GameObject actionBtn;
 		}
-		Prefabs prefabs;
+		public Prefabs prefabs;
 
-		void Awake() {
-			prefabs.categoryBtn = Resources.Load<GameObject>("Category Button");
-			prefabs.itemBtn = Resources.Load<GameObject>("Item Button");
-			prefabs.actionBtn = Resources.Load<GameObject>("Action Button");
-		}
-		#endregion
-
-		#region Gameplay irrelavant
-		[Serializable]
-		public struct Pivots {
+		[Serializable] public struct Pivots {
 			public Transform categories;
 			public Transform items;
 			public Transform actions;
