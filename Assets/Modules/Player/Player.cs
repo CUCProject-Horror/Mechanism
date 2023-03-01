@@ -45,7 +45,8 @@ namespace Game {
 		public void Move(Vector3 velocity) {
 			controller.SimpleMove(velocity);
 			if(controller.isGrounded) {
-				if(lastGroundHeight - transform.position.y > fallingLimit)
+                float fallingHeight = lastGroundHeight - transform.position.y;
+                if (fallingHeight > fallingLimit)
 					DieFalling();
 				lastGroundHeight = transform.position.y;
 			}

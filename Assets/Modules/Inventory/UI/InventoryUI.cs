@@ -95,7 +95,9 @@ namespace Game {
 			foreach(Item item in items) {
 				GameObject itemBtn = Instantiate(prefabs.itemBtn, pivots.items);
 				itemBtn.GetComponentInChildren<Text>().text = item.name;
-				itemBtn.GetComponentInChildren<Button>().onClick.AddListener(() => Item = item);
+                Button button = itemBtn.GetComponentInChildren<Button>();
+                button.onClick.AddListener(() => Item = item);
+				button.onClick.AddListener(item.onView.Invoke);
 			}
 			if(Item?.GetType() != cat.type)
 				Item = items[0];

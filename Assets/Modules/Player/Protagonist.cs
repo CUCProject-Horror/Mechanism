@@ -25,7 +25,7 @@ namespace Game {
 			get => base.Crouching;
 			set {
 				base.Crouching = value;
-				GetComponentInChildren<CapsuleCollider>().height = Height;
+				//GetComponentInChildren<CapsuleCollider>().height = Height;
 				controller.height = Height;
 				controller.center = new Vector3(0, Height / 2, 0);
 				Vector3 camPos = camera.transform.localPosition;
@@ -59,6 +59,11 @@ namespace Game {
 		public void OnInventory() {
 			GameManager.instance.OpenInventory();
 		}
+
+		public void OnOpendoor(InputValue value)
+        {
+
+        }
 		#endregion
 
 		#region Life cycle

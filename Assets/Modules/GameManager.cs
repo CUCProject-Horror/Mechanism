@@ -13,6 +13,7 @@ namespace Game {
 		#region Inspector fields
 		public float inventoryViewingDistance;
 		public float inspectingDistance;
+		public VidPlayer vidPlayer;
 		#endregion
 
 		#region Core fields

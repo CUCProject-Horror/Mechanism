@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Orient",
+                    "type": "Value",
+                    "id": "2d5c39d0-7643-4497-b8eb-dbc622c4e950",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Sprint",
                     "type": "Button",
                     "id": "4a819b1d-6845-4a4e-9f0e-6a1743a29c2c",
@@ -33,21 +42,12 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Orient",
-                    "type": "Value",
-                    "id": "2d5c39d0-7643-4497-b8eb-dbc622c4e950",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "7766903f-bcc3-4704-bb1d-1388cff9cf8f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 },
                 {
@@ -58,31 +58,27 @@
                     "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Opendoor",
+                    "type": "Value",
+                    "id": "9250db1d-366a-4aaa-9fca-0b884ee24481",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ReleaseInteract",
+                    "type": "Button",
+                    "id": "83209824-e6bb-43fe-a859-a5794e9e4e62",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "307b7723-9807-4fe0-b8ee-20bb6c1236af",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "PC",
-                    "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b091d483-b6e8-4699-a990-eded9b5b79a3",
-                    "path": "<Gamepad>/rightStickPress",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Crouch",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "9dd0b412-6285-4d02-836c-c1c6e9dc2091",
@@ -98,6 +94,17 @@
                     "name": "",
                     "id": "9d8f2186-9e38-4787-b975-bbc5710fbde8",
                     "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Orient",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "56caf33d-f7a5-4c7f-872a-e5c03ab0d25d",
+                    "path": "<DualShockGamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -173,29 +180,29 @@
                 },
                 {
                     "name": "",
-                    "id": "6393a5dc-2e19-4000-9595-018affc12ccd",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "PC",
-                    "action": "Sprint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0eac60dd-b9a0-49b3-acf0-7b1734bc9788",
-                    "path": "<Gamepad>/rightShoulder",
+                    "id": "73983603-8ab0-4eab-9075-2923bfbd3edc",
+                    "path": "<DualShockGamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Sprint",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "c5769cff-ccba-4c69-ae3a-b648c0fc0a27",
+                    "id": "167605f9-eb73-43cc-aaae-4490bc291b1a",
+                    "path": "<DualSenseGamepadHID>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "adda5a29-a4e1-4ee1-9686-fae60b39e7b2",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -208,6 +215,17 @@
                     "name": "",
                     "id": "53a157ba-5d50-465d-8948-53d3832cc761",
                     "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0fff2373-2284-4379-941f-ffae19ce4904",
+                    "path": "<DualShockGamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
@@ -234,6 +252,127 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee084032-97e8-4f5a-a07e-6fd1ba3bdf63",
+                    "path": "<DualShockGamepad>/touchpadButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "e817470f-ef77-40d7-91d7-4ca6e70bd415",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Opendoor",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Up",
+                    "id": "8322613e-f114-45cd-8bbc-4f885d8e8ce9",
+                    "path": "<Mouse>/delta/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Opendoor",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "2cebc79d-50bd-417a-9ebf-4020262a8d12",
+                    "path": "<Mouse>/delta/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Opendoor",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "17732e91-11f5-495c-a922-aac966615483",
+                    "path": "<Mouse>/delta/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Opendoor",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "81026ce5-1092-486a-8b16-460d33b0cae0",
+                    "path": "<Mouse>/delta/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Opendoor",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "307b7723-9807-4fe0-b8ee-20bb6c1236af",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b091d483-b6e8-4699-a990-eded9b5b79a3",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6393a5dc-2e19-4000-9595-018affc12ccd",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0eac60dd-b9a0-49b3-acf0-7b1734bc9788",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e40f05e-c8b8-4dac-9b64-7d09ef75ef5f",
+                    "path": "<DualShockGamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -287,6 +426,17 @@
                 },
                 {
                     "name": "",
+                    "id": "df701e56-de76-4f07-a32d-d37b51a290db",
+                    "path": "<DualShockGamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "40b2121a-a837-4904-bb24-7a187c2e9b3a",
                     "path": "<Mouse>/position",
                     "interactions": "",
@@ -300,6 +450,17 @@
                     "name": "",
                     "id": "42e3b177-65c3-47ba-b02c-cef8f3fdda18",
                     "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ab545a87-233d-47e9-9a66-85804d161faa",
+                    "path": "<DualShockGamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
