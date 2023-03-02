@@ -1,6 +1,4 @@
 .DS_Store
-.vsconfig
-.vs
 
 [Ll]ibrary
 [Ll]ogs
@@ -9,4 +7,7 @@
 [Uu]serSettings
 [Oo]bj
 
+.vsconfig
+.vs
 /*.sln
+/*.csproj
