@@ -281,7 +281,7 @@
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\UI\Legacy\GUI Controls\Tools\TextStyle.cs" />
     <Compile Include="Assets\Pixel Crushers\Common\Scripts\Message System\MessageEvents.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Lua\Lua Interpreter\Expr\FunctionBody.cs" />
-    <Compile Include="Assets\Modules\Player\Protagonist.cs" />
+    <Compile Include="Assets\Modules\Character\Protagonist.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\UI\Utility\ConversationControl.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Utility\Attributes\QuestStateAttribute.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Manager\DialogueSystemMessages.cs" />
@@ -551,7 +551,7 @@
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\MVC\Model\Data\EntrytagFormat.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Importers\Twine\TwineStory.cs" />
     <Compile Include="Assets\Pixel Crushers\Common\Wrappers\Save System\Misc\SaveSystemMethods.cs" />
-    <Compile Include="Assets\Modules\Player\Player.cs" />
+    <Compile Include="Assets\Modules\Character\Character.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\UI\Abstract\Dialogue\AbstractUIResponseMenuControls.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Save System\PersistentDestructible.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Lua\Lua Interpreter\Parser\Syntax\BoolLiteral.cs" />

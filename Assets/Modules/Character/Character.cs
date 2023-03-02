@@ -3,7 +3,7 @@ using NaughtyAttributes;
 
 namespace Game {
 	[RequireComponent(typeof(CharacterController))]
-	public class Player : MonoBehaviour {
+	public class Character : MonoBehaviour {
 		#region Inspector Properties
 		#region Movability
 		[Header("Movement")]

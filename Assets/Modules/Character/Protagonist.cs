@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Game {
-	public class Protagonist : Player {
+	public class Protagonist : Character {
 		new Camera camera;
 		float eyeHangingOffset;
 
