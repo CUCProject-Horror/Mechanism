@@ -5,6 +5,7 @@ namespace Game {
 		new Camera camera;
 		float eyeHangingOffset;
 
+		#region Public interfaces
 		public new void Rotate(Vector2 rotation) {
 			base.Rotate(rotation);
 
@@ -20,14 +21,12 @@ namespace Game {
 			get => base.Crouching;
 			set {
 				base.Crouching = value;
-				GetComponentInChildren<CapsuleCollider>().height = Height;
-				controller.height = Height;
-				controller.center = new Vector3(0, Height / 2, 0);
 				Vector3 camPos = camera.transform.localPosition;
 				camPos.y = Height - eyeHangingOffset;
 				camera.transform.localPosition = camPos;
 			}
 		}
+		#endregion
 
 		#region Life cycle
 		protected new void Start() {

@@ -37,6 +37,7 @@ namespace Game {
 		}
 
 		#endregion
+
 		#region Life cycle
 		void Start() {
 			playerInput = GetComponent<PlayerInput>();

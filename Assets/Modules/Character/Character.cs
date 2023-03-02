@@ -22,7 +22,12 @@ namespace Game {
 		public float Height => crouching ? height.x : height.y;
 		public bool Crouching {
 			get => crouching;
-			set => crouching = value;
+			set {
+				crouching = value;
+				GetComponentInChildren<CapsuleCollider>().height = Height;
+				controller.height = Height;
+				controller.center = new Vector3(0, Height / 2, 0);
+			}
 		}
 
 		public float movementSpeed => crouching ? crouchingSpeed : sprinting ? sprintingSpeed : walkingSpeed;
