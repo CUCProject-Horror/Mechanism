@@ -72,9 +72,9 @@
     <Compile Include="Assets\Modules\Inventory\Types\CD.cs" />
     <Compile Include="Assets\Modules\Inventory\Types\Collective.cs" />
     <Compile Include="Assets\Modules\Inventory\Inventory.cs" />
-    <Compile Include="Assets\Modules\Interaction\Usable.cs" />
     <Compile Include="Assets\Modules\Inventory\ItemSource.cs" />
     <Compile Include="Assets\Modules\Interaction\CameraSelector.cs" />
+    <Compile Include="Assets\Modules\Interaction\Usable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
