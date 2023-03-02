@@ -90,7 +90,7 @@ namespace Game {
 			renderer.renderingLayerMask = 2;
 		}
 
-		public void Close() => GameManager.instance.CloseUI();
+		public void Close() => GameManager.instance.State = GameManager.StateEnum.Protagonist;
 		#endregion
 
 		#region Gameplay
@@ -125,7 +125,7 @@ namespace Game {
 		public void UpdateButtons() {
 			pivots.actions.DestroyAllChildren();
 			var actions = new List<KeyValuePair<string, Action>> {
-				new KeyValuePair<string, Action>("Close", () => GameManager.instance.CloseUI())
+				new KeyValuePair<string, Action>("Close", Close)
 			};
 			foreach(var pair in actions) {
 				GameObject btn = Instantiate(prefabs.actionBtn, pivots.actions);

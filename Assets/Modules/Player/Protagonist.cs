@@ -57,7 +57,7 @@ namespace Game {
 		}
 
 		public void OnInventory() {
-			GameManager.instance.OpenInventory();
+			GameManager.instance.State = GameManager.StateEnum.Inventory;
 		}
 		#endregion
 
