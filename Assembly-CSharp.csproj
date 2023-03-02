@@ -356,6 +356,7 @@
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Lua\Lua Interpreter\Parser\Syntax\LocalVar.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Importers\Celtx3\CeltxFields.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Wrappers\Utility\CommonLibraryLua.cs" />
+    <Compile Include="Assets\door.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\MVC\Sequencer\Commands\SequencerCommandSwitchCamera.cs" />
     <Compile Include="Assets\Pixel Crushers\Common\Wrappers\UnityEvents\CollisionEvent.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Wrappers\UI\Standard\Quest\StandardUIQuestTracker.cs" />
@@ -487,6 +488,7 @@
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\UI\Utility\UIButtonKeyTrigger.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Wrappers\UI\Unity UI\Quest\UnityUIQuestTrackTemplate.cs" />
     <Compile Include="Assets\Pixel Crushers\Common\Scripts\Text\StringFieldTextAreaAttribute.cs" />
+    <Compile Include="Assets\Modules\GameAgent.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\MVC\Model\Data\Item.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Wrappers\Quests\QuestStateListener.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Manager\Localization.cs" />
@@ -865,7 +867,7 @@
     <Compile Include="Assets\Pixel Crushers\Common\Scripts\UI\SetLocalizedFont.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Triggers\RangeTrigger.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\MVC\Model\Data\Field.cs" />
-    <Compile Include="Assets\Modules\GameAgent.cs" />
+    <Compile Include="Assets\Scripts\DoorInteract\DoorCloseDistance.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Pixel Crushers\Dialogue System\Prefabs\Art\Fonts\Orbitron\SIL Open Font License.txt" />

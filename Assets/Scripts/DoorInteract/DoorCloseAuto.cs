@@ -5,28 +5,25 @@ namespace Game {
     public class DoorCloseAuto : MonoBehaviour
 {
         public DoorOpen dr;
+        public GameObject closeDistance;
         public void CloseDoor()
         {
-            if(dr.canClose)
-            dr.isClosing = true;
+            if (dr.canClose && dr.isOpening != true)
+            {
+                if (dr.isInfinity == false)
+                {
+                    Destroy(dr.innerUI.transform.parent.gameObject);
+                    Destroy(dr.outterUI.transform.parent.gameObject);
+                    dr.hasDestroyedDoor = true;
+                }
+                dr.isClosing = true;
+            }
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
+            if (other.gameObject.tag == "Player" && !dr.isClosing)
             CloseDoor();
-        }
-        void Update()
-        {
-            if (dr.isClosing && dr.timer <= dr.maxAngle / Mathf.Abs(dr.closeForce))
-            {
-                dr.gameObject.transform.Rotate(0, 0, dr.closeForce * Time.deltaTime * dr.pushForce / Mathf.Abs(dr.pushForce));
-                dr.timer += Time.deltaTime;
-            }
-            else if (dr.isClosing)
-            { 
-                dr.isClosing = false; dr.timer = 0;
-                dr.canClose = false;
-            }
         }
 }
 }
