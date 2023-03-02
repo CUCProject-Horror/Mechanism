@@ -474,6 +474,7 @@
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Importers\Aurora\NWNUtility.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Triggers\Triggers\OnEvent\ShowCursorOnConversation.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Wrappers\UI\Standard\Dialogue\StandardDialogueUI.cs" />
+    <Compile Include="Assets\Modules\Inspect\Inspect.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Wrappers\MVC\View\SequencerShortcuts.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Utility\Attributes\LocationPopupAttribute.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\UI\Standard\Dialogue\BringSubtitlePanelToFrontOnFocus.cs" />
@@ -857,7 +858,6 @@
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\MVC\Model\Data\Field.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Utility\ConversationLogger.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\MVC\Model\Data\Utility\Template.cs" />
-    <Compile Include="Assets\Modules\Inspect\Inspect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Pixel Crushers\Dialogue System\Prefabs\Art\Fonts\Orbitron\SIL Open Font License.txt" />
@@ -1548,6 +1548,9 @@
     <Reference Include="Unity.VisualEffectGraph.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
@@ -1607,9 +1610,6 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

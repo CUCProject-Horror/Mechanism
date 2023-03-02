@@ -25,7 +25,7 @@ namespace Game {
 		State controlState = State.Protagonist;
 		#endregion
 
-		#region Auxiliray
+		#region Auxiliary
 		IEnumerator _SwitchState(State state) {
 			switch(state) {
 				case State.Invalid:
@@ -44,19 +44,9 @@ namespace Game {
 				case State.Inventory:
 					Cursor.lockState = CursorLockMode.None;
 					protagonist.input.enabled = false;
-					inspect.ShowCloseButton = false;
-					inspect.ViewingDistance = inventoryViewingDistance;
 					if(inventoryUI.currentCat != null)
 						inventoryUI.SwitchCategoryTab(inventoryUI.currentCat);
 					ui.SwitchTo(ui.inventory);
-					ui.Activate(ui.inspect);
-					break;
-				case State.Inspect:
-					Cursor.lockState = CursorLockMode.None;
-					protagonist.input.enabled = false;
-					inspect.ShowCloseButton = true;
-					inspect.ViewingDistance = inspectingDistance;
-					ui.SwitchTo(ui.inspect);
 					break;
 			}
 		}
@@ -75,9 +65,8 @@ namespace Game {
 
 		public void OpenInventory() => SwitchState(State.Inventory);
 
-		public void SetInspectItem(Item item) => inspect.SetItem(item);
 		public void InspectItem(Item item) {
-			SetInspectItem(item);
+			inventoryUI.SetItem(item);
 			SwitchState(State.Inspect);
 		}
 		#endregion
