@@ -1,13 +1,8 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using System;
-using PixelCrushers;
 
 namespace Game {
-	[RequireComponent(typeof(PlayerInput))]
 	public class Protagonist : Player {
 		new Camera camera;
-		[NonSerialized] public PlayerInput input;
 		float eyeHangingOffset;
 
 		public new void Rotate(Vector2 rotation) {
@@ -34,53 +29,14 @@ namespace Game {
 			}
 		}
 
-		#region Input Handling
-		Vector3 inputVelocity = Vector3.zero;
-		Vector2 inputRotation = Vector2.zero;
-
-		public void OnMove(InputValue value) {
-			inputVelocity = value.Get<Vector2>();
-			inputVelocity.z = inputVelocity.y;
-			inputVelocity.y = 0;
-		}
-
-		public void OnSprint(InputValue value) {
-			Sprinting = value.isPressed;
-		}
-
-		public void OnCrouch(InputValue _) {
-			Crouching = !Crouching;
-		}
-
-		public void OnOrient(InputValue value) {
-			inputRotation = value.Get<Vector2>();
-		}
-
-		public void OnInventory() {
-			GameManager.instance.State = GameManager.StateEnum.Inventory;
-		}
-		#endregion
-
 		#region Life cycle
 		protected new void Start() {
 			base.Start();
 
 			camera = GetComponentInChildren<Camera>();
-			input = GetComponent<PlayerInput>();
-			InputDeviceManager.RegisterInputAction("Interact", input.actions.FindAction("Interact"));
 
 			eyeHangingOffset = height.y - camera.transform.localPosition.y;
 			lastGroundHeight = transform.position.y;
-		}
-
-		void Update() {
-			Vector3 velocity = inputVelocity * movementSpeed * Time.deltaTime;
-			velocity = transform.localToWorldMatrix.MultiplyVector(velocity);
-			Move(velocity);
-
-			Vector2 rotation = inputRotation * orientingSpeed * Time.deltaTime;
-			rotation.y = -rotation.y;
-			Rotate(rotation);
 		}
 		#endregion
 	}

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3215353861071126016}
   - component: {fileID: 3215353861071126018}
-  - component: {fileID: 3215353861071126045}
   - component: {fileID: 3215353861071126017}
   m_Layer: 0
   m_Name: Protagonist
@@ -54,36 +53,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3215353861071126045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3215353861071126044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9cccd548d5576c447b91a3b12006ca49, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Protagonist
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &3215353861071126017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +74,8 @@ MonoBehaviour:
   fallingLimit: 5
   inventory:
     items: []
+  inputVelocity: {x: 0, y: 0, z: 0}
+  inputRotation: {x: 0, y: 0}
 --- !u!1 &3215353861302313044
 GameObject:
   m_ObjectHideFlags: 0

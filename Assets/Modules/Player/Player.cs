@@ -40,7 +40,13 @@ namespace Game {
 		public Inventory inventory = new Inventory();
 		#endregion
 
+		#region Core fields
 		protected CharacterController controller;
+		#endregion
+
+		#region Public interfaces
+		public Vector3 inputVelocity = Vector3.zero;
+		public Vector2 inputRotation = Vector2.zero;
 
 		public void Move(Vector3 velocity) {
 			controller.SimpleMove(velocity);
@@ -60,9 +66,22 @@ namespace Game {
 		public void DieFalling() {
 			Debug.Log($"{gameObject.name} fell and died");
 		}
+		#endregion
 
+		#region Life cycle
 		protected void Start() {
 			controller = GetComponent<CharacterController>();
 		}
+
+		void FixedUpdate() {
+			Vector3 velocity = inputVelocity * movementSpeed * Time.fixedDeltaTime;
+			velocity = transform.localToWorldMatrix.MultiplyVector(velocity);
+			Move(velocity);
+
+			Vector2 rotation = inputRotation * orientingSpeed * Time.fixedDeltaTime;
+			rotation.y = -rotation.y;
+			Rotate(rotation);
+		}
+		#endregion
 	}
 }

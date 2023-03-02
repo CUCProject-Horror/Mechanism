@@ -151,7 +151,7 @@
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Lua\Lua Interpreter\Parser\Syntax\NameAccess.cs" />
     <Compile Include="Assets\Pixel Crushers\Common\Scripts\Misc\ScriptableObjectUtility.cs" />
     <Compile Include="Assets\Pixel Crushers\Common\Wrappers\Misc\AlwaysFaceCamera.cs" />
-    <Compile Include="Assets\Modules\GameManager.cs" />
+    <Compile Include="Assets\Modules\Manager\GameManager.cs" />
     <Compile Include="Assets\Pixel Crushers\Common\Scripts\Save System\Storers\DiskSavedGameDataStorer.cs" />
     <Compile Include="Assets\Pixel Crushers\Common\Scripts\Save System\Savers\MultiEnabledSaver.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Lua\Lua Interpreter\Parser\Syntax\VarName.cs" />
@@ -307,7 +307,7 @@
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Wrappers\UI\Standard\Effects\StandardUIIgnorePauseCodes.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Utility\Attributes\LuaConditionsWizardAttribute.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Importers\Articy\Schemas\Articy 2.4\XmlContentExport_FullProject_2_4.cs" />
-    <Compile Include="Assets\Modules\UIManager.cs" />
+    <Compile Include="Assets\Modules\Manager\UIManager.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Wrappers\MVC\Actor\BarkGroupMember.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\MVC\Sequencer\Commands\SequencerCommandDelay.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Importers\Articy\ArticyTools.cs" />
@@ -858,6 +858,7 @@
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\MVC\Model\Data\Field.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Utility\ConversationLogger.cs" />
     <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\MVC\Model\Data\Utility\Template.cs" />
+    <Compile Include="Assets\Modules\Manager\InputManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Pixel Crushers\Dialogue System\Prefabs\Art\Fonts\Orbitron\SIL Open Font License.txt" />

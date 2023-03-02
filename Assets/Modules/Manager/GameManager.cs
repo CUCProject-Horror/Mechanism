@@ -1,7 +1,6 @@
 using UnityEngine;
 using PixelCrushers.DialogueSystem;
 using System;
-using System.Collections;
 
 namespace Game {
 	public class GameManager : MonoBehaviour {
@@ -24,6 +23,7 @@ namespace Game {
 		[NonSerialized] public Protagonist protagonist;
 		[NonSerialized] public DialogueSystemController dialogue;
 		[NonSerialized] public InventoryUI inventoryUI;
+		[NonSerialized] public InputManager input;
 
 		StateEnum state = StateEnum.Protagonist;
 		#endregion
@@ -36,18 +36,18 @@ namespace Game {
 					case StateEnum.Invalid:
 						state = StateEnum.Invalid;
 						Cursor.lockState = CursorLockMode.None;
-						protagonist.input.enabled = false;
+						input.enabled = false;
 						ui.Deactivate();
 						break;
 					case StateEnum.Protagonist:
 						state = StateEnum.Protagonist;
-						protagonist.input.enabled = true;
+						input.enabled = true;
 						Cursor.lockState = CursorLockMode.Locked;
 						ui.SwitchTo(ui.aim);
 						break;
 					case StateEnum.Inventory:
 						Cursor.lockState = CursorLockMode.None;
-						protagonist.input.enabled = false;
+						input.enabled = false;
 						if(inventoryUI.currentCat != null)
 							inventoryUI.SwitchCategoryTab(inventoryUI.currentCat);
 						ui.SwitchTo(ui.inventory);
@@ -63,6 +63,7 @@ namespace Game {
 			protagonist = FindObjectOfType<Protagonist>(true);
 			dialogue = GetComponent<DialogueSystemController>();
 			inventoryUI = FindObjectOfType<InventoryUI>(true);
+			input = GetComponent<InputManager>();
 
 			State = StateEnum.Protagonist;
 		}
