@@ -9,10 +9,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{EE3D5A27-92F1-3550-9B08-214C0B4B41CF}</ProjectGuid>
+    <ProjectGuid>{A91C274F-565F-0A75-28AB-4EAB4381F773}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
@@ -48,7 +48,7 @@
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.16</UnityProjectGeneratorVersion>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2021.3.13f1c1</UnityVersion>
   </PropertyGroup>
@@ -56,48 +56,207 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Modules\Interaction\Interactable.cs" />
-    <Compile Include="Assets\Data\Scenes\Main\Animated Platform\Platform.cs" />
-    <Compile Include="Assets\Modules\Manager\GameManager.cs" />
-    <Compile Include="Assets\Modules\Inventory\Types\Prop.cs" />
-    <Compile Include="Assets\Modules\Manager\InputManager.cs" />
-    <Compile Include="Assets\Modules\Character\Protagonist.cs" />
-    <Compile Include="Assets\Modules\Manager\UIManager.cs" />
-    <Compile Include="Assets\Modules\Inventory\Types\Item.cs" />
-    <Compile Include="Assets\Modules\Inventory\UI\InventoryUI.cs" />
-    <Compile Include="Assets\Modules\Interaction\Trigger.cs" />
-    <Compile Include="Assets\Modules\Presenting\Billboard.cs" />
-    <Compile Include="Assets\Modules\Character\Character.cs" />
-    <Compile Include="Assets\Modules\Utils.cs" />
-    <Compile Include="Assets\Modules\Inventory\Types\CD.cs" />
-    <Compile Include="Assets\Modules\Inventory\Types\Collective.cs" />
-    <Compile Include="Assets\Modules\Inventory\Inventory.cs" />
-    <Compile Include="Assets\Modules\Interaction\Usable.cs" />
-    <Compile Include="Assets\Modules\Inventory\ItemSource.cs" />
-    <Compile Include="Assets\Modules\Interaction\CameraSelector.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Setup Wizards\NPCSetupWizard.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\AlertTriggerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Localization Tool\LocalizationToolsWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Yarn\YarnEnumExtensions.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\LuaOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Articy\ArticyEditorTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\Base\CustomFieldType_Text.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\ConditionEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Articy\ConverterPrefsEditorTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Localization Tool\LocalizationToolsWindowPrefs.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowVariableSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Yarn\YarnBuiltInOperatorEnum.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowConversationSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\SequenceTriggerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\ScriptingSymbolNames.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\Base\CustomFieldType_Localization.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowLanguageList.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Templates\Scripts\Editor\CustomFieldType_Conversation.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\StartSequenceOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\ConditionObserverEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\DialogueSystemMenuItems.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowLocalization.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\Export\LanguageTextExporter.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Quests\StandardUIQuestTrackerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\Nodes\DialogueEditorWindowConversationNodeEditorTopControls.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\UI\UILocalizationManagerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\LuaWizardBase.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Setup Wizards\PlayerSetupWizard.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Arcweave\ArcweaveImporterWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Text\TextTableEditorWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowDialogueTreeSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\DialogueEditorStyles.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Celtx3\CeltxConverterWindowDisabled.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Wrappers\Editor\Text\StringAssetMenu.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowDelegates.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\QuestConditionPropertyDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\TemplateTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\UI\Standard UI\Dialogue UI\StandardUIMenuPanelEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\Export\ScreenplayExporter.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Unique ID Tool\UniqueIDWindowPrefs.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\SetAnimatorStateOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowTemplateSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowMain.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\CustomFieldType.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Misc\HelpBoxAttributeDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Templates\Scripts\Editor\ConverterWindowTemplate.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\ItemPopupDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Misc\TimedEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Articy\Schemas\Articy 2.4\Articy_2_4_EditorTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\LuaScriptWizard.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowUndo.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\DialogueTriggerEventDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\Base\CustomFieldType_Boolean.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowReorderIDs.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Save System\SaverEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Yarn\YarnConverterWindowDisabled.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\BitMaskDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowPrefs.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\JSON\JsonImportWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Celtx\CeltxConverterWindowDisabled.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Text\StringFieldDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Renamer\DialogueSystemAssetRenamerWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\MVC\SequencerShortcutsEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowFieldsSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Articy\ArticyConverterWindowDisabled.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\Export\VoiceoverScriptExporter.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Yarn\YarnProject.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Articy\Schemas\Articy 1.4\Articy_1_4_EditorTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\Toolbar.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Wrappers\Editor\Text\TextTableAssetMenu.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\ConversationTriggerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowDatabaseSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\DialogueSystemTriggerEventDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Save System\PlayerPrefsSavedGameDataStorerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowFieldMultinodeSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Aurora\Jrl.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Manager\DialogueSystemControllerHierarchyIcon.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Text\TextTableEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowAssetLists.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Save System\DiskSavedGameDataStorerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowGUIStyles.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\Base\CustomFieldType_Actor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Yarn\YarnExpression.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\QuestStateDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\LuaScriptWizardDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\QuestTriggerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\LuaConditionsWizardDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Barks\BarkGroupManagerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\CustomFieldTypeService.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\Examples\CustomFieldType_SceneType.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Aurora\AuroraPredefinedTokens.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Text\StringFieldTextAreaAttributeDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\AssetFoldouts.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\ConversationPopupDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\UI\Standard UI\Selector UI\SelectorUseStandardUIElementsEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\LocationPopupDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\SetComponentEnabledOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Renamer\DialogueSystemAssetRenamerUtility.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\ItemPicker.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Save System\SaveSystemEditorUtility.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Articy\Schemas\Articy 2.2\Articy_2_2_EditorTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\VariableViewWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\Base\CustomFieldType_Location.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Templates\Scripts\Editor\CustomFieldType_TemplateType.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\VariablePicker.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Articy\Schemas\Articy 3.1\Articy_3_1_EditorTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Setup Wizards\DialogueManagerWizard.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\EditorTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Camera Angle Editor\CameraAngleEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\Base\CustomFieldType_QuestState.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\BarkOnIdleEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Setup Wizards\WelcomeWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\LuaConditionWizard.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\CSV\CSVConverterWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\MVC\DialogueActorEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Celtx3\CeltxConverterWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Twine\TwineImportWindowDisabled.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Options\Timeline\ContinueConversationBehaviourDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Updater\DialogueSystem1xTo2xUpdater.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowWatchSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\DialogueSystemTriggerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\QuestPopupDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\Base\CustomFieldType_Number.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\Nodes\DialogueEditorWindowConversationNodeEditorBase.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\RelationsInspector\RelationsInspectorLink.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\UI\UITextFieldDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Yarn\YarnConverter.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\ConditionPropertyDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Unique ID Tool\UniqueIDWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\UI\InputDeviceManagerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Misc\EditorGUIZoomArea.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\AbstractConverterWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Options\Timeline\ShowAlertBehaviourDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\SendMessageOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\Base\CustomFieldType_Files.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\SetAnimationOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Message System\MessageEventsEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\SetActiveOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\Nodes\DialogueEditorWindowConversationNodeEditorAutoArrange.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\QuestPicker.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Misc\AssetUtility.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Options\Timeline\StartConversationBehaviourDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Aurora\Dlg.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\ActorPopupDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\SetQuestStateOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\Base\CustomFieldType_Item.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowAssetSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Articy\ArticyConverterWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Twine\TwineImportWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\SequenceEditorTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Celtx\CeltxConverterWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\EditorWindowTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowUpdateTemplateSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\UI\CheckInputManagerSettings.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Aurora\AuroraConverterWindowDisabled.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\LuaTriggerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Arcweave\ArcweaveImporterWindowDisabled.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\DialogueEntryPicker.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Aurora\AuroraConverterPrefs.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\Export\CSVExporter.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Yarn\YarnStatementType.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowItemSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Misc\MoreEditorUtility.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\Export\ChatMapperExporter.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Text\CSVUtility.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Misc\EnablePhysics2DMenuItem.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowDialogueTreeSearchBar.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Misc\MoreEditorGuiUtility.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\BarkTriggerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\VariablePopupDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Options\Timeline\PlaySequenceBehaviourDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Chat Mapper\ChatMapperConverter.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Yarn\YarnConverterWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Utility\EditorZoomArea.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\ConversationPicker.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Manager\DialogueSystemControllerEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\UnityEvents\TagMaskDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\ReferenceDatabaseDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\BarkOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\UI\Standard UI\Dialogue UI\StandardUISubtitlePanelEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Common\Scripts\Editor\Misc\TypeUtility.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueDatabaseEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowLocationSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\StartConversationOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\QuestEntryPopupDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Options\Timeline\SetQuestStateBehaviourDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Articy\ArticySchemaEditorTools.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorVariableView.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Save System\PersistentActiveDataEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Wrappers\Editor\CustomLuaFunctionInfo.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\Legacy\SetEnabledOnDialogueEventEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\LocalizedText\LocalizedTextTableEditor.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Inspectors\Triggers\ActorPicker.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Options\Timeline\BarkDrawer.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\DialogueEditorWindowActorSection.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Tools\Importers\Aurora\AuroraConverterWindow.cs" />
+    <Compile Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Dialogue Editor\Nodes\DialogueEditorWindowConversationNodeEditor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\Pixel Crushers\Dialogue System\Scripts\Editor\Fields\_README.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -177,6 +336,9 @@
     </Reference>
     <Reference Include="UnityEngine.LocalizationModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.13f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.NVIDIAModule">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.13f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.NVIDIAModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.ParticleSystemModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.13f1c1\Editor\Data\Managed\UnityEngine\UnityEngine.ParticleSystemModule.dll</HintPath>
@@ -352,6 +514,12 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.13f1c1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.13f1c1\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.13f1c1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Burst.Unsafe">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.Unsafe.dll</HintPath>
     </Reference>
@@ -366,6 +534,9 @@
     </Reference>
     <Reference Include="Unity.Burst.Cecil.Rocks">
       <HintPath>Library\PackageCache\com.unity.burst@1.6.6\Unity.Burst.CodeGen\Unity.Burst.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.13f1c1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
@@ -742,6 +913,12 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.13f1c1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualEffectGraph.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
     </Reference>
@@ -810,6 +987,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{EE3D5A27-92F1-3550-9B08-214C0B4B41CF}</Project>
+      <Name>Assembly-CSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="NaughtyAttributes.Editor.csproj">
       <Project>{FDEC9F22-4E35-221A-B564-9ED0324D0B02}</Project>
       <Name>NaughtyAttributes.Editor</Name>

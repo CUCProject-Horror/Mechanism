@@ -17,15 +17,13 @@ namespace Game {
 		public Trigger innerTrigger;
 
 		bool canInteract = false;
-		public UnityEvent<Component> onInteract;
+		public UnityEvent onInteract;
 
 		public void Start() {
 			if(user == null)
 				user = GetComponent<Usable>();
 			if(user == null)
 				Debug.LogWarning("User of interactable is not set", this);
-			else
-				user.onUse.AddListener(onInteract.Invoke);
 			indicator.enabled = false;
 
 			outerTrigger.tagMask = tagMask;
@@ -47,10 +45,9 @@ namespace Game {
 			canInteract = enter;
 		}
 
-		public void OnInteract(Component source) {
-			if(!canInteract)
-				return;
-			onInteract.Invoke(source);
+		public void OnInteract() {
+			if(canInteract)
+				onInteract.Invoke();
 		}
 	}
 }

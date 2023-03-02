@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3215353861071126016}
   - component: {fileID: 3215353861071126018}
-  - component: {fileID: 3215353861071126045}
-  - component: {fileID: 3215353861071126046}
   - component: {fileID: 3215353861071126017}
   m_Layer: 0
   m_Name: Protagonist
@@ -55,59 +53,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3215353861071126045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3215353861071126044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9cccd548d5576c447b91a3b12006ca49, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Protagonist
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &3215353861071126046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3215353861071126044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b97f0906ed7a12c429ee22f15b647525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camera: {fileID: 3215353861493200612}
-  maxDistance: 10
-  useInput:
-    m_Name: Use Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: ea05994b-e342-43e0-b918-51a1f9f77da1
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
 --- !u!114 &3215353861071126017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +74,8 @@ MonoBehaviour:
   fallingLimit: 5
   inventory:
     items: []
-  input: {fileID: 3215353861071126045}
+  inputVelocity: {x: 0, y: 0, z: 0}
+  inputRotation: {x: 0, y: 0}
 --- !u!1 &3215353861302313044
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +186,7 @@ GameObject:
   - component: {fileID: 3215353861493200612}
   - component: {fileID: 3215353861493200614}
   - component: {fileID: 3215353861493200611}
+  - component: {fileID: 3184189308454197227}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -438,3 +385,26 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3215353861493200610}
   m_Enabled: 1
+--- !u!114 &3184189308454197227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215353861493200610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a4f338b51d8b047902b1801a36d3bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 3215353861493200612}
+  maxDistance: 10
+  useInput:
+    m_Name: Use Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 35e7bf07-fbfe-4a61-bddc-a85c14da4ccb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
