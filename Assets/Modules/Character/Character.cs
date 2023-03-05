@@ -48,7 +48,7 @@ namespace Game {
 			get => crouching;
 			set {
 				crouching = value;
-				GetComponentInChildren<CapsuleCollider>().height = Height;
+				//GetComponentInChildren<CapsuleCollider>().height = Height;
 				controller.height = Height;
 				controller.center = new Vector3(0, Height / 2, 0);
 			}

@@ -1,10 +1,11 @@
 using UnityEngine;
+using System;
 
 namespace Game {
 	public class Protagonist : Character {
 		#region Core members
 		new Camera camera;
-		CameraInteractor interactor;
+		[NonSerialized] public CameraInteractor interactor;
 		float eyeHangingOffset;
 		#endregion
 
