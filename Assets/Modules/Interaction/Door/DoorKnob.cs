@@ -20,7 +20,10 @@ namespace Game {
 			door = GetComponentInParent<Door>();
 
 			target.onDrag.AddListener((Component source, Vector3 drag) => {
-				float dragDiretion = Mathf.Sign(drag.y);
+				float dragDiretion = drag.y;
+				if(Mathf.Abs(dragDiretion) < .1f)
+					return;
+				Debug.Log(dragDiretion);
 				if(dragDiretion == 0)
 					return;
 				if(direction != Direction.DontCare) {
