@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1063521020500832606}
   - component: {fileID: 6385161412165921268}
+  - component: {fileID: 450807220094249462}
   m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
@@ -54,6 +55,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &450807220094249462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862091265021167699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545c67135d56a544598032c6283f43cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4839113904897793383
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +143,7 @@ GameObject:
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5206588120851367777
 Transform:
   m_ObjectHideFlags: 0
@@ -250,7 +263,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   innerUI: {fileID: 1597791305100694746}
   outterUI: {fileID: 1597791303491565657}
-  handle: {fileID: 6385161412165921268}
   isLocked: 0
   timer: 0
   pushForce: 90
@@ -258,6 +270,36 @@ MonoBehaviour:
   closeForce: 180
   isInfinity: 1
   handleAnimTime: 0.8
+  onDoorLock:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 450807220094249462}
+        m_TargetAssemblyTypeName: Game.DoorAnimator, Assembly-CSharp
+        m_MethodName: LockAnim
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDoorOpen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 450807220094249462}
+        m_TargetAssemblyTypeName: Game.DoorAnimator, Assembly-CSharp
+        m_MethodName: OpenAnim
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   canClose: 0
   isOpening: 0
   isClosing: 0

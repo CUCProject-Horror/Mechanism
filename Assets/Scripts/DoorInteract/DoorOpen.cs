@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 namespace Game {
     //[RequireComponent(typeof(PlayerInput))]
@@ -10,9 +11,8 @@ namespace Game {
 
         public GameObject innerUI;
         public GameObject outterUI;
-        public Animator handle;
         public bool isLocked;
-        public float timer = 0;
+        public int timer = 0;
         float force;
         public float pushForce;
         public float maxAngle;
@@ -22,6 +22,9 @@ namespace Game {
 
         bool isBlocked;
         bool canPush = false;
+
+        public UnityEvent onDoorLock;
+        public UnityEvent onDoorOpen;
         [HideInInspector] public bool canClose = false;
         [HideInInspector] public bool isOpening = false;
         [HideInInspector] public bool isClosing = false;
@@ -31,7 +34,6 @@ namespace Game {
         private void Start()
         {
             isBlocked = false;
-            AnimatorStateInfo info = handle.GetCurrentAnimatorStateInfo(0);
         }
 
         public void InteractDoorOutter()
@@ -67,12 +69,12 @@ namespace Game {
                         if (isLocked)
                         {
                             Debug.Log("The Door Is Locked!");
-                            handle.SetTrigger("isLocked");
+                            onDoorLock.Invoke();
                             canPush = false;
                         }
                         else
                         {
-                            handle.SetTrigger("isOpening");
+                            onDoorOpen.Invoke();
                             canPush = false;
                             Invoke("OpenTheDoor", handleAnimTime);
                         }
@@ -85,13 +87,13 @@ namespace Game {
                     {
                         if (isLocked)
                         {
+                            onDoorLock.Invoke();
                             Debug.Log("The Door Is Locked!");
-                            handle.SetTrigger("isLocked");
                             canPush = false;
                         }
                         else
                         {
-                            handle.SetTrigger("isOpening");
+                            onDoorOpen.Invoke();
                             canPush = false;
                             Invoke("OpenTheDoor", handleAnimTime);
                         }
@@ -106,28 +108,28 @@ namespace Game {
             //Debug.Log("Release!");
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            if (isOpening && timer <= maxAngle / Mathf.Abs(pushForce) && !isBlocked)
+
+            if (isOpening && timer < (int)(maxAngle / Mathf.Abs(pushForce)/ Time.deltaTime) && !isBlocked)
             {
                 transform.Rotate(0, 0, pushForce * Time.deltaTime);
-                timer += Time.deltaTime;
+                timer ++ ;
             }
-            else if (isOpening && timer <= maxAngle / Mathf.Abs(pushForce) && isBlocked)
+            else if (isOpening && timer < maxAngle / Mathf.Abs(pushForce)/ Time.deltaTime && isBlocked)
             { 
                 return;
             }
             else if (isOpening)
             {
-                isOpening = false; timer = 0;
-                
-
+                timer = 0;
+                isOpening = false;
             }
 
-            if (isClosing && timer <= maxAngle / Mathf.Abs(closeForce))
+            if (isClosing && timer < (int)(maxAngle / Mathf.Abs(closeForce)/ Time.deltaTime))
             {
-                gameObject.transform.Rotate(0, 0, closeForce * Time.deltaTime * -pushForce / Mathf.Abs(pushForce));
-                timer += Time.deltaTime;
+                transform.Rotate(0, 0, closeForce * Time.deltaTime * -pushForce / Mathf.Abs(pushForce));
+                timer ++;
             }
             else if (isClosing && hasDestroyedDoor)
             {
@@ -136,9 +138,10 @@ namespace Game {
             }
             else if (isClosing)
             {
+                timer = 0;
                 innerUI.SetActive(true);
                 outterUI.SetActive(true);
-                isClosing = false; timer = 0;
+                isClosing = false; 
                 canClose = false;
             }
         }
@@ -152,7 +155,12 @@ namespace Game {
         }
 
         private void OnTriggerExit(Collider other)
-        { isBlocked = false; }
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                isBlocked = false;
+            }
+        }
 
     }
 

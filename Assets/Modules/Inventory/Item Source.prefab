@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactor: {fileID: 4344391634196472840}
-  item: {fileID: 11400000, guid: 4397394f1364277478b8bf39490c586e, type: 2}
+  item: {fileID: 0}
   infinite: 0
   count: 1
   destroyOnEmpty: 1

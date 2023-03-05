@@ -57,7 +57,7 @@ namespace Game {
 			Ray ray = new Ray(Camera.main.transform.position, icon.transform.position - Camera.main.transform.position);
 			Debug.DrawRay(ray.origin, ray.direction, Color.red);
 			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit, Mathf.Infinity, ~(1 << 3)))
+			if (Physics.Raycast(ray, out hit, 10000, ~(1 << 3)))
 			{
 				if (hit.collider.gameObject == icon)
 				{ canSee = true; }

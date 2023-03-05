@@ -656,7 +656,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   innerUI: {fileID: 6954480632403848875}
   outterUI: {fileID: 6954480630791750184}
-  handle: {fileID: 3329179962393596805}
   isLocked: 0
   timer: 0
   pushForce: 90
@@ -664,6 +663,36 @@ MonoBehaviour:
   closeForce: 180
   isInfinity: 0
   handleAnimTime: 0.8
+  onDoorLock:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1154115874658947384}
+        m_TargetAssemblyTypeName: Game.DoorAnimator, Assembly-CSharp
+        m_MethodName: LockAnim
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDoorOpen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1154115874658947384}
+        m_TargetAssemblyTypeName: Game.DoorAnimator, Assembly-CSharp
+        m_MethodName: OpenAnim
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   canClose: 0
   isOpening: 0
   isClosing: 0
@@ -708,6 +737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8677692437518551855}
   - component: {fileID: 3329179962393596805}
+  - component: {fileID: 1154115874658947384}
   m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
@@ -752,6 +782,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1154115874658947384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5843149106660913698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545c67135d56a544598032c6283f43cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1284539144037306207
 PrefabInstance:
   m_ObjectHideFlags: 0
