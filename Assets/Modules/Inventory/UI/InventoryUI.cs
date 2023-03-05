@@ -72,6 +72,27 @@ namespace Game {
 		public Pivots pivots;
 		#endregion
 
+		#region Inspector field
+		public Transform anchor;
+		#endregion
+
+		#region Public interfaces
+		public void SetItem(Item item) {
+			anchor.DestroyAllChildren();
+			anchor.rotation = Quaternion.identity;
+
+			if(item == null)
+				return;
+
+			var model = Instantiate(item.prefab, anchor);
+			model.layer = LayerMask.NameToLayer("Inventory");
+			var renderer = model.GetComponentInChildren<Renderer>();
+			renderer.renderingLayerMask = 2;
+		}
+
+		public void Close() => GameManager.instance.State = GameManager.StateEnum.Protagonist;
+		#endregion
+
 		#region Gameplay
 		Item currentItem;
 		List<Item> items;
@@ -106,8 +127,7 @@ namespace Game {
 		public void UpdateButtons() {
 			pivots.actions.DestroyAllChildren();
 			var actions = new List<KeyValuePair<string, Action>> {
-				new KeyValuePair<string, Action>("Inspect", () => GameManager.instance.InspectItem(currentItem)),
-				new KeyValuePair<string, Action>("Close", () => GameManager.instance.CloseUI())
+				new KeyValuePair<string, Action>("Close", Close)
 			};
 			foreach(var pair in actions) {
 				GameObject btn = Instantiate(prefabs.actionBtn, pivots.actions);
@@ -119,7 +139,7 @@ namespace Game {
 		public Item Item {
 			get => currentItem;
 			set {
-				GameManager.instance.SetInspectItem(currentItem = value);
+				SetItem(value);
 				UpdateButtons();
 			}
 		}

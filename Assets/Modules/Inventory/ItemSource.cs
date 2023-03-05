@@ -5,7 +5,7 @@ using NaughtyAttributes;
 namespace Game {
 	public class ItemSource : MonoBehaviour {
 		#region Inspector fields
-		public Interactable interactor;
+		public DoubleTrigger interactor;
 		public Item item;
 		public bool infinite = false;
 		[HideIf("infinite")] public uint count = 1;
@@ -37,7 +37,6 @@ namespace Game {
 			if(inventory == null)
 				return;
 			Deliver(inventory);
-			GameManager.instance.InspectItem(item);
 		}
 		#endregion
 
