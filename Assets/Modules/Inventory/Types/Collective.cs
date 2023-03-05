@@ -1,7 +1,7 @@
 using UnityEngine;
 
 namespace Game {
-	[CreateAssetMenu(menuName = "Item/Collective")]
+	[CreateAssetMenu(menuName = "Game/Item/Collective")]
 	public class Collective : Item {
 	}
 }

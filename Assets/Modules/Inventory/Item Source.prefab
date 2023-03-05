@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3194784169952594249, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: m_Name
-      value: Pickable Variant
+      value: Item Source
       objectReference: {fileID: 0}
     - target: {fileID: 3365228230860660802, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: m_RootOrder
@@ -77,19 +77,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ItemSource, Assembly-CSharp
+      value: Game.ItemSource, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3227373984714758080, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
---- !u!1 &8233695975142522560 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3194784169952594249, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
-  m_PrefabInstance: {fileID: 6779555278447589257}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4344391634196472840 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
@@ -101,6 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325233aecb68bc94db910342652e04b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8233695975142522560 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3194784169952594249, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
+  m_PrefabInstance: {fileID: 6779555278447589257}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2426778889405756285
 MonoBehaviour:
   m_ObjectHideFlags: 0
