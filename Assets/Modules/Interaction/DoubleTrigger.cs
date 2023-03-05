@@ -3,8 +3,8 @@ using UnityEngine.Events;
 using NaughtyAttributes;
 
 namespace Game {
-	public class Interactable : MonoBehaviour {
-		public Usable user;
+	public class DoubleTrigger : MonoBehaviour {
+		public InteractableTarget target;
 		[Tag] public string tagMask;
 		public SpriteRenderer indicator;
 
@@ -20,10 +20,8 @@ namespace Game {
 		public UnityEvent onInteract;
 
 		public void Start() {
-			if(user == null)
-				user = GetComponent<Usable>();
-			if(user == null)
-				Debug.LogWarning("User of interactable is not set", this);
+			if(target == null)
+				target = GetComponent<InteractableTarget>();
 			indicator.enabled = false;
 
 			outerTrigger.tagMask = tagMask;

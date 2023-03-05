@@ -4,7 +4,7 @@ namespace Game {
 	public class Protagonist : Character {
 		#region Core members
 		new Camera camera;
-		CameraSelector selector;
+		CameraInteractor interactor;
 		float eyeHangingOffset;
 		#endregion
 
@@ -30,8 +30,11 @@ namespace Game {
 			}
 		}
 
-		public void Interact() {
-			selector.Use();
+		public void Interact(bool active) {
+			if(active)
+				interactor.Activate();
+			else
+				interactor.Deactivate();
 		}
 		#endregion
 
@@ -40,7 +43,7 @@ namespace Game {
 			base.Start();
 
 			camera = GetComponentInChildren<Camera>();
-			selector = GetComponentInChildren<CameraSelector>();
+			interactor = GetComponentInChildren<CameraInteractor>();
 
 			eyeHangingOffset = height.y - camera.transform.localPosition.y;
 			lastGroundHeight = transform.position.y;

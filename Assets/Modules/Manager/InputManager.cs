@@ -35,8 +35,9 @@ namespace Game {
 			GameManager.instance.State = GameManager.StateEnum.Inventory;
 		}
 
-		public void OnInteract() {
-			protagonist.Interact();
+		public void OnInteract(InputValue value) {
+			float raw = value.Get<float>();
+			protagonist.Interact(raw > .5f);
 		}
 
 		#endregion

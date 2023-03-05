@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3365228230860660802}
   - component: {fileID: 7088578639931609985}
   m_Layer: 0
-  m_Name: Interactable
+  m_Name: Double Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325233aecb68bc94db910342652e04b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  user: {fileID: 7373423921937968778}
+  target: {fileID: 0}
   tagMask: Player
   indicator: {fileID: 2100038407735163561}
   outerIndicator: {fileID: 21300000, guid: 5fdb68806d5acfb4db611df288b37e04, type: 3}
@@ -181,17 +181,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5556aac38dc10534482d8fb4b9cc0af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSelect:
+  onFocus:
     m_PersistentCalls:
       m_Calls: []
-  onDeselect:
+  onBlur:
     m_PersistentCalls:
       m_Calls: []
-  onUse:
+  onActivate:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7088578639931609985}
-        m_TargetAssemblyTypeName: Game.Interactable, Assembly-CSharp
+        m_TargetAssemblyTypeName: Game.DoubleTrigger, Assembly-CSharp
         m_MethodName: OnInteract
         m_Mode: 1
         m_Arguments:
@@ -202,6 +202,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8265883029572451282
 PrefabInstance:
   m_ObjectHideFlags: 0
