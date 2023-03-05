@@ -8,9 +8,9 @@ namespace Game
     {
         GameManager game => GameManager.instance;
         public void DebugLog(string message) => Debug.Log(message);
-        public void PlayVideo(VideoClip clip) {
-            game.vidPlayer.vp.clip = clip;
-            game.vidPlayer.PlayVid();
-        }
+        //public void PlayVideo(VideoClip clip) {
+        //    game.vidPlayer.vp.clip = clip;
+        //    game.vidPlayer.PlayVid();
+        //}
     }
 }
