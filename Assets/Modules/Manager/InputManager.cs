@@ -37,7 +37,7 @@ namespace Game {
 
 		public void OnInteract(InputValue value) {
 			float raw = value.Get<float>();
-			protagonist.Interact(raw > .5f);
+			protagonist.SetInteractorActivity(raw > .5f);
 		}
 
 		#endregion

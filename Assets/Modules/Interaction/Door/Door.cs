@@ -6,8 +6,8 @@ namespace Game {
 	public class Door : MonoBehaviour {
 		#region Inspector fields
 		[Range(.1f, 2)] public float speed = 1;
-		public Animator animator;
 		public List<Transform> rotatingPivots;
+		public DoorKnob frontKnob, backKnob;
 		#endregion
 
 		#region Core fields
@@ -15,7 +15,7 @@ namespace Game {
 		float targetPosition;
 		bool locked = false;
 
-		IEnumerator positionSettingCoroutine = null;
+		IEnumerator workingCoroutine = null;
 		#endregion
 
 		#region Core methods
@@ -30,18 +30,20 @@ namespace Game {
 				Position += Mathf.Sign(delta) * step;
 				yield return new WaitForFixedUpdate();
 			}
-			positionSettingCoroutine = null;
+			workingCoroutine = null;
 		}
 		#endregion
 
 		#region Public interfaces
+		public bool Open => Position > .5f;
+
 		public bool Locked {
 			get => locked;
 			set {
 				if(Locked == value)
 					return;
 				TargetPosition = 0;
-				animator.SetBool("Locked", locked = value);
+				locked = value;
 			}
 		}
 
@@ -54,9 +56,9 @@ namespace Game {
 					return;
 				}
 				targetPosition = value;
-				if(positionSettingCoroutine != null)
-					StopCoroutine(positionSettingCoroutine);
-				StartCoroutine(positionSettingCoroutine = PositionSettingCoroutine());
+				if(workingCoroutine != null)
+					StopCoroutine(workingCoroutine);
+				StartCoroutine(workingCoroutine = PositionSettingCoroutine());
 			}
 		}
 
@@ -66,17 +68,31 @@ namespace Game {
 				value = Mathf.Clamp01(value);
 				if(Locked && value != 0)
 					return;
-				animator.SetFloat("Position", position = value);
+				position = value;
+
+				// Rotate door panels
 				foreach(Transform pivot in rotatingPivots) {
 					Vector3 euler = pivot.localRotation.eulerAngles;
-					euler.y = -position * 90;
+					euler.y = position * 90;
 					pivot.localRotation = Quaternion.Euler(euler);
 				}
+
+				// Activate/deactivate door knobs with respect to door position
+				if(frontKnob)
+					frontKnob.gameObject.SetActive(!Open);
+				if(backKnob)
+					backKnob.gameObject.SetActive(Open);
 			}
 		}
 
 		public void Toggle() {
 			TargetPosition = TargetPosition < .5f ? 1 : 0;
+		}
+		#endregion
+
+		#region Life cycle
+		void Start() {
+			Position = 0;
 		}
 		#endregion
 	}

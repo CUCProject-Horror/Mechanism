@@ -7,6 +7,7 @@ namespace Game {
 		public UnityEvent<Component> onBlur;
 		public UnityEvent<Component> onActivate;
 		public UnityEvent<Component> onDeactivate;
+		public UnityEvent<Component, Vector3> onDrag;
 
 		public void OnFocus(Component source) => onFocus.Invoke(source);
 		public void OnBlur(Component source) => onBlur.Invoke(source);
@@ -15,6 +16,9 @@ namespace Game {
 		public void OnInteract(Component source) {
 			OnActivate(source);
 			OnDeactivate(source);
+		}
+		public void OnDrag(Component source, Vector3 direction) {
+			onDrag.Invoke(source, direction);
 		}
 	}
 }

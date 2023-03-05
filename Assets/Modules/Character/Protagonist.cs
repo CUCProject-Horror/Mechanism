@@ -30,12 +30,7 @@ namespace Game {
 			}
 		}
 
-		public void Interact(bool active) {
-			if(active)
-				interactor.Activate();
-			else
-				interactor.Deactivate();
-		}
+		public void SetInteractorActivity(bool active) => interactor.Activity = active;
 		#endregion
 
 		#region Life cycle

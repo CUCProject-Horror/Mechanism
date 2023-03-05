@@ -1,24 +1,33 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Game {
 	public class CameraInteractor : MonoBehaviour {
+		#region Inspector members
 		public new Camera camera;
 		public float maxDistance = 10;
+		#endregion
 
+		#region Core members
+		bool activity = false;
 		List<InteractableTarget> lastFocused;
+		Vector3 lastDirection;
+		#endregion
 
-		public void Activate() {
-			foreach(InteractableTarget target in lastFocused)
-				target.BroadcastMessage("OnActivate", this, SendMessageOptions.DontRequireReceiver);
+		#region Public interfaces
+		public bool Activity {
+			get => activity;
+			set {
+				if(activity == value)
+					return;
+				activity = value;
+				string msg = activity ? "OnActivate" : "OnDeactivate";
+				foreach(InteractableTarget target in lastFocused)
+					target.BroadcastMessage(msg, this, SendMessageOptions.DontRequireReceiver);
+			}
 		}
-
-		public void Deactivate() {
-			foreach(InteractableTarget target in lastFocused)
-				target.BroadcastMessage("OnDeactivate", this, SendMessageOptions.DontRequireReceiver);
-		}
+		#endregion
 
 		public void Start() {
 			if(camera == null)
@@ -26,24 +35,37 @@ namespace Game {
 			lastFocused = new List<InteractableTarget>();
 		}
 
-		public void Update() {
+		public void FixedUpdate() {
 			if(camera == null)
 				return;
+			#region Raycast & focusing
 			Ray ray = camera.ScreenPointToRay(new Vector2(camera.pixelWidth, camera.pixelHeight) / 2);
 			RaycastHit[] hits = Physics.RaycastAll(ray, maxDistance);
 			var currentSelected = hits
 				.Select((RaycastHit hit) => hit.collider.GetComponent<InteractableTarget>())
 				.Where((InteractableTarget usable) => usable != null)
 				.ToList();
-			currentSelected.ForEach((InteractableTarget usable) => {
-				if(!lastFocused.Contains(usable))
-					usable.onFocus.Invoke(this);
-			});
-			lastFocused.ForEach((InteractableTarget usable) => {
-				if(!currentSelected.Contains(usable))
-					usable.onBlur.Invoke(this);
-			});
+			foreach(InteractableTarget target in currentSelected) {
+				if(!lastFocused.Contains(target))
+					target.onFocus.Invoke(this);
+			}
+			foreach(InteractableTarget target in lastFocused) {
+				if(!lastFocused.Contains(target))
+					target.onBlur.Invoke(this);
+			}
 			lastFocused = currentSelected;
+			#endregion
+			#region Direction & dragging
+			if(Activity) {
+				Vector3 direction = camera.transform.forward;
+				Vector3 draggingWorldDirection = direction - lastDirection;
+				foreach(InteractableTarget target in lastFocused) {
+					Vector3 draggingLocalDirection = target.transform.worldToLocalMatrix.MultiplyVector(draggingWorldDirection);
+					target.OnDrag(this, draggingLocalDirection);
+				}
+				lastDirection = direction;
+			}
+			#endregion
 		}
 	}
 }
