@@ -48,7 +48,7 @@ namespace Game {
 			get => crouching;
 			set {
 				crouching = value;
-				GetComponentInChildren<CapsuleCollider>().height = Height;
+				//GetComponentInChildren<CapsuleCollider>().height = Height;
 				controller.height = Height;
 				controller.center = new Vector3(0, Height / 2, 0);
 			}
@@ -59,7 +59,8 @@ namespace Game {
 		public virtual void Move(Vector3 velocity) {
 			controller.SimpleMove(velocity);
 			if(controller.isGrounded) {
-				if(lastGroundHeight - transform.position.y > fallingLimit)
+                float fallingHeight = lastGroundHeight - transform.position.y;
+                if (fallingHeight > fallingLimit)
 					DieFalling();
 				lastGroundHeight = transform.position.y;
 			}

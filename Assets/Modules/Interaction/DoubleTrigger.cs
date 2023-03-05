@@ -19,6 +19,8 @@ namespace Game {
 		bool canInteract = false;
 		public UnityEvent onInteract;
 
+		public GameObject icon;
+		public bool canSee;
 		public void Start() {
 			if(target == null)
 				target = GetComponent<InteractableTarget>();
@@ -46,6 +48,21 @@ namespace Game {
 		public void OnInteract() {
 			if(canInteract)
 				onInteract.Invoke();
+		}
+        private void Update()
+        {
+			Ray ray = new Ray(Camera.main.transform.position, icon.transform.position - Camera.main.transform.position);
+			Debug.DrawRay(ray.origin, ray.direction, Color.red);
+			RaycastHit hit;
+			if (Physics.Raycast(ray, out hit, 10000, ~(1 << 3)))
+			{
+				if (hit.collider.gameObject == icon)
+				{ canSee = true; }
+				else canSee = false;
+			}
+
+			if (!canSee) { icon.GetComponent<SpriteRenderer>().enabled = false; }
+			if (canSee)  { icon.GetComponent<SpriteRenderer>().enabled = true; }
 		}
 	}
 }

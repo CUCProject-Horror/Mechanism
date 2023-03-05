@@ -10,6 +10,7 @@ namespace Game {
 		#endregion
 
 		#region Input handler
+		public bool canOrient = true;
 		public void OnMove(InputValue value) {
 			Vector2 raw = value.Get<Vector2>();
 			protagonist.inputVelocity = new Vector3 {
@@ -27,8 +28,21 @@ namespace Game {
 			protagonist.Crouching = !protagonist.Crouching;
 		}
 
-		public void OnOrient(InputValue value) {
-			protagonist.inputRotation = value.Get<Vector2>();
+		public void OnOrient(InputValue value)
+		{
+			Vector2 raw = value.Get<Vector2>();
+			// Direction & dragging
+			{
+                CameraInteractor interactor = protagonist.interactor;
+                foreach (var interactable in interactor.lastFocused) {
+					interactable.OnDrag(interactor, raw);
+				}
+			}
+			// Protagonist orientation
+			if (canOrient)
+			{
+                protagonist.inputRotation = raw;
+			}
 		}
 
 		public void OnInventory() {
@@ -45,6 +59,7 @@ namespace Game {
 		#region Life cycle
 		void Start() {
 			playerInput = GetComponent<PlayerInput>();
+			canOrient = true;
 		}
 		#endregion
 	}
