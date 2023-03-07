@@ -11,7 +11,6 @@ namespace Game {
 		[HideIf("infinite")] public bool destroyOnEmpty;
 		public UnityEvent onDeliver;
 		[HideIf("infinite")] public UnityEvent onEmpty;
-		public bool view = true;
 		#endregion
 
 		#region Public interfaces
