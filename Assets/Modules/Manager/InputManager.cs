@@ -41,7 +41,7 @@ namespace Game {
 			// Protagonist orientation
 			if (canOrient)
 			{
-                //protagonist.movement.inputRotation = raw;
+                protagonist.Rotate(raw);
 			}
 		}
 

@@ -61,7 +61,7 @@ namespace Game {
 		}
 
 		Vector3 CalculateWalkingVelocity() {
-			Vector3 targetVelocity = movement.inputVelocity;
+			Vector3 targetVelocity = transform.localToWorldMatrix.MultiplyVector(movement.inputVelocity);
 			float speed = targetVelocity.magnitude;
 			speed *= movementSettings.walking.speed;
 			targetVelocity = targetVelocity.normalized * speed;
@@ -95,6 +95,12 @@ namespace Game {
 				}
 				return result;
 			}
+		}
+
+		public virtual void Rotate(Vector2 rotation) {
+			Vector3 body = transform.rotation.eulerAngles;
+			body.y += rotation.x;
+			transform.rotation = Quaternion.Euler(body);
 		}
 
 		public void Jump() {
