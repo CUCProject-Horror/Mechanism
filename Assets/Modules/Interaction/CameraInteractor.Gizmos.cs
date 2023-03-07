@@ -14,9 +14,9 @@ namespace Game
             Gizmos.DrawRay(ray);
             Gizmos.color = Color.red;
             foreach (var target in lastFocused) {
-                Mesh mesh = target.GetComponent<MeshFilter>().sharedMesh;
-                if(mesh)
-                    Gizmos.DrawMesh(mesh, target.transform.position);
+                MeshFilter meshFilter = target.GetComponent<MeshFilter>();
+                if(meshFilter)
+                    Gizmos.DrawMesh(meshFilter.sharedMesh, target.transform.position);
             }
         }
     }
