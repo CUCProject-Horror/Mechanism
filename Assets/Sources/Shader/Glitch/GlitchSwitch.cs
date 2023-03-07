@@ -14,7 +14,7 @@ public class GlitchSwitch : MonoBehaviour
     public bool Switch = false;
     [Range(0.1f, 3f)] public float TimeGap; 
     private float timer = 0;
-    public Transform camera;//主相机
+    new public Transform camera;//主相机
     //public Transform ObjPos;
     // Start is called before the first frame update
     void Start()
