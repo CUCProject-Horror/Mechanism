@@ -13,7 +13,7 @@ namespace Game {
 		public bool canOrient = true;
 		public void OnMove(InputValue value) {
 			Vector2 raw = value.Get<Vector2>();
-			protagonist.inputVelocity = new Vector3 {
+			protagonist.movement.inputVelocity = new Vector3 {
 				x = raw.x,
 				y = 0,
 				z = raw.y
@@ -21,11 +21,11 @@ namespace Game {
 		}
 
 		public void OnSprint(InputValue value) {
-			protagonist.Sprinting = value.isPressed;
+			//protagonist.Sprinting = value.isPressed;
 		}
 
 		public void OnCrouch(InputValue _) {
-			protagonist.Crouching = !protagonist.Crouching;
+			//protagonist.Crouching = !protagonist.Crouching;
 		}
 
 		public void OnOrient(InputValue value)
@@ -41,7 +41,7 @@ namespace Game {
 			// Protagonist orientation
 			if (canOrient)
 			{
-                protagonist.inputRotation = raw;
+                //protagonist.movement.inputRotation = raw;
 			}
 		}
 

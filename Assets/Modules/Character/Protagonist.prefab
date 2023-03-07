@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3215353861071126016}
-  - component: {fileID: 3215353861071126018}
+  - component: {fileID: 5916046878466487710}
+  - component: {fileID: 3768320245095007056}
   - component: {fileID: 3215353861071126017}
   m_Layer: 0
   m_Name: Protagonist
@@ -35,8 +36,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &3215353861071126018
-CharacterController:
+--- !u!54 &5916046878466487710
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215353861071126044}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &3768320245095007056
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -45,13 +62,9 @@ CharacterController:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3215353861071126017
 MonoBehaviour:
@@ -65,17 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e530d28e6ab111046971ae813ec58c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprintingSpeed: 500
-  walkingSpeed: 256
-  crouchingSpeed: 135
-  height: {x: 1.3, y: 2}
-  orientingSpeed: 7.45
-  pitchRange: {x: -60, y: 60}
-  fallingLimit: 5
+  movementSettings: {fileID: 11400000, guid: 6c50ef39b8ddda54582d0b4699bd57d9, type: 2}
   inventory:
     items: []
-  inputVelocity: {x: 0, y: 0, z: 0}
-  inputRotation: {x: 0, y: 0}
 --- !u!1 &3215353861302313044
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +92,6 @@ GameObject:
   - component: {fileID: 3215353861302313045}
   - component: {fileID: 3215353861302313048}
   - component: {fileID: 3215353861302313047}
-  - component: {fileID: 3215353861302313046}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -160,20 +164,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3215353861302313046
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3215353861302313044}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3215353861493200610
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,12 +389,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 3215353861493200612}
   maxDistance: 10
-  useInput:
-    m_Name: Use Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 35e7bf07-fbfe-4a61-bddc-a85c14da4ccb
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
+  raycastAll: 0
