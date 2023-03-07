@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Game {
-	public class CameraInteractor : MonoBehaviour {
+	public partial class CameraInteractor : MonoBehaviour {
 		#region Inspector members
 		public new Camera camera;
 		public float maxDistance = 10;
