@@ -13,7 +13,7 @@ namespace Game {
         public GameObject outterUI;
         public bool isLocked;
         public int timer = 0;
-        float force;
+        public float force;
         public float pushForce;
         public float maxAngle;
         public float closeForce;
@@ -21,7 +21,7 @@ namespace Game {
         public float handleAnimTime;
 
         bool isBlocked;
-        bool canPush = false;
+        public bool canPush = false;
 
         public UnityEvent onDoorLock;
         public UnityEvent onDoorOpen;
@@ -30,6 +30,8 @@ namespace Game {
         [HideInInspector] public bool isClosing = false;
         [HideInInspector] public bool hasDestroyedDoor = false;
         //public bool hasPassedDoor = false;
+
+        InputManager inputManager;
 
         private void Start()
         {
@@ -42,29 +44,42 @@ namespace Game {
             force = pushForce;
         }
 
+        public void DeactivateDoorOutter()
+        {
+            canPush = false;
+            force = 0;
+        }
+
         public void InteractDoorInner()
         {
             canPush = true;
             force = -pushForce;
         }
 
+        public void DeactivateDoorInner()
+        {
+            canPush = false;
+            force = 0;
+        }
+
         void OpenTheDoor()
         {
             innerUI.SetActive(false);
             outterUI.SetActive(false);
-            isOpening = true; 
+            isOpening = true;
             canClose = true;
         }
 
-        public void OnOpendoor(InputValue value)
+        public void Drag(Component source, Vector3 drag)
         {
+            Debug.Log(drag); 
             if (!canPush)
                 return;
             else
             {
                 if(force > 0)
                 {
-                    if (value.Get<Vector2>().y > 0)
+                    if (drag.y > 6)
                     {
                         if (isLocked)
                         {
@@ -83,7 +98,7 @@ namespace Game {
                 }
                 else if (force < 0)
                 {
-                    if (value.Get<Vector2>().y < 0)
+                    if (drag.y < -6)
                     {
                         if (isLocked)
                         {

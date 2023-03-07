@@ -14,7 +14,7 @@ namespace Game
 
         #region Core members
         bool activity = false;
-        [NonSerialized] public List<InteractableTarget> lastFocused;
+        public List<InteractableTarget> lastFocused;
         Vector3 lastDirection;
         #endregion
 
