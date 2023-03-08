@@ -19,6 +19,7 @@ public class GlitchSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        camera = Camera.main.transform;
         IntensityA = 0;
         IntensityB = 0;        
     }

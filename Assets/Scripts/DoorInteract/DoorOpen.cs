@@ -72,7 +72,6 @@ namespace Game {
 
         public void Drag(Component source, Vector3 drag)
         {
-            Debug.Log(drag); 
             if (!canPush)
                 return;
             else
