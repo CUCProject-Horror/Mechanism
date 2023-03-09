@@ -8,5 +8,11 @@ namespace Game {
 		public bool protagonistCanOrient {
 			set => game.input.canOrient = value;
 		}
+
+		public void OnVidItemView()
+        {
+			Debug.Log("View!");
+			
+        }
 	}
 }

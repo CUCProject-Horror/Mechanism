@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Game {
-	public class CameraInteractor : MonoBehaviour {
+	public partial class CameraInteractor : MonoBehaviour {
 		#region Inspector members
 		public new Camera camera;
 		public float maxDistance = 10;
@@ -55,12 +55,12 @@ namespace Game {
 			Ray ray = camera.ScreenPointToRay(new Vector2(camera.pixelWidth, camera.pixelHeight) / 2);
 			var hits = new List<RaycastHit>();
 			if(raycastAll) {
-				var hitsArr = Physics.RaycastAll(ray, maxDistance);
+				var hitsArr = Physics.RaycastAll(ray, maxDistance, ~(1 << 3));
 				hits.AddRange(hitsArr);
 			}
 			else {
 				RaycastHit hit;
-				Physics.Raycast(ray, out hit, maxDistance);
+				Physics.Raycast(ray, out hit, maxDistance, ~(1 << 3));
 				if(hit.collider)
 					hits.Add(hit);
 			}

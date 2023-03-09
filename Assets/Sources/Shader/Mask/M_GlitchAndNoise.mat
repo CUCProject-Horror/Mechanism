@@ -31,7 +31,7 @@ Material:
     - _GlitchStrength: 1
     - _NoiseAmount: 9
     - _NoiseIntensity: 0.644
-    - _ScanLineIntensity: 0.874
+    - _ScanLineIntensity: 1
     - _ScanLineStrength: 1
     - _UseGlitch: 1
     - _UseNoise: 0

@@ -34,8 +34,9 @@ namespace Game {
 			// Direction & dragging
 			{
                 CameraInteractor interactor = protagonist.interactor;
-                foreach (var interactable in interactor.lastFocused) {
-					interactable.OnDrag(interactor, raw);
+				if(interactor.Activity) {
+					foreach(var interactable in interactor.lastFocused)
+						interactable.OnDrag(interactor, raw);
 				}
 			}
 			// Protagonist orientation
