@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.InputSystem;
 
-namespace Game
-{
+namespace Game {
     public class VidController : MonoBehaviour
     {
         public GameObject ScreenToPlay;
@@ -14,6 +11,7 @@ namespace Game
         public int playSpeed;
 
         bool isPause;
+        public long vidFrame;
 
         private void Awake()
         {
@@ -52,6 +50,7 @@ namespace Game
 
         void FixedUpdate()
         {
+            vidFrame = vp.frame;
             if (isPause)
             {
                 vp.Pause();
@@ -72,8 +71,7 @@ namespace Game
             }
             else if(playSpeed == 0)
             {
-                //反正会倒放
-                vp.frame = vp.frame - 1;
+                vp.frame = vp.frame - 1 * (long)vp.frameRate;
             }
         }
     }

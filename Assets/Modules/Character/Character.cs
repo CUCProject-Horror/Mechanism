@@ -27,6 +27,7 @@ namespace Game {
 
 		[Header("Inventory")]
 		public Inventory inventory = new Inventory();
+		[HideInInspector] public float fallingHeight;
 		#endregion
 
 		#region Core fields
@@ -59,7 +60,7 @@ namespace Game {
 		public virtual void Move(Vector3 velocity) {
 			controller.SimpleMove(velocity);
 			if(controller.isGrounded) {
-                float fallingHeight = lastGroundHeight - transform.position.y;
+                fallingHeight = lastGroundHeight - transform.position.y;
                 if (fallingHeight > fallingLimit)
 					DieFalling();
 				lastGroundHeight = transform.position.y;

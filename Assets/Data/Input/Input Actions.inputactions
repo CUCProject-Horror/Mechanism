@@ -19,7 +19,7 @@
                     "type": "Value",
                     "id": "2d5c39d0-7643-4497-b8eb-dbc622c4e950",
                     "expectedControlType": "Vector2",
-                    "processors": "ScaleVector2(x=0.1,y=0.1),ScaleVector2(y=-1)",
+                    "processors": "ScaleVector2(y=-1),ScaleVector2(x=0.1,y=0.1)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -60,12 +60,21 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ReleaseInteract",
+                    "name": "ChangeScene",
                     "type": "Button",
-                    "id": "83209824-e6bb-43fe-a859-a5794e9e4e62",
+                    "id": "8dfee3e6-29aa-4ab8-a5d3-a8ad6fe6ad3e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Changecutscene",
+                    "type": "Button",
+                    "id": "ae871502-516b-44fb-9737-27e0c723e32e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -287,6 +296,28 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9ccc818-9977-425e-bc46-9f3d19e85b42",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "ChangeScene",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99d79e53-911f-4435-951c-84105f74cd7a",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Changecutscene",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
