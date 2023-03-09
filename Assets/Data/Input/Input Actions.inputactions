@@ -19,7 +19,7 @@
                     "type": "Value",
                     "id": "2d5c39d0-7643-4497-b8eb-dbc622c4e950",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "ScaleVector2(y=-1),ScaleVector2(x=0.1,y=0.1)",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -60,21 +60,21 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Opendoor",
-                    "type": "Value",
-                    "id": "9250db1d-366a-4aaa-9fca-0b884ee24481",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "ReleaseInteract",
+                    "name": "ChangeScene",
                     "type": "Button",
-                    "id": "83209824-e6bb-43fe-a859-a5794e9e4e62",
+                    "id": "8dfee3e6-29aa-4ab8-a5d3-a8ad6fe6ad3e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Changecutscene",
+                    "type": "Button",
+                    "id": "ae871502-516b-44fb-9737-27e0c723e32e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
@@ -300,114 +300,26 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Mouse",
-                    "id": "0a6b5d2f-fd96-4248-bcbd-a7c0c65026a2",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Opendoor",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "Up",
-                    "id": "d2d822b9-36a7-4172-a6bc-fdb10b4d3b27",
-                    "path": "<Mouse>/delta/up",
+                    "name": "",
+                    "id": "e9ccc818-9977-425e-bc46-9f3d19e85b42",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Opendoor",
+                    "action": "ChangeScene",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Down",
-                    "id": "b204521a-1fa7-4aa2-8d80-264e0f71be32",
-                    "path": "<Mouse>/delta/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "PC",
-                    "action": "Opendoor",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Left",
-                    "id": "d33ab376-df62-4297-9c3b-f394a41c7d2a",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Opendoor",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Right",
-                    "id": "c788f67c-7f9d-48fd-8887-062db7ea82ca",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Opendoor",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "PSController",
-                    "id": "61d34777-f56b-4a9c-948c-a66d683cea8c",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Opendoor",
-                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Up",
-                    "id": "253d8ace-6270-4f05-a435-e8d323255f92",
-                    "path": "<DualShockGamepad>/rightStick/up",
+                    "name": "",
+                    "id": "99d79e53-911f-4435-951c-84105f74cd7a",
+                    "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
-                    "action": "Opendoor",
+                    "groups": "PC",
+                    "action": "Changecutscene",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Down",
-                    "id": "86be14d7-fb94-4840-a981-63d0769075da",
-                    "path": "<DualShockGamepad>/rightStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Controller",
-                    "action": "Opendoor",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Left",
-                    "id": "2eaea311-d1ae-4a88-97e4-9c6d75698083",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Opendoor",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Right",
-                    "id": "22bf488b-b2cf-480f-883b-d26ed1acef23",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Opendoor",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -498,6 +410,160 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "TV",
+            "id": "5cfe413b-9c63-4e87-a8c7-478f63f323e0",
+            "actions": [
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "b307628b-2815-4f9b-8b91-228d294a3ad1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "8c3b39b7-9dfd-4ded-81c3-e90b6b822346",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Backward",
+                    "type": "Button",
+                    "id": "52e62f2b-ff56-46aa-b032-1e23dc4eb7cb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Forward",
+                    "type": "Button",
+                    "id": "f801baf7-9e53-4ab9-ba54-ec779ea93c6b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1c7c0b13-43e8-4be3-9d6d-8ae14491f028",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee93ce57-3347-4478-b167-13a2c8c5a658",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9e8dc1c4-a1a8-4eb9-8bf3-8344beaace7c",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ae915fe7-819c-4a19-86df-aab6f791e3ff",
+                    "path": "<DualShockGamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4423ce76-0cbf-4653-8c3b-62f78cf8da1a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bda0210d-3ada-4495-bbf5-e3b288544f8b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2fbe90f5-8d8f-4ab6-ac21-cf4e61d969fc",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a4c7e0b6-e886-4285-ac98-6587191ef6bc",
+                    "path": "<DualShockGamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "744d7475-b089-464a-878a-155cada453a9",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Backward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29db6617-0616-452c-a37a-beb4afe19f18",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "PC",
+                    "action": "Forward",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

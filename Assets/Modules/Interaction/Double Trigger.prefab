@@ -58,7 +58,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   icon: {fileID: 8165271050297331063}
-  canSee: 0
 --- !u!1001 &8265883029572451282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -338,6 +337,10 @@ PrefabInstance:
     - target: {fileID: 2066986109521954605, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9059950367921918131, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}

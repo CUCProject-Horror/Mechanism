@@ -1,49 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
 
-public class PlayerAnimController : MonoBehaviour
+namespace Game
 {
-    public Animator playerFallAnim;
-    public Animator playerWalkAnim;
-    public GameObject player;
-    Vector3 playerMoveAmount;
-    public float dropTimer = 0;
-
-    public bool falling;
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerAnimController : MonoBehaviour
     {
-        falling = false;
-    }
+        public Animator playerFallAnim;
+        public Animator playerWalkAnim;
+        public GameObject player;
+        Vector2 playerMoveAmount;
 
-    // Update is called once per frame
-    void Update()
-    {
-        playerMoveAmount = player.GetComponent<CharacterController>().velocity;
-        playerWalkAnim.speed = playerMoveAmount.magnitude * 0.4f;
-
-        //if (player.GetComponent<CharacterController>().isGrounded == false)
-        //{ falling = true; }
-
-        //PlayerDropAnim();//½ÇÉ«ÂäµØ¶¯»­
-    }
-
-    void PlayerDropAnim()//½ÇÉ«ÂäµØ¶¯»­
-    {
-        if (player.GetComponent<CharacterController>().isGrounded && falling)
+        void FixedUpdate()
         {
-            playerFallAnim.SetTrigger("FallGround");
-            falling = false;
+            playerMoveAmount = new Vector2(player.GetComponent<CharacterController>().velocity.x, player.GetComponent<CharacterController>().velocity.z);
+            playerWalkAnim.speed = playerMoveAmount.magnitude * 0.4f;
+
+            PlayerDropAnim();//ï¿½ï¿½É«ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½
         }
-        //if (player.GetComponent<PlayerController>().isGround != true)
-        //{ dropTimer += Time.deltaTime; }
-        //else if(player.GetComponent<PlayerController>().isGround)
-        //{
-        //    if (dropTimer >= 0.3f)
-        //    playerFallAnim.SetTrigger("FallGround");
-        //    dropTimer = 0;
-        //}
+
+        void PlayerDropAnim()//ï¿½ï¿½É«ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½
+        {
+            if (player.GetComponent<CharacterController>().isGrounded && player.GetComponent<Protagonist>().fallingHeight >= 2.0f)
+            {   
+                playerFallAnim.SetTrigger("FallGround");
+            }
+        }
     }
 }

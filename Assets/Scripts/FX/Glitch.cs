@@ -2,17 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Glitch : MonoBehaviour
+namespace Game
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Glitch : MonoBehaviour
     {
-        
-    }
+        [HideInInspector] public bool canGlitch = false;
+        public GameObject glitchInteractor;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void ChangeGlitchState()
+        {
+            canGlitch = true;
+        }
+        public void GlitchTransfer()
+        {
+             if (canGlitch)
+            {
+                Debug.Log("Glitch!");
+                GetComponent<GlitchSwitch>().Switch = true;
+            }
+        }
+
+        private void Update()
+        {
+            if (!canGlitch)
+            {
+                glitchInteractor.SetActive(false);
+            }
+            else if (canGlitch)
+            {
+                glitchInteractor.SetActive(true);
+            }
+        }
     }
 }

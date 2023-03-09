@@ -5,14 +5,12 @@ using NaughtyAttributes;
 namespace Game {
 	public class ItemSource : MonoBehaviour {
 		#region Inspector fields
-		public DoubleTrigger interactor;
 		public Item item;
 		public bool infinite = false;
 		[HideIf("infinite")] public uint count = 1;
 		[HideIf("infinite")] public bool destroyOnEmpty;
 		public UnityEvent onDeliver;
 		[HideIf("infinite")] public UnityEvent onEmpty;
-		public bool view = true;
 		#endregion
 
 		#region Public interfaces

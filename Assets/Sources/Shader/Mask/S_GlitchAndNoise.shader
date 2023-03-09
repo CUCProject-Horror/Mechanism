@@ -92,7 +92,10 @@ Shader "FullScreen/S_GlitchAndNoise"
         PositionInputs posInput = GetPositionInput(varyings.positionCS.xy, _ScreenSize.zw, depth, UNITY_MATRIX_I_VP, UNITY_MATRIX_V);
 
         float4 c = LoadCustomColor(posInput.positionSS);
-        
+        float d = LoadCustomDepth(posInput.positionSS);
+
+        float alphaFactor = (depth > d + 0.000001) ? 0 : 1;
+
         float3 viewDirection = GetWorldSpaceNormalizeViewDir(posInput.positionWS);
         float4 color = float4(0.0, 0.0, 0.0, 0.0);
 
@@ -123,7 +126,7 @@ Shader "FullScreen/S_GlitchAndNoise"
 
         //float3 result = lerp(CustomPassSampleCameraColor(posInput.positionNDC.xy, 0).rgb, finalColor, c.a);
         float3 AppendColor = finalColor * (1 - _NoiseIntensity) + SimpleNoise(posInput.positionNDC.xy * _Time.x) * _NoiseIntensity;
-        float3 Output = lerp(CustomPassSampleCameraColor(posInput.positionNDC.xy, 0).rgb, AppendColor, c.a);
+        float3 Output = lerp(CustomPassSampleCameraColor(posInput.positionNDC.xy, 0).rgb, AppendColor, c.a * alphaFactor);
         //Fade value allow you to increase the strength of the effect while the camera gets closer to the custom pass volume
         //float f = 1 - abs(_FadeValue * 2 - 1);
         //return float4((color.rgb + f) * ScanLine, color.a);
