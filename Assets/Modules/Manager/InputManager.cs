@@ -13,7 +13,7 @@ namespace Game {
 		public bool canOrient = true;
 		public void OnMove(InputValue value) {
 			Vector2 raw = value.Get<Vector2>();
-			protagonist.movement.inputVelocity = new Vector3 {
+			protagonist.inputVelocity = new Vector3 {
 				x = raw.x,
 				y = 0,
 				z = raw.y

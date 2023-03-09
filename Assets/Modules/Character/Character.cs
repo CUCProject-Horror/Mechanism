@@ -1,99 +1,68 @@
 using UnityEngine;
+using NaughtyAttributes;
 
 namespace Game {
-	public partial class Character : Entity {
-		public struct Movement {
-			public enum State {
-				Passive,        // Character status is controlled externally.
-				Walking,        // Character is walking on ground.
-				Freefalling,    // Character is falling and doesn't receive player input.
-				Jumping,        // Character has just jumped.
-				Landing,        // Character has just landed on ground.
-			}
-			public State state;
+	[RequireComponent(typeof(CharacterController))]
+	public class Character : MonoBehaviour {
+		#region Inspector Properties
+		#region Movability
+		[Header("Movement")]
+		[Range(1, 500)] public float sprintingSpeed;
+		[Range(1, 500)] public float walkingSpeed;
+		bool sprinting = false;
 
-			public Vector3 inputVelocity;
-			public Vector3 walkingVelocity;
-		}
+		[Header("Crouching")]
+		[Range(1, 500)] public float crouchingSpeed;
+		[MinMaxSlider(0, 2)] public Vector2 height;
+		bool crouching = false;
 
-		#region Inspector members
-		public CharacterMovementSettings movementSettings;
+		[Header("Orientation")]
+		[Range(1, 10)] public float orientingSpeed;
+		[MinMaxSlider(-90, 90)] public Vector2 pitchRange;
+
+		[Header("Falling")]
+		[Range(1, 30)] public float fallingLimit = 5;
+		protected float lastGroundHeight;
 		#endregion
 
-		#region Core members
-		public Movement movement;
-		public Inventory inventory;
+		[Header("Inventory")]
+		public Inventory inventory = new Inventory();
 		#endregion
 
-		#region Core methods
-		void UpdateMovementState() {
-			switch(movement.state) {
-				case Movement.State.Walking:
-					// If not standing on any point, freefall
-					if(!standingPoint.HasValue) {
-						movement.walkingVelocity = Vector3.zero;
-						movement.state = Movement.State.Freefalling;
-					}
-					break;
-				case Movement.State.Freefalling:
-					// If landed, land
-					if(standingPoint.HasValue) {
-						float fallingSpeed = Vector3.Dot(rigidbody.velocity, Physics.gravity);
-						if(fallingSpeed < 0)
-							break;
-						movement.state = Movement.State.Landing;
-					}
-					break;
-				case Movement.State.Jumping:
-					// TODO: Animation etc.
-					movement.state = Movement.State.Freefalling;
-					break;
-				case Movement.State.Landing:
-					// TODO: Animation etc.
-					movement.state = Movement.State.Walking;
-					break;
-			}
-		}
-
-		float SlopeByNormal(Vector3 normal) {
-			float cos = Vector3.Dot(-Physics.gravity.normalized, normal.normalized);
-			return Mathf.Acos(cos);
-		}
-
-		Vector3 CalculateWalkingVelocity() {
-			Vector3 targetVelocity = transform.localToWorldMatrix.MultiplyVector(movement.inputVelocity);
-			float speed = targetVelocity.magnitude;
-			speed *= movementSettings.walking.speed;
-			targetVelocity = targetVelocity.normalized * speed;
-			// Project onto the tangent plane of the current standing point
-			Vector3 normal = standingPoint.Value.normal;
-			float slopeAngle = SlopeByNormal(normal) / Mathf.PI * 180;
-			if(slopeAngle > movementSettings.walking.maxSlopeAngle)
-				return Vector3.zero;
-			targetVelocity = targetVelocity - Vector3.Dot(targetVelocity, normal.normalized) * normal;
-			return targetVelocity;
-		}
-		Vector3 CalculateWalkingForce(Vector3 targetVelocity) {
-			Vector3 deltaVelocity = targetVelocity - rigidbody.velocity;
-			float magnitude = deltaVelocity.magnitude;
-			magnitude *= movementSettings.walking.accelerationGain;
-			magnitude = Mathf.Min(magnitude, movementSettings.walking.maxAcceleration);
-			return deltaVelocity.normalized * magnitude;
-		}
+		#region Core fields
+		protected CharacterController controller;
 		#endregion
 
 		#region Public interfaces
-		public ContactPoint? standingPoint {
-			get {
-				ContactPoint? result = null;
-				foreach(ContactPoint point in contactingPoints.Values) {
-					float slopeAngle = SlopeByNormal(point.normal) / Mathf.PI * 180;
-					if(slopeAngle > movementSettings.walking.maxSlopeAngle)
-						continue;
-					if(!result.HasValue || point.point.y < result.Value.point.y)
-						result = point;
-				}
-				return result;
+		public Vector3 inputVelocity = Vector3.zero;
+		public Vector2 inputRotation = Vector2.zero;
+
+		public float Height => crouching ? height.x : height.y;
+
+		public virtual bool Sprinting {
+			get => sprinting;
+			set => sprinting = value;
+		}
+
+		public virtual bool Crouching {
+			get => crouching;
+			set {
+				crouching = value;
+				//GetComponentInChildren<CapsuleCollider>().height = Height;
+				controller.height = Height;
+				controller.center = new Vector3(0, Height / 2, 0);
+			}
+		}
+
+		public float movementSpeed => crouching ? crouchingSpeed : sprinting ? sprintingSpeed : walkingSpeed;
+
+		public virtual void Move(Vector3 velocity) {
+			controller.SimpleMove(velocity);
+			if(controller.isGrounded) {
+                float fallingHeight = lastGroundHeight - transform.position.y;
+                if (fallingHeight > fallingLimit)
+					DieFalling();
+				lastGroundHeight = transform.position.y;
 			}
 		}
 
@@ -103,31 +72,24 @@ namespace Game {
 			transform.rotation = Quaternion.Euler(body);
 		}
 
-		public void Jump() {
-			Vector3 impulse = -Physics.gravity.normalized * movementSettings.jumping.speed / rigidbody.mass;
-			rigidbody.AddForce(impulse, ForceMode.Impulse);
-			movement.state = Movement.State.Jumping;
+		public void DieFalling() {
+			Debug.Log($"{gameObject.name} fell and died");
 		}
 		#endregion
 
 		#region Life cycle
-		protected new void Start() {
-			base.Start();
-
-			// Initialize
-			movement.state = Movement.State.Freefalling;
-			movement.inputVelocity = Vector3.zero;
+		protected void Start() {
+			controller = GetComponent<CharacterController>();
 		}
 
-		protected void FixedUpdate() {
-			UpdateMovementState();
-			switch(movement.state) {
-				case Movement.State.Walking:
-					movement.walkingVelocity = CalculateWalkingVelocity();
-					Vector3 force = CalculateWalkingForce(movement.walkingVelocity);
-					rigidbody.AddForce(force);
-					break;
-			}
+		void FixedUpdate() {
+			Vector3 velocity = inputVelocity * movementSpeed * Time.fixedDeltaTime;
+			velocity = transform.localToWorldMatrix.MultiplyVector(velocity);
+			Move(velocity);
+
+			Vector2 rotation = inputRotation * orientingSpeed * Time.fixedDeltaTime;
+			rotation.y = -rotation.y;
+			Rotate(rotation);
 		}
 		#endregion
 	}
