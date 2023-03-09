@@ -761,7 +761,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &130940722
 Transform:
   m_ObjectHideFlags: 0
@@ -1744,6 +1744,10 @@ PrefabInstance:
     - target: {fileID: 832296624857785800, guid: 5671959cdf0676b47bee031ed42ada12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426778889576274995, guid: 5671959cdf0676b47bee031ed42ada12, type: 3}
+      propertyPath: infinite
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4465699407294760851, guid: 5671959cdf0676b47bee031ed42ada12, type: 3}
       propertyPath: ScreenDark
@@ -4296,6 +4300,7 @@ MonoBehaviour:
   ScreenToPlay: {fileID: 1941042201}
   ScreenDark: {fileID: 485176970}
   playSpeed: 0
+  vidFrame: 0
 --- !u!1001 &2036930728
 PrefabInstance:
   m_ObjectHideFlags: 0
