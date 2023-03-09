@@ -17,10 +17,10 @@ MonoBehaviour:
   onView:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: b1f7a0584bed97a469608986ff622b62, type: 2}
-        m_TargetAssemblyTypeName: Game.GameAgent, Assembly-CSharp
-        m_MethodName: DebugLog
-        m_Mode: 5
+      - m_Target: {fileID: 11400000, guid: 0f55051470011c44e87907385a03340d, type: 2}
+        m_TargetAssemblyTypeName: Game.GameManagerAgent, Assembly-CSharp
+        m_MethodName: OnVidItemView
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

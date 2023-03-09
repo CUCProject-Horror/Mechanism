@@ -8,7 +8,7 @@ public class GlitchSwitch : MonoBehaviour
 {
     public GameObject SwitchobejectA;
     public GameObject SwitchobejectB;
-    [Range(5, 20)] public float Intensity; 
+    [Range(1, 20)] public float Intensity; 
     private float IntensityA;
     private float IntensityB;   
     public bool Switch = false;
