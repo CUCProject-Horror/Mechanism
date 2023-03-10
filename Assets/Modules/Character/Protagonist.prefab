@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 3215353861493200614}
   - component: {fileID: 3215353861493200611}
   - component: {fileID: 3184189308454197227}
+  - component: {fileID: 5757008239629696695}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -301,7 +302,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 3215353861493200612}
   maxDistance: 10
-  lastFocused: []
+  raycastAll: 0
+--- !u!114 &5757008239629696695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215353861493200610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d8a614237130a418a3c62d7f3bd111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5158957880045900666
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,5 +437,3 @@ MonoBehaviour:
   playerFallAnim: {fileID: 5619525464516716002}
   playerWalkAnim: {fileID: 6118756461595693964}
   player: {fileID: 3215353861071126044}
-  dropTimer: 0
-  falling: 0
