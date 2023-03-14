@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneTest : MonoBehaviour
 {
@@ -40,6 +41,11 @@ public class SceneTest : MonoBehaviour
         {
             cutsceneNum = 1;
         }
+    }
+
+    public void OnRestart()
+    {
+        SceneManager.LoadScene("Level1WhiteBox");
     }
 
     void Update()
