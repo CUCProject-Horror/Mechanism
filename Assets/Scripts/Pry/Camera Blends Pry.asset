@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Camera Blends Pry
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: CM vcam2
-    m_To: CM vcam1
+  - m_From: Player vcam
+    m_To: Pry VCam1_1
     m_Blend:
       m_Style: 1
       m_Time: 2
@@ -24,8 +24,8 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: CM vcam1
-    m_To: CM vcam2
+  - m_From: Pry VCam1_1
+    m_To: Player vcam
     m_Blend:
       m_Style: 0
       m_Time: 2

@@ -15,7 +15,7 @@ public class AfterImage : MonoBehaviour
     public Camera rCamera;
     private bool start_afterImageEffect = true;
 
-    bool test = true;
+    public bool test;
 
     /*private void Start()
     {
@@ -49,7 +49,7 @@ public class AfterImage : MonoBehaviour
             test = false;
        }
     }
-
+    
     
 
     public IEnumerator StartAfterImageEffect()

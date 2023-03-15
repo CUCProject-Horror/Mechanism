@@ -79,5 +79,14 @@ namespace Game
                 vp.frame = vp.frame - 1 * (long)vp.frameRate;
             }
         }
+
+        public void PlayVidInBag(VideoClip clipToPlay)
+        {
+            ScreenToPlay.SetActive(true);
+            ScreenDark.SetActive(true);
+            vp.clip = clipToPlay;
+            vp.enabled = true;
+            ScreenToPlay.GetComponent<PlayerInput>().enabled = true;
+        }
     }
 }

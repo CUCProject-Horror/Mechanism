@@ -25,9 +25,9 @@ namespace Game {
 				activity = value;
 				if(activity) {
 					foreach(InteractableTarget target in lastFocused) {
-						if(!target.focused)
+						if(!target.focused  && target.gameObject.transform.parent.gameObject.GetComponent<DoubleTrigger>().canInteract)
 							target.OnFocus(this);
-						if(!target.activated)
+						if(!target.activated && target.gameObject.transform.parent.gameObject.GetComponent<DoubleTrigger>().canInteract)
 							target.OnActivate(this);
 					}
 				}

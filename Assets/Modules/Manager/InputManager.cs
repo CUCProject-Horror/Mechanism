@@ -43,6 +43,10 @@ namespace Game {
 			{
                 protagonist.inputRotation = raw;
 			}
+            else
+            {
+				protagonist.inputRotation = Vector2.zero;
+			}
 		}
 
 		public void OnInventory() {

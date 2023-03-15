@@ -6,6 +6,7 @@ namespace Game {
 		public static GameManager instance;
 		public GameManager() => instance = this;
 
+
 		public enum StateEnum {
 			Invalid = 0,
 			Protagonist = 1,
@@ -22,6 +23,7 @@ namespace Game {
 		[NonSerialized] public Protagonist protagonist;
 		[NonSerialized] public InventoryUI inventoryUI;
 		[NonSerialized] public InputManager input;
+		public VidController vid;
 
 		StateEnum state = StateEnum.Protagonist;
 		#endregion

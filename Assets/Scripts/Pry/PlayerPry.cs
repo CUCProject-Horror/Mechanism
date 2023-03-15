@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using Cinemachine;
 
 public class PlayerPry : MonoBehaviour
@@ -26,6 +27,9 @@ public class PlayerPry : MonoBehaviour
     private CinemachineVirtualCamera currentCam;
     bool isPrying;
 
+    public UnityEvent OnEnterPry;
+    public UnityEvent OnLeavePry;
+
     void Start()
     {
         mainCam = Camera.main;
@@ -46,15 +50,13 @@ public class PlayerPry : MonoBehaviour
 
     }
 
-    void Update()
-    {
-
-    }
 
     public void StartPry()
     {
         if (!isPrying)
         {
+            OnEnterPry.Invoke();
+            mainCam.enabled = false;
             pryCam.enabled = true;
             isPrying = true;
             indcator.enabled = false;
@@ -73,6 +75,7 @@ public class PlayerPry : MonoBehaviour
     public void EndPry()
     {
         indcator.enabled = true;
+        mainCam.enabled = true;
         pryCam.enabled = false;
         SwitchCamera(playerCam);
         EndPryAnimator();
@@ -107,6 +110,7 @@ public class PlayerPry : MonoBehaviour
 
     public void EndPryMethod()
     {
+        OnLeavePry.Invoke();
         isPrying = false;
         pryCanvas.SetActive(false);
         pryCanvas.GetComponent<Image>().sprite = null;
