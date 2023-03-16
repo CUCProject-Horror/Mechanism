@@ -59,26 +59,13 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3017926965193841644}
-        m_TargetAssemblyTypeName: PlayerPry, Assembly-CSharp
-        m_MethodName: StartPry
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3017926965193841644}
-        m_TargetAssemblyTypeName: PlayerPry, Assembly-CSharp
-        m_MethodName: SwitchCamera
+      - m_Target: {fileID: 11400000, guid: 0f55051470011c44e87907385a03340d, type: 2}
+        m_TargetAssemblyTypeName: Game.GameManagerAgent, Assembly-CSharp
+        m_MethodName: Pry
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 3017926965392647470}
-          m_ObjectArgumentAssemblyTypeName: Cinemachine.CinemachineVirtualCamera,
-            Cinemachine
+          m_ObjectArgument: {fileID: 3017926965193841644}
+          m_ObjectArgumentAssemblyTypeName: Game.PlayerPry, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -98,7 +85,6 @@ GameObject:
   - component: {fileID: 3017926965193841634}
   - component: {fileID: 3017926965193841635}
   - component: {fileID: 3017926965193841644}
-  - component: {fileID: 3017926965193841647}
   m_Layer: 0
   m_Name: PryObj
   m_TagString: Untagged
@@ -211,66 +197,12 @@ MonoBehaviour:
   playerCam: {fileID: 0}
   pryCamera: {fileID: 3017926965392647470}
   startCam: {fileID: 0}
-  EnterPry:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 0f55051470011c44e87907385a03340d, type: 2}
-        m_TargetAssemblyTypeName: Game.GameManagerAgent, Assembly-CSharp
-        m_MethodName: set_protagonistCanOrient
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  LeavePry:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 0f55051470011c44e87907385a03340d, type: 2}
-        m_TargetAssemblyTypeName: Game.GameManagerAgent, Assembly-CSharp
-        m_MethodName: set_protagonistCanOrient
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &3017926965193841647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3017926965193841638}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9cccd548d5576c447b91a3b12006ca49, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
+  OnEnterPry:
     m_PersistentCalls:
       m_Calls: []
-  m_DeviceRegainedEvent:
+  OnLeavePry:
     m_PersistentCalls:
       m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Pry
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &3017926965386410772
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2066986109521954605, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2066986109521954605, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.size

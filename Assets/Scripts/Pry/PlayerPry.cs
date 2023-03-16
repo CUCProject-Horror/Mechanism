@@ -7,123 +7,120 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using Cinemachine;
 
-public class PlayerPry : MonoBehaviour
+namespace Game
 {
-    public Camera mainCam;
-    public Camera pryCam;
-    public SpriteRenderer indcator;
-    public GameObject pryCanvas;
-    public GameObject blinkImage;
-    public Sprite pryTex;
-    public Sprite blinkStartTex;
-    public Animator pryAnim;
-
-    public CinemachineVirtualCamera[] cameras;
-
-    public CinemachineVirtualCamera playerCam;
-    public CinemachineVirtualCamera pryCamera;
-
-    public CinemachineVirtualCamera startCam;
-    private CinemachineVirtualCamera currentCam;
-    bool isPrying;
-
-    public UnityEvent OnEnterPry;
-    public UnityEvent OnLeavePry;
-
-    void Start()
+    public class PlayerPry : MonoBehaviour
     {
-        mainCam = Camera.main;
-        //pryAnim = GetComponent<Animator>();
-        currentCam = startCam;
+        public Camera mainCam;
+        public Camera pryCam;
+        public SpriteRenderer indcator;
+        public GameObject pryCanvas;
+        public GameObject blinkImage;
+        public Sprite pryTex;
+        public Sprite blinkStartTex;
+        public Animator pryAnim;
 
-        for (int i = 0; i < cameras.Length; i++)
+        public CinemachineVirtualCamera[] cameras;
+
+        public CinemachineVirtualCamera playerCam;
+        public CinemachineVirtualCamera pryCamera;
+
+        public CinemachineVirtualCamera startCam;
+        private CinemachineVirtualCamera currentCam;
+        bool isPrying;
+
+        public UnityEvent OnEnterPry;
+        public UnityEvent OnLeavePry;
+
+        void Start()
         {
-            if (cameras[i] == currentCam)
+            mainCam = Camera.main;
+            //pryAnim = GetComponent<Animator>();
+            currentCam = startCam;
+
+            for (int i = 0; i < cameras.Length; i++)
             {
-                cameras[i].Priority = 20;
+                if (cameras[i] == currentCam)
+                {
+                    cameras[i].Priority = 20;
+                }
+                else
+                {
+                    cameras[i].Priority = 10;
+                }
+            }
+
+        }
+
+
+        public void Activate()
+        {
+            if (!isPrying)
+            {
+                OnEnterPry.Invoke();
+                mainCam.enabled = false;
+                pryCam.enabled = true;
+                isPrying = true;
+                indcator.enabled = false;
+                Invoke("PryAnimator", 1.5f);
+                Invoke("PryMethod", 2f);
+                SwitchCamera(pryCamera);
             }
             else
+                return;
+        }
+
+        public void Deactivate()
+        {
+            indcator.enabled = true;
+            mainCam.enabled = true;
+            pryCam.enabled = false;
+            SwitchCamera(playerCam);
+            EndPryAnimator();
+            Invoke("EndPryMethod", 0.5f);
+        }
+
+        public void SwitchCamera(CinemachineVirtualCamera newCam)
+        {
+            currentCam = newCam;
+
+            currentCam.Priority = 20;
+
+            for (int i = 0; i < cameras.Length; i++)
             {
-                cameras[i].Priority = 10;
+                if (cameras[i] != currentCam)
+                {
+                    cameras[i].Priority = 10;
+                }
             }
         }
 
-    }
-
-
-    public void StartPry()
-    {
-        if (!isPrying)
+        public void PryMethod()
         {
-            OnEnterPry.Invoke();
-            mainCam.enabled = false;
-            pryCam.enabled = true;
-            isPrying = true;
-            indcator.enabled = false;
-            Invoke("PryAnimator", 1.5f);
-            Invoke("PryMethod", 2f);
-        }
-        else
-            return;
-    }
-
-    public void OnEndPry()
-    {
-        EndPry();
-    }
-
-    public void EndPry()
-    {
-        indcator.enabled = true;
-        mainCam.enabled = true;
-        pryCam.enabled = false;
-        SwitchCamera(playerCam);
-        EndPryAnimator();
-        GetComponent<PlayerInput>().enabled = false;
-        Invoke("EndPryMethod", 0.5f);
-    }
-
-    public void SwitchCamera(CinemachineVirtualCamera newCam)
-    {
-        currentCam = newCam;
-
-        currentCam.Priority = 20;
-
-        for (int i = 0; i < cameras.Length; i++)
-        {
-            if (cameras[i] != currentCam)
+            if (isPrying)
             {
-                cameras[i].Priority = 10;
+                pryCanvas.SetActive(true);
+                pryCanvas.GetComponent<Image>().sprite = pryTex;
             }
         }
-    }
 
-    public void PryMethod()
-    {
-        if(isPrying)
+        public void EndPryMethod()
         {
-            pryCanvas.SetActive(true);
-            pryCanvas.GetComponent<Image>().sprite = pryTex;
-            GetComponent<PlayerInput>().enabled = true;
-        }    
-    }
+            OnLeavePry.Invoke();
+            isPrying = false;
+            pryCanvas.SetActive(false);
+            pryCanvas.GetComponent<Image>().sprite = null;
+        }
 
-    public void EndPryMethod()
-    {
-        OnLeavePry.Invoke();
-        isPrying = false;
-        pryCanvas.SetActive(false);
-        pryCanvas.GetComponent<Image>().sprite = null;
-    }
+        public void PryAnimator()
+        {
+            pryAnim.SetTrigger("Pry");
+        }
 
-    public void PryAnimator()
-    {
-        pryAnim.SetTrigger("Pry");
-    }
+        public void EndPryAnimator()
+        {
+            pryAnim.SetTrigger("EndPry");
+        }
 
-    public void EndPryAnimator()
-    {
-        pryAnim.SetTrigger("EndPry");
     }
-
 }

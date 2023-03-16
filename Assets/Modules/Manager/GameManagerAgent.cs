@@ -14,6 +14,16 @@ namespace Game {
         {
 			game.vid.gameObject.SetActive(true);
 			game.vid.PlayVidInBag(thisClip);
+			game.vid.isInventory = true;
+        }
+
+		public void Pry(PlayerPry pry) {
+			game.Prying = pry;
+		}
+
+		public void TVStateChange(int state)
+        {
+			game.TVState(state);
         }
 	}
 }

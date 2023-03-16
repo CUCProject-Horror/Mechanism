@@ -8,9 +8,9 @@ Shader "Hidden/S_Particles"
     }
     SubShader
     {
-        Tags{"Queue" = "Transparent"}
+        Tags{"Queue" = "Geometry"}
         // No culling or depth
-        Cull Off ZWrite Off ZTest Always
+        Cull Off ZWrite On ZTest LEqual
         blend SrcAlpha OneMinusSrcAlpha
 
         Pass
