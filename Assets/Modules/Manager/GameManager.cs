@@ -1,4 +1,5 @@
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 using System;
 
 namespace Game {
@@ -26,6 +27,7 @@ namespace Game {
 		[NonSerialized] public Protagonist protagonist;
 		[NonSerialized] public InventoryUI inventoryUI;
 		[NonSerialized] public InputManager input;
+		public DialogueSystemController ds;
 		PlayerPry currentPrying;
 		public VidController vid;
 

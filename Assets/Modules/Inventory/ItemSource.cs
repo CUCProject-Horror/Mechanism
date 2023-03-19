@@ -46,9 +46,12 @@ namespace Game {
 		}
 
 		void OnDrawGizmos() {
-			Mesh mesh = item?.prefab?.GetComponentInChildren<MeshFilter>()?.sharedMesh;
+			var prefab = item?.prefab!;
+			if (!prefab)
+				return;
+			Mesh mesh = prefab.GetComponentInChildren<MeshFilter>()?.sharedMesh;
 			if(mesh)
-				Gizmos.DrawMesh(mesh, transform.position);
+				Gizmos.DrawMesh(mesh, transform.position, transform.rotation, prefab.transform.localScale);
 			else
 				Gizmos.DrawCube(transform.position, Vector3.one);
 		}

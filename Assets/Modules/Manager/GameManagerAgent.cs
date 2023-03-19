@@ -34,6 +34,11 @@ namespace Game {
 		public void ProtagonistStateChange()
         {
 			game.ProtagonistState();
-        }			
+        }
+
+		public void StartConversation(string name) {
+			game.ds.StartConversation(name);
+			
+		}
 	}
 }

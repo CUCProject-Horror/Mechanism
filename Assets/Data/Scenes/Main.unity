@@ -390,10 +390,10 @@ RectTransform:
   - {fileID: 1032281074}
   - {fileID: 1468395279}
   - {fileID: 1228688316}
-  - {fileID: 1169887646}
   - {fileID: 8547462099239865613}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  - {fileID: 1169887646}
+  m_Father: {fileID: 934149973}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 9cccd548d5576c447b91a3b12006ca49, type: 3}
   m_PointAction: {fileID: -2235898076800172245, guid: 9cccd548d5576c447b91a3b12006ca49, type: 3}
-  m_MoveAction: {fileID: 0}
+  m_MoveAction: {fileID: 4615473336743703708, guid: 9cccd548d5576c447b91a3b12006ca49, type: 3}
   m_SubmitAction: {fileID: 0}
   m_CancelAction: {fileID: 0}
   m_LeftClickAction: {fileID: -3003282376748341090, guid: 9cccd548d5576c447b91a3b12006ca49, type: 3}
@@ -480,7 +480,7 @@ Transform:
   - {fileID: 200527469}
   - {fileID: 1524618518}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &74930681
 MonoBehaviour:
@@ -510,6 +510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryViewingDistance: 5
   inspectingDistance: 3
+  ds: {fileID: 190573001}
   vid: {fileID: 1941042208}
 --- !u!114 &74930684
 MonoBehaviour:
@@ -834,7 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c593457cd8105e148906690e1707c592, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: 64
+  trigger: 8
   condition:
     luaConditions: []
     questConditions: []
@@ -909,7 +910,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &190494727
 MonoBehaviour:
@@ -953,7 +954,7 @@ MonoBehaviour:
   alwaysAutoFocus: 0
   detectMouseControl: 1
   mouseMoveThreshold: 0.1
-  controlCursorState: 1
+  controlCursorState: 0
   enforceCursorOnPause: 0
   controlGraphicRaycasters: 0
   backKeyCodes: 4b010000
@@ -1446,7 +1447,7 @@ Transform:
   - {fileID: 851517106}
   - {fileID: 1265895695}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &358364857 stripped
 Transform:
@@ -2411,6 +2412,7 @@ Transform:
   - {fileID: 1745931905}
   - {fileID: 2137864250}
   - {fileID: 1627228176}
+  - {fileID: 67423847}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3312,7 +3314,7 @@ Transform:
   - {fileID: 1497318627}
   - {fileID: 130940722}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1045463428
 PrefabInstance:
@@ -3692,7 +3694,7 @@ RectTransform:
   - {fileID: 485176971}
   - {fileID: 1941042202}
   m_Father: {fileID: 67423847}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3789,7 +3791,7 @@ Transform:
   m_Children:
   - {fileID: 663964937}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228688315
 GameObject:
@@ -5525,7 +5527,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!115 &1933948512
 MonoScript:
@@ -6017,7 +6019,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2124619314
 GameObject:
@@ -7056,6 +7058,38 @@ PrefabInstance:
       propertyPath: view
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2426778889405756285, guid: eddb93e8ead2fd949bcde06a15c46594, type: 3}
+      propertyPath: onDeliver.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426778889405756285, guid: eddb93e8ead2fd949bcde06a15c46594, type: 3}
+      propertyPath: onDeliver.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426778889405756285, guid: eddb93e8ead2fd949bcde06a15c46594, type: 3}
+      propertyPath: onDeliver.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 0f55051470011c44e87907385a03340d, type: 2}
+    - target: {fileID: 2426778889405756285, guid: eddb93e8ead2fd949bcde06a15c46594, type: 3}
+      propertyPath: onDeliver.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426778889405756285, guid: eddb93e8ead2fd949bcde06a15c46594, type: 3}
+      propertyPath: onDeliver.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartConversation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426778889405756285, guid: eddb93e8ead2fd949bcde06a15c46594, type: 3}
+      propertyPath: onDeliver.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.GameManagerAgent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426778889405756285, guid: eddb93e8ead2fd949bcde06a15c46594, type: 3}
+      propertyPath: onDeliver.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: New Conversation 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426778889405756285, guid: eddb93e8ead2fd949bcde06a15c46594, type: 3}
+      propertyPath: onDeliver.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3406145568458603262, guid: eddb93e8ead2fd949bcde06a15c46594, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -7201,7 +7235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2096918865720489266, guid: c40f0f65004950845b8c6ee8cd48c32d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2096918865720489266, guid: c40f0f65004950845b8c6ee8cd48c32d, type: 3}
       propertyPath: m_SizeDelta.x

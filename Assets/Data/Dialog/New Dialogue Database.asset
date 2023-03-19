@@ -38,7 +38,7 @@ MonoBehaviour:
   - id: 1
     fields:
     - title: Name
-      value: TOUBOU
+      value: Player
       type: 0
       typeString: 
     - title: Pictures
@@ -51,6 +51,28 @@ MonoBehaviour:
       typeString: 
     - title: IsPlayer
       value: True
+      type: 2
+      typeString: CustomFieldType_Boolean
+    portrait: {fileID: 0}
+    spritePortrait: {fileID: 0}
+    alternatePortraits: []
+    spritePortraits: []
+  - id: 2
+    fields:
+    - title: Name
+      value: YSTOUBOU
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+    - title: IsPlayer
+      value: False
       type: 2
       typeString: CustomFieldType_Boolean
     portrait: {fileID: 0}
@@ -86,11 +108,11 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Actor
-      value: 1
+      value: 2
       type: 5
       typeString: CustomFieldType_Actor
     - title: Conversant
-      value: 2
+      value: -1
       type: 5
       typeString: CustomFieldType_Actor
     overrideSettings:
@@ -132,11 +154,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 2
+        value: -1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -165,6 +187,12 @@ MonoBehaviour:
         destinationDialogueID: 1
         isConnector: 0
         priority: 2
+      - originConversationID: 1
+        originDialogueID: 0
+        destinationConversationID: 1
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -172,8 +200,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7
-        y: 66
+        x: 18.363632
+        y: 31.909103
         width: 160
         height: 30
     - id: 1
@@ -187,7 +215,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Actor
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -227,8 +255,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 10.315788
-        y: 154.6842
+        x: 12.588524
+        y: 188.77512
         width: 160
         height: 30
     - id: 2
@@ -242,11 +270,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: 1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: 1
+        value: -1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -276,8 +304,57 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 18.270332
-        y: 325.13873
+        x: 15.772736
+        y: 333.0933
+        width: 160
+        height: 30
+    - id: 3
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 228.59088
+        y: 187.59088
         width: 160
         height: 30
     entryGroups: []

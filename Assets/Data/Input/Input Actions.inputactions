@@ -364,6 +364,15 @@
                     "processors": "",
                     "interactions": "Press(pressPoint=1.401298E-45)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "UIMove",
+                    "type": "Value",
+                    "id": "4b01fb27-b9f5-4238-a382-5f5989a9c223",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -413,23 +422,23 @@
                 },
                 {
                     "name": "",
-                    "id": "42e3b177-65c3-47ba-b02c-cef8f3fdda18",
+                    "id": "456b7309-2149-4929-b75a-33e76526aedb",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Point",
+                    "action": "UIMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "ab545a87-233d-47e9-9a66-85804d161faa",
+                    "id": "bda46a36-d50a-4093-a02d-d438e17aa7f7",
                     "path": "<DualShockGamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Point",
+                    "action": "UIMove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
