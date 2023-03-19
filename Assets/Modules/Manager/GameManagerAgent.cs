@@ -25,5 +25,15 @@ namespace Game {
         {
 			game.TVState(state);
         }
+
+		public void NullStateChange()
+        {
+			game.NullState();
+        }
+
+		public void ProtagonistStateChange()
+        {
+			game.ProtagonistState();
+        }			
 	}
 }

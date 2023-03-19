@@ -759,6 +759,12 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Do Nothing",
+            "id": "9ff3ef9f-8ec9-480a-8336-55cc3951fb19",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [

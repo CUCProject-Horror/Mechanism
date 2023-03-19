@@ -13,6 +13,7 @@ namespace Game {
 			Inventory,
 			Prying,
 			TV,
+			Null,
 		}
 
 		#region Inspector fields
@@ -65,6 +66,10 @@ namespace Game {
 						input.enabled = true;
 						input.playerInput.SwitchCurrentActionMap("TV");
 						break;
+					case StateEnum.Null:
+						input.enabled = true;
+						input.playerInput.SwitchCurrentActionMap("Do Nothing");
+						break;
 				}
 			}
 		}
@@ -98,6 +103,16 @@ namespace Game {
             {
 				State = StateEnum.Inventory;
 			}
+        }
+
+		public void NullState()
+        {
+			State = StateEnum.Null;
+        }
+
+		public void ProtagonistState()
+        {
+			State = StateEnum.Protagonist;
         }
 		#endregion
 
