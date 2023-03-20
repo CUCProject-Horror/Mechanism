@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Game
 {
@@ -8,11 +9,14 @@ namespace Game
     {
         public float maxFocusTime;
 
-        public float timer = 0;
+        float timer = 0;
         bool isFocusing = false;
         bool canFocus;
         bool canInspect = false;
         bool hasInspected = false;
+
+        public UnityEvent showSubtitle;
+        public UnityEvent stopSubtitle;
 
         void FixedUpdate()
         {
@@ -49,6 +53,7 @@ namespace Game
             {
                 Debug.Log("Inspect!");
                 hasInspected = true;
+                showSubtitle.Invoke();
                 //BeginInspect
             }
         }
@@ -59,6 +64,7 @@ namespace Game
             {
                 Debug.Log("Leave Inspect!");
                 hasInspected = false;
+                stopSubtitle.Invoke();
                 //Destroy Subtitle
             }
         }

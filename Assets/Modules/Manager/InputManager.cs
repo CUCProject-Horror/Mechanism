@@ -51,7 +51,6 @@ namespace Game {
 
 		public void OnEndPry() {
 			GameManager.instance.Prying = null;
-			Debug.Log("OnEndPry");
 		}
 
 		public void OnInventory() {

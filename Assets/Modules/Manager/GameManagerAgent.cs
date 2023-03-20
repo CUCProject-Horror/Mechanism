@@ -36,9 +36,22 @@ namespace Game {
 			game.ProtagonistState();
         }
 
-		public void StartConversation(string name) {
+		public void StartConversation(string name) 
+		{
+			game.ds.StopConversation();
 			game.ds.StartConversation(name);
-			
+		}
+
+		public void EndConversation()
+        {
+			game.ds.StopConversation();
+        }
+
+		public void RemoveItem(string itemName)
+        {
+			Inventory inventory = game.protagonist.inventory;
+
+			inventory.Remove(itemName);
 		}
 	}
 }

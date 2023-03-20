@@ -57,9 +57,12 @@ namespace Game
         {
             if (!isPrying)
             {
-                OnEnterPry.Invoke();
+                //OnEnterPry.Invoke();
+
+                //pryCam.enabled = true;
                 mainCam.enabled = false;
-                pryCam.enabled = true;
+                
+                pryCam.depth = 1;
                 isPrying = true;
                 indcator.enabled = false;
                 Invoke("PryAnimator", 1.5f);
@@ -74,7 +77,8 @@ namespace Game
         {
             indcator.enabled = true;
             mainCam.enabled = true;
-            pryCam.enabled = false;
+            //pryCam.enabled = false;
+            pryCam.depth = -1;
             SwitchCamera(playerCam);
             EndPryAnimator();
             Invoke("EndPryMethod", 0.5f);
@@ -114,12 +118,13 @@ namespace Game
 
         public void PryAnimator()
         {
-            pryAnim.SetTrigger("Pry");
+            if(isPrying)
+            pryAnim.SetBool("Pry", true);
         }
 
         public void EndPryAnimator()
         {
-            pryAnim.SetTrigger("EndPry");
+            pryAnim.SetBool("Pry", false);
         }
 
     }

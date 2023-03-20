@@ -1,6 +1,7 @@
 using UnityEngine;
 using PixelCrushers.DialogueSystem;
 using System;
+using System.Collections;
 
 namespace Game {
 	public class GameManager : MonoBehaviour {
@@ -86,9 +87,16 @@ namespace Game {
 				if (currentPrying = value)
 				{
 					currentPrying.Activate();
-					State = StateEnum.Prying;
+					State = StateEnum.Null;
+					StartCoroutine(PryState());
 				}
 			}
+		}
+
+		public IEnumerator PryState()
+		{	
+			yield return new WaitForSeconds(2f);
+			State = StateEnum.Prying;
 		}
 
 		public void TVState(int TVState)
