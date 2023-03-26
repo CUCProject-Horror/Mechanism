@@ -2,30 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
-public class DarkScreenText : MonoBehaviour
+namespace Game
 {
-    public UnityEvent endControll;
-    float timer = 0;
-    bool startControll = false;
-    public float controllTime;
-
-    private void Update()
+    public class DarkScreenText : MonoBehaviour
     {
-        if(startControll)
+        public GameObject darkScreen;
+        float timer = 0;
+        bool startControll = false;
+        public float controllTime;
+
+        public UnityEvent endTextControll;
+        public UnityEvent startTextControll;
+
+        private void Update()
         {
-            timer += Time.deltaTime;
+            if (startControll)
+            {
+                timer += Time.deltaTime;
+            }
+
+            if (timer >= controllTime)
+            {
+                darkScreen.GetComponent<Animator>().SetTrigger("Exit");
+                endTextControll.Invoke();
+                Destroy(this.gameObject.transform.parent.gameObject);
+            }
         }
 
-        if(timer >= controllTime)
+        public void StartControll()
         {
-            endControll.Invoke();
-            Destroy(this.gameObject.transform.parent.gameObject);
+            darkScreen.GetComponent<Animator>().SetTrigger("Enter");
+            startTextControll.Invoke();
+            startControll = true;
         }
-    }
-
-    public void StartControll()
-    {
-        startControll = true;
     }
 }

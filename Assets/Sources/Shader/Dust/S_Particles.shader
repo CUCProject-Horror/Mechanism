@@ -5,6 +5,7 @@ Shader "Hidden/S_Particles"
         _MainTex ("Texture", 2D) = "white" {}
         _ParticleColor("ParticleColor", Color) = (0, 0, 0, 0)
         _AlphaOffset("AlphaOffset", Range(0, 0.5)) = 0
+        _Emission("Emission", Range(0, 1000)) = 1
     }
     SubShader
     {
@@ -24,6 +25,7 @@ Shader "Hidden/S_Particles"
             sampler2D _MainTex;
             float4 _ParticleColor;
             fixed4 _AlphaOffset;
+            float _Emission;
 
             struct appdata
             {
@@ -68,7 +70,7 @@ Shader "Hidden/S_Particles"
                 fixed4 col = tex2D(_MainTex, i.uv / 2);
                 fixed alpha = lerp(0, 1, col); 
                 //fixed OutputAlpha = min(alpha + _AlphaOffset, 1);
-                return fixed4(_ParticleColor.rgb, alpha);
+                return fixed4(_ParticleColor.rgb, alpha) * _Emission;
                 //return fixed4(_ParticleColor);
             }
             ENDCG

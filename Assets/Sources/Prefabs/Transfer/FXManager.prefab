@@ -185,97 +185,65 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!1 &5908862947910231388
-GameObject:
+--- !u!1001 &7005224469318831434
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5908862947910231390}
-  - component: {fileID: 5908862947910231385}
-  m_Layer: 0
-  m_Name: GlitchManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5908862947910231390
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5908862946228959104}
+    m_Modifications:
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3690683407546165270, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+      propertyPath: m_Name
+      value: GlitchManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+--- !u!4 &5908862947910231390 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3690683407546165268, guid: c3fcf25c93ffcc945b18749168bedfcc, type: 3}
+  m_PrefabInstance: {fileID: 7005224469318831434}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5908862947910231388}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5908862946228959104}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5908862947910231385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5908862947910231388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d6499a6bd256e47b859377446493a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 0
-  fadeRadius: 0
-  priority: 0
-  customPasses:
-  - rid: 4687453440510525442
-  - rid: 4687453440510525443
-  injectionPoint: 2
-  m_TargetCamera: {fileID: 0}
-  useTargetCamera: 1
-  references:
-    version: 2
-    RefIds:
-    - rid: 4687453440510525442
-      type: {class: DrawRenderersCustomPass, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
-      data:
-        m_Name: Custom Pass
-        enabled: 1
-        targetColorBuffer: 1
-        targetDepthBuffer: 1
-        clearFlags: -1
-        passFoldout: 0
-        m_Version: 0
-        filterFoldout: 1
-        rendererFoldout: 1
-        renderQueueType: 5
-        layerMask:
-          serializedVersion: 2
-          m_Bits: 128
-        sortingCriteria: 59
-        overrideMaterial: {fileID: 2100000, guid: 55fda8369c3b49c40941b2955c7c211d, type: 2}
-        overrideMaterialPassIndex: 0
-        overrideMaterialPassName: FirstPass
-        overrideDepthState: 0
-        depthCompareFunction: 4
-        depthWrite: 1
-        shaderPass: 0
-    - rid: 4687453440510525443
-      type: {class: FullScreenCustomPass, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
-      data:
-        m_Name: Custom Pass
-        enabled: 1
-        targetColorBuffer: 0
-        targetDepthBuffer: 0
-        clearFlags: 0
-        passFoldout: 0
-        m_Version: 0
-        fullscreenPassMaterial: {fileID: 2100000, guid: 02cfd6b88f8e7014494d19db48236b40, type: 2}
-        materialPassIndex: 0
-        materialPassName: Custom Pass 0
-        fetchColorBuffer: 0

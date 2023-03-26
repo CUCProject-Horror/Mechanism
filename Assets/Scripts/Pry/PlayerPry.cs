@@ -59,7 +59,7 @@ namespace Game
             {
                 //OnEnterPry.Invoke();
 
-                //pryCam.enabled = true;
+                pryCam.enabled = true;
                 mainCam.enabled = false;
                 
                 pryCam.depth = 1;
@@ -77,7 +77,7 @@ namespace Game
         {
             indcator.enabled = true;
             mainCam.enabled = true;
-            //pryCam.enabled = false;
+            pryCam.enabled = false;
             pryCam.depth = -1;
             SwitchCamera(playerCam);
             EndPryAnimator();

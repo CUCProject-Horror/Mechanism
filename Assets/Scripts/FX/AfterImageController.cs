@@ -19,10 +19,12 @@ namespace Game
         public IEnumerator ChangeAfState()
         {
             af.GetComponent<AfterImage>().isPlaying = true;
+            afCam.enabled = true;
             afCam.depth = 1;
             yield return new WaitForSeconds(afTime);
             af.GetComponent<AfterImage>().isPlaying = true;
             afCam.depth = -1;
+            afCam.enabled = false;
         }
     }
 }
