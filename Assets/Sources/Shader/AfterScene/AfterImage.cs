@@ -15,6 +15,7 @@ namespace Game
         private RenderTexture[] rt;
         public int RenderTextureCount;
         public Camera rCamera;
+        public RenderTexture rCamTex;
         private bool start_afterImageEffect;
 
         public bool isPlaying;
@@ -41,7 +42,7 @@ namespace Game
                 else
                 {
                     rt = null;
-                    rCamera.targetTexture = null;
+                    rCamera.targetTexture = rCamTex;
                     StopCoroutine(StartAfterImageEffect());
 
                 }

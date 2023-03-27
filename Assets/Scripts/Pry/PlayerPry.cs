@@ -13,6 +13,7 @@ namespace Game
     {
         public Camera mainCam;
         public Camera pryCam;
+        public GameObject pryCamRenderTex;
         public SpriteRenderer indcator;
         public GameObject pryCanvas;
         public GameObject blinkImage;
@@ -57,17 +58,10 @@ namespace Game
         {
             if (!isPrying)
             {
-                //OnEnterPry.Invoke();
-
-                pryCam.enabled = true;
-                mainCam.enabled = false;
-                
-                pryCam.depth = 1;
+                StartCoroutine(ChangeCinemachineState(true)); 
                 isPrying = true;
-                indcator.enabled = false;
                 Invoke("PryAnimator", 1.5f);
                 Invoke("PryMethod", 2f);
-                SwitchCamera(pryCamera);
             }
             else
                 return;
@@ -75,11 +69,7 @@ namespace Game
 
         public void Deactivate()
         {
-            indcator.enabled = true;
-            mainCam.enabled = true;
-            pryCam.enabled = false;
-            pryCam.depth = -1;
-            SwitchCamera(playerCam);
+            StartCoroutine(ChangeCinemachineState(false));
             EndPryAnimator();
             Invoke("EndPryMethod", 0.5f);
         }
@@ -125,6 +115,20 @@ namespace Game
         public void EndPryAnimator()
         {
             pryAnim.SetBool("Pry", false);
+        }
+
+        public IEnumerator ChangeCinemachineState(bool camState)
+        {
+            mainCam.enabled = !camState;
+            pryCam.enabled = camState;
+            indcator.enabled = !camState;
+            yield return new WaitForSeconds(0.1f);
+            pryCamRenderTex.SetActive(camState);
+
+            if (camState)
+            { SwitchCamera(pryCamera); }
+            else if (!camState)
+            { SwitchCamera(playerCam); }
         }
 
     }

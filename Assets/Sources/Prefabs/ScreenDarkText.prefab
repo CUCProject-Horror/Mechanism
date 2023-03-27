@@ -129,7 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde8ef604f6ff7949bd2134b59bca02c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endControll:
+  darkScreen: {fileID: 0}
+  controllTime: 3
+  endTextControll:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 0f55051470011c44e87907385a03340d, type: 2}
@@ -144,7 +146,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  controllTime: 3
+  startTextControll:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &173356530596711796
 PrefabInstance:
   m_ObjectHideFlags: 0

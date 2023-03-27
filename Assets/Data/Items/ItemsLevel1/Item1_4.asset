@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51f8323191aa5ac4f81576d5f5d2d73f, type: 3}
+  m_Script: {fileID: 11500000, guid: e27ae9cb1c05dba4fa0843b4a2d5fb68, type: 3}
   m_Name: Item1_4
   m_EditorClassIdentifier: 
-  name: Item1_4
+  name: 
   prefab: {fileID: 4106006863227306478, guid: b61c7631dfa45304f8a237aa21eb056f, type: 3}
   onView:
     m_PersistentCalls:

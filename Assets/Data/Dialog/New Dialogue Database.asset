@@ -209,7 +209,7 @@ MonoBehaviour:
         type: 0
         typeString: CustomFieldType_Text
       - title: Dialogue Text
-        value: "\u4E2D\u671F\u7ED9\u8FC7\u4E2D\u671F\u7ED9\u8FC7\u4E2D\u671F\u7ED9\u8FC7\u4E2D\u671F\u7ED9\u8FC7\u4E2D\u671F\u7ED9\u8FC7\u4E2D\u671F\u7ED9\u8FC7\u4E2D\u671F\u7ED9\u8FC7"
+        value: "\u725B\u5B50\u786C\u4E86\u725B\u5B50\u786C\u4E86\u725B\u5B50\u786C\u4E86\u725B\u5B50\u786C\u4E86\u725B\u5B50\u786C\u4E86\u725B\u5B50\u786C\u4E86\u725B\u5B50\u786C\u4E86\u725B\u5B50\u786C\u4E86"
         type: 0
         typeString: CustomFieldType_Text
       - title: Conversant
