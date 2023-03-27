@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27ae9cb1c05dba4fa0843b4a2d5fb68, type: 3}
   m_Name: Item1_4
   m_EditorClassIdentifier: 
-  name: 
+  name: Item 1_4
   prefab: {fileID: 4106006863227306478, guid: b61c7631dfa45304f8a237aa21eb056f, type: 3}
   onView:
     m_PersistentCalls:

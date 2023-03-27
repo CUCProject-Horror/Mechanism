@@ -53,5 +53,15 @@ namespace Game {
 
 			inventory.Remove(itemName);
 		}
+
+		public void SwitchScene(int sceneNum)
+        {
+			game.sceneChange.sceneNum = sceneNum;
+        }
+
+		public void SwitchCutscene(int cutsceneNum)
+        {
+			game.sceneChange.cutsceneNum = cutsceneNum;
+        }
 	}
 }

@@ -619,6 +619,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dr: {fileID: 398683275062887523}
   closeDistance: {fileID: 4511784181302204999}
+  onClosing:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4511784181302204999
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +940,6 @@ GameObject:
   - component: {fileID: 302668180167808687}
   - component: {fileID: 1741998912790434724}
   - component: {fileID: 398683275062887523}
-  - component: {fileID: 8270717474300801270}
   m_Layer: 0
   m_Name: DoorRight(Outter)
   m_TagString: Untagged
@@ -1038,6 +1040,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 0f55051470011c44e87907385a03340d, type: 2}
+        m_TargetAssemblyTypeName: Game.GameManagerAgent, Assembly-CSharp
+        m_MethodName: StartConversation
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Lock Door Text
+          m_BoolArgument: 0
+        m_CallState: 2
   onDoorOpen:
     m_PersistentCalls:
       m_Calls:
@@ -1069,36 +1083,6 @@ MonoBehaviour:
   isOpening: 0
   isClosing: 0
   hasDestroyedDoor: 0
---- !u!114 &8270717474300801270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8579098196523053455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 9cccd548d5576c447b91a3b12006ca49, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Protagonist
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!1 &9176696450932310355
 GameObject:
   m_ObjectHideFlags: 0

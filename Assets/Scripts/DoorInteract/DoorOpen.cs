@@ -62,7 +62,7 @@ namespace Game {
             force = 0;
         }
 
-        void OpenTheDoor()
+        public void OpenTheDoor()
         {
             innerUI.SetActive(false);
             outterUI.SetActive(false);

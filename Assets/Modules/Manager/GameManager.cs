@@ -28,6 +28,7 @@ namespace Game {
 		[NonSerialized] public Protagonist protagonist;
 		[NonSerialized] public InventoryUI inventoryUI;
 		[NonSerialized] public InputManager input;
+		[NonSerialized] public SceneChange sceneChange;
 		public DialogueSystemController ds;
 		PlayerPry currentPrying;
 		public VidController vid;
@@ -132,6 +133,7 @@ namespace Game {
 			protagonist = FindObjectOfType<Protagonist>(true);
 			inventoryUI = FindObjectOfType<InventoryUI>(true);
 			input = GetComponent<InputManager>();
+			sceneChange = GetComponent<SceneChange>();
 
 			State = StateEnum.Protagonist;
 		}

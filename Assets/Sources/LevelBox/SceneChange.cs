@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTest : MonoBehaviour
+public class SceneChange : MonoBehaviour
 {
-    int sceneNum = 1;
-    public int cutsceneNum = 1;
+    [HideInInspector]public int sceneNum = 1;
+    [HideInInspector]public int cutsceneNum = 1;
     public GameObject scene01;
     public GameObject scene02;
     public GameObject scene03;

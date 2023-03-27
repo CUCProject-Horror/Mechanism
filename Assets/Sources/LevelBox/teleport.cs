@@ -1,30 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class teleport : MonoBehaviour
+namespace Game
 {
-    public GameObject a;
-    public GameObject b;
-    public Transform teleportPoint;
-    public CharacterController cr;
-
-    // Update is called once per frame
-    void Update()
+    public class teleport : MonoBehaviour
     {
-        
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Player")
+        public GameObject a;
+        public GameObject b;
+        public GameObject c;
+        public GameObject d;
+        public GameObject e;
+        public Transform teleportPoint;
+        public CharacterController cr;
+        public UnityEvent onTeleporting;
+        public void PlayerTeleport()
         {
+            onTeleporting.Invoke();
             cr.enabled = false;
-            a.SetActive(false);
-            b.SetActive(false);
             cr.transform.position = teleportPoint.position;
-            cr.gameObject.transform.Rotate(0, 180, 0);
+            cr.transform.rotation = teleportPoint.rotation;
             cr.enabled = true;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                a.SetActive(false);
+                b.SetActive(false);
+                c.SetActive(true);
+                d.SetActive(true);
+                e.SetActive(false);
+                PlayerTeleport();
+            }
         }
     }
 }
