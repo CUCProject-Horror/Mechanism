@@ -7,11 +7,11 @@ namespace Game
 {
     public class teleport : MonoBehaviour
     {
-        public GameObject a;
-        public GameObject b;
-        public GameObject c;
-        public GameObject d;
-        public GameObject e;
+        //public GameObject a;
+        //public GameObject b;
+        //public GameObject c;
+        //public GameObject d;
+        //public GameObject e;
         public Transform teleportPoint;
         public CharacterController cr;
         public UnityEvent onTeleporting;
@@ -24,17 +24,17 @@ namespace Game
             cr.enabled = true;
         }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.tag == "Player")
-            {
-                a.SetActive(false);
-                b.SetActive(false);
-                c.SetActive(true);
-                d.SetActive(true);
-                e.SetActive(false);
-                PlayerTeleport();
-            }
-        }
+        //private void OnTriggerEnter(Collider other)
+        //{
+        //    if (other.gameObject.tag == "Player")
+        //    {
+        //        //a.SetActive(false);
+        //        //b.SetActive(false);
+        //        //c.SetActive(true);
+        //        //d.SetActive(true);
+        //        //e.SetActive(false);
+        //        PlayerTeleport();
+        //    }
+        //}
     }
 }

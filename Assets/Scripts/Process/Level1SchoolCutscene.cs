@@ -22,8 +22,14 @@ namespace Game {
 
         public void DoorUnlock()
         {
+            door.isLocked = false;
             door.OpenTheDoor();
             targetInteractable.SetActive(true);
+        }
+
+        public void DoorLock()
+        {
+            door.isLocked = true;
         }
     }
 }
