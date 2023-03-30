@@ -51,9 +51,9 @@ MonoBehaviour:
   target: {fileID: 5742790360694095120}
   tagMask: Player
   indicator: {fileID: 3802446953060804915}
-  outerIndicator: {fileID: 21300000, guid: 5fdb68806d5acfb4db611df288b37e04, type: 3}
+  outerIndicator: {fileID: 21300000, guid: 3e120d52ca3e66b4eaa2871b6f65aa21, type: 3}
   outerTrigger: {fileID: 576746587860295394}
-  innerIndicator: {fileID: 21300000, guid: 784ffd690e47a7947aa8a0e4204bc632, type: 3}
+  innerIndicator: {fileID: 21300000, guid: cbb147d7d25ad124084d0de872360fff, type: 3}
   innerTrigger: {fileID: 312230952449670423}
   canInteract: 0
   onInteract:
@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCam: {fileID: 0}
   pryCam: {fileID: 0}
+  pryCamRenderTex: {fileID: 0}
   indcator: {fileID: 3802446953060804915}
   pryCanvas: {fileID: 0}
   blinkImage: {fileID: 0}

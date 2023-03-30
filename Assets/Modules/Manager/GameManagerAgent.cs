@@ -36,6 +36,11 @@ namespace Game {
 			game.ProtagonistState();
         }
 
+		public void InventoryStateChange()
+        {
+			game.InventoryState();
+        }
+
 		public void StartConversation(string name) 
 		{
 			game.ds.StopConversation();

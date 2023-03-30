@@ -125,6 +125,11 @@ namespace Game {
         {
 			State = StateEnum.Protagonist;
         }
+
+		public void InventoryState()
+        {
+			State = StateEnum.Inventory;
+		}
 		#endregion
 
 		#region Life cycle
@@ -134,6 +139,7 @@ namespace Game {
 			inventoryUI = FindObjectOfType<InventoryUI>(true);
 			input = GetComponent<InputManager>();
 			sceneChange = GetComponent<SceneChange>();
+
 
 			State = StateEnum.Protagonist;
 		}
