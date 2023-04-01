@@ -86,6 +86,7 @@ namespace Game {
 			anchor.DestroyAllChildren();
 			anchor.rotation = Quaternion.identity;
 
+			currentItem = item;
 			if(item == null)
 				return;
 
@@ -100,6 +101,7 @@ namespace Game {
 		public void Inspect() {
 			GameObject itemUiObj = Instantiate(prefabs.itemUi, transform);
 			ItemUi itemUi = itemUiObj.GetComponent<ItemUi>();
+			itemUi.Item = Item;
 			ForwardTo(itemUi);
 		}
 		#endregion
