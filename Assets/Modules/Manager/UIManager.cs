@@ -7,6 +7,8 @@ namespace Game {
 		public Stack<UiBase> history = new Stack<UiBase>();
 
 		public void ForwardTo(UiBase ui) {
+			if(history.Count != 0)
+				history.Peek()?.Deactivate();
 			history.Push(ui);
 			ui.Activate();
 		}
@@ -16,6 +18,8 @@ namespace Game {
 				return;
 			var top = history.Pop();
 			top.Deactivate();
+			if(history.Count != 0)
+				history.Peek()?.Activate();
 		}
 
 		public void Clear() {

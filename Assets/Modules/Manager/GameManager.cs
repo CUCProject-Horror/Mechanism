@@ -24,7 +24,7 @@ namespace Game {
 		#endregion
 
 		#region Core fields
-		[NonSerialized] public UiManager ui;
+		public UiManager ui;
 		[NonSerialized] public Protagonist protagonist;
 		[NonSerialized] public InventoryUi inventoryUI;
 		[NonSerialized] public InputManager input;
@@ -142,7 +142,6 @@ namespace Game {
 
 		#region Life cycle
 		void Start() {
-			ui = GetComponent<UiManager>();
 			protagonist = FindObjectOfType<Protagonist>(true);
 			inventoryUI = FindObjectOfType<InventoryUi>(true);
 			input = GetComponent<InputManager>();

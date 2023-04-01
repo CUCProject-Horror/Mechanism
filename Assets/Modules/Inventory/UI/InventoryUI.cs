@@ -99,7 +99,7 @@ namespace Game {
 		public void Close() => GameManager.instance.State = GameManager.StateEnum.Protagonist;
 
 		public void Inspect() {
-			GameObject itemUiObj = Instantiate(prefabs.itemUi, transform);
+			GameObject itemUiObj = Instantiate(prefabs.itemUi, GameManager.instance.ui.transform);
 			ItemUi itemUi = itemUiObj.GetComponent<ItemUi>();
 			itemUi.Item = Item;
 			ForwardTo(itemUi);
