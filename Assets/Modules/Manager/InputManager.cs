@@ -21,11 +21,11 @@ namespace Game {
 		}
 
 		public void OnSprint(InputValue value) {
-			//protagonist.Sprinting = value.isPressed;
+			protagonist.Sprinting = value.isPressed;
 		}
 
 		public void OnCrouch(InputValue _) {
-			//protagonist.Crouching = !protagonist.Crouching;
+			protagonist.Crouching = !protagonist.Crouching;
 		}
 
 		public void OnOrient(InputValue value)
@@ -34,15 +34,14 @@ namespace Game {
 			// Direction & dragging
 			{
                 CameraInteractor interactor = protagonist.interactor;
-				if(interactor.Activity) {
-					foreach(var interactable in interactor.lastFocused)
-						interactable.OnDrag(interactor, raw);
+                foreach (var interactable in interactor.lastFocused) {
+					interactable.OnDrag(interactor, raw);
 				}
 			}
 			// Protagonist orientation
 			if (canOrient)
 			{
-                protagonist.Rotate(raw);
+                protagonist.inputRotation = raw;
 			}
             else
             {
