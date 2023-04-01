@@ -68,12 +68,12 @@ namespace Game {
 		}
 		public Prefabs prefabs;
 
-		[Serializable] public struct Pivots {
+		[Serializable] public struct Anchor {
 			public Transform categories;
 			public Transform items;
 			public Transform actions;
 		}
-		public Pivots pivots;
+		public Anchor anchors;
 		#endregion
 
 		#region Inspector field
@@ -112,13 +112,13 @@ namespace Game {
 		public void SwitchCategoryTab(Category cat) {
 			currentCat = cat;
 			UpdateItems(cat);
-			pivots.items.DestroyAllChildren();
+			anchors.items.DestroyAllChildren();
 			if(items.Count == 0) {
 				Item = null;
 				return;
 			}
 			foreach(Item item in items) {
-				GameObject itemBtn = Instantiate(prefabs.itemBtn, pivots.items);
+				GameObject itemBtn = Instantiate(prefabs.itemBtn, anchors.items);
 				itemBtn.GetComponentInChildren<Text>().text = item.name;
                 Button button = itemBtn.GetComponentInChildren<Button>();
                 button.onClick.AddListener(() => Item = item);
@@ -129,12 +129,13 @@ namespace Game {
 		}
 
 		public void UpdateButtons() {
-			pivots.actions.DestroyAllChildren();
+			anchors.actions.DestroyAllChildren();
 			var actions = new List<KeyValuePair<string, Action>> {
-				new KeyValuePair<string, Action>("Close", Close)
+				new KeyValuePair<string, Action>("Close", Close),
 			};
+			// Add more custom buttons
 			foreach(var pair in actions) {
-				GameObject btn = Instantiate(prefabs.actionBtn, pivots.actions);
+				GameObject btn = Instantiate(prefabs.actionBtn, anchors.actions);
 				btn.GetComponentInChildren<Text>().text = pair.Key;
 				btn.GetComponentInChildren<Button>().onClick.AddListener(pair.Value.Invoke);
 			}
@@ -151,16 +152,16 @@ namespace Game {
 
 		#region Life cycle
 		void OnEnable() {
-			pivots.items.DestroyAllChildren();
-			pivots.actions.DestroyAllChildren();
+			anchors.items.DestroyAllChildren();
+			anchors.actions.DestroyAllChildren();
 			Item = currentItem;
 		}
 
 		void Start() {
 			currentCat = categories[0];
-			pivots.categories.DestroyAllChildren();
+			anchors.categories.DestroyAllChildren();
 			foreach(Category tab in categories) {
-				tab.element = Instantiate(prefabs.categoryBtn, pivots.categories);
+				tab.element = Instantiate(prefabs.categoryBtn, anchors.categories);
 				tab.text = tab.element.GetComponentInChildren<Text>();
 				tab.text.text = tab.name;
 				tab.button = tab.element.GetComponentInChildren<Button>();
