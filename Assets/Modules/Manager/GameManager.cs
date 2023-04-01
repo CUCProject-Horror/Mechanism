@@ -26,7 +26,7 @@ namespace Game {
 		#region Core fields
 		[NonSerialized] public UIManager ui;
 		[NonSerialized] public Protagonist protagonist;
-		[NonSerialized] public InventoryUI inventoryUI;
+		[NonSerialized] public InventoryUi inventoryUI;
 		[NonSerialized] public InputManager input;
 		[NonSerialized] public SceneChange sceneChange;
 		public DialogueSystemController ds;
@@ -136,7 +136,7 @@ namespace Game {
 		void Start() {
 			ui = GetComponent<UIManager>();
 			protagonist = FindObjectOfType<Protagonist>(true);
-			inventoryUI = FindObjectOfType<InventoryUI>(true);
+			inventoryUI = FindObjectOfType<InventoryUi>(true);
 			input = GetComponent<InputManager>();
 			sceneChange = GetComponent<SceneChange>();
 

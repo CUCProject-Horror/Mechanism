@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 namespace Game {
 	public class UIManager : MonoBehaviour {
-		public RectTransform aim, inventory;
-		public IEnumerable<RectTransform> all => new RectTransform[] { aim, inventory };
+		public UiBase aim, inventory;
+		public IEnumerable<UiBase> all => new UiBase[] { aim, inventory };
 
 		public void Deactivate() {
 			foreach(var ui in all)
-				ui.gameObject.SetActive(false);
+				ui.Deactivate();
 		}
 
-		public void Activate(RectTransform ui) => ui.gameObject.SetActive(true);
+		public void Activate(UiBase ui) => ui.Activate();
 
-		public void SwitchTo(RectTransform ui) {
+		public void SwitchTo(UiBase ui) {
 			Deactivate();
 			Activate(ui);
 		}

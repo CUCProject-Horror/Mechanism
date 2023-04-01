@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Game {
-	public class InventoryUI : MonoBehaviour {
+	public class InventoryUi : UiBase {
 		#region Gameplay irrelavant
 		public class Category {
 			public class Item {
