@@ -24,7 +24,7 @@ namespace Game
             ScreenDark.SetActive(true);
             vp.clip = clipToPlay;
             vp.enabled = true;
-            ScreenToPlay.GetComponent<PlayerInput>().enabled = true;
+            //ScreenToPlay.GetComponent<PlayerInput>().enabled = true;
         }
 
         

@@ -13,12 +13,12 @@ namespace Game {
 		public override void Rotate(Vector2 rotation) {
 			base.Rotate(rotation);
 
-			Vector3 cam = camera.transform.rotation.eulerAngles;
+			Vector3 cam = camera.transform.localRotation.eulerAngles;
 			cam.x += rotation.y;
 			if(cam.x >= 180)
 				cam.x -= 360;
 			cam.x = Mathf.Clamp(cam.x, pitchRange.x, pitchRange.y);
-			camera.transform.rotation = Quaternion.Euler(cam);
+			camera.transform.localRotation = Quaternion.Euler(cam);
 		}
 
 		public override bool Crouching {

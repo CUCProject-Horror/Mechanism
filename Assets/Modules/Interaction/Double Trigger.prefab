@@ -50,10 +50,11 @@ MonoBehaviour:
   target: {fileID: 7373423921937968778}
   tagMask: Player
   indicator: {fileID: 2100038407735163561}
-  outerIndicator: {fileID: 21300000, guid: 5fdb68806d5acfb4db611df288b37e04, type: 3}
+  outerIndicator: {fileID: 21300000, guid: 3e120d52ca3e66b4eaa2871b6f65aa21, type: 3}
   outerTrigger: {fileID: 2441187817818901880}
-  innerIndicator: {fileID: 21300000, guid: 784ffd690e47a7947aa8a0e4204bc632, type: 3}
+  innerIndicator: {fileID: 21300000, guid: cbb147d7d25ad124084d0de872360fff, type: 3}
   innerTrigger: {fileID: 3293416588005043853}
+  canInteract: 0
   onInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -228,15 +229,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 203757724515019147, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 203757724515019147, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 203757724515019147, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 203757724515019147, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -253,6 +254,10 @@ PrefabInstance:
     - target: {fileID: 841082233841460432, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
       propertyPath: m_Name
       value: Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 841082233841460432, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2066986109521954605, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
       propertyPath: onActivate.m_PersistentCalls.m_Calls.Array.size
@@ -338,6 +343,10 @@ PrefabInstance:
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7482753706530231054, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ec9c2db53169b6e459fb9bab67fcba29, type: 2}
     - target: {fileID: 9059950367921918131, guid: 19db92efea3869f4eb62135e6fed1c91, type: 3}
       propertyPath: m_IsTrigger
       value: 1

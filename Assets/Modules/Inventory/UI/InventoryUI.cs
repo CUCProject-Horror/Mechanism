@@ -55,6 +55,10 @@ namespace Game {
 				"CD",
 				typeof(CD)
 			),
+			new Category(
+				"Treasure",
+				typeof(Treasure)
+			),
 		};
 
 		[Serializable] public struct Prefabs {

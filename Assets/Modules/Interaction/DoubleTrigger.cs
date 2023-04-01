@@ -16,7 +16,7 @@ namespace Game {
 		public Sprite innerIndicator;
 		public Trigger innerTrigger;
 
-		bool canInteract = false;
+		public bool canInteract = false;
 		public UnityEvent onInteract;
 
 		public GameObject icon;

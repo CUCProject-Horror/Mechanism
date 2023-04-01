@@ -1,15 +1,21 @@
 using UnityEngine;
+using PixelCrushers.DialogueSystem;
 using System;
+using System.Collections;
 
 namespace Game {
 	public class GameManager : MonoBehaviour {
 		public static GameManager instance;
 		public GameManager() => instance = this;
 
+
 		public enum StateEnum {
 			Invalid = 0,
 			Protagonist = 1,
-			Inventory
+			Inventory,
+			Prying,
+			TV,
+			Null,
 		}
 
 		#region Inspector fields
@@ -22,6 +28,10 @@ namespace Game {
 		[NonSerialized] public Protagonist protagonist;
 		[NonSerialized] public InventoryUI inventoryUI;
 		[NonSerialized] public InputManager input;
+		[NonSerialized] public SceneChange sceneChange;
+		public DialogueSystemController ds;
+		PlayerPry currentPrying;
+		public VidController vid;
 
 		StateEnum state = StateEnum.Protagonist;
 		#endregion
@@ -40,6 +50,7 @@ namespace Game {
 					case StateEnum.Protagonist:
 						state = StateEnum.Protagonist;
 						input.enabled = true;
+						input.playerInput.SwitchCurrentActionMap("Protagonist");
 						Cursor.lockState = CursorLockMode.Locked;
 						ui.SwitchTo(ui.aim);
 						break;
@@ -48,10 +59,76 @@ namespace Game {
 						input.enabled = false;
 						if(inventoryUI.currentCat != null)
 							inventoryUI.SwitchCategoryTab(inventoryUI.currentCat);
+							input.playerInput.SwitchCurrentActionMap("UI");
 						ui.SwitchTo(ui.inventory);
+						break;
+					case StateEnum.Prying:
+						input.enabled = true;
+						input.playerInput.SwitchCurrentActionMap("Pry");
+						break;
+					case StateEnum.TV:
+						input.enabled = true;
+						input.playerInput.SwitchCurrentActionMap("TV");
+						break;
+					case StateEnum.Null:
+						input.enabled = true;
+						input.playerInput.SwitchCurrentActionMap("Do Nothing");
 						break;
 				}
 			}
+		}
+
+		public PlayerPry Prying {
+			get => currentPrying;
+			set {
+				if (currentPrying == value)
+					return;
+				currentPrying?.Deactivate();
+				State = StateEnum.Protagonist;
+				if (currentPrying = value)
+				{
+					currentPrying.Activate();
+					State = StateEnum.Null;
+					StartCoroutine(PryState());
+				}
+			}
+		}
+
+		public IEnumerator PryState()
+		{	
+			yield return new WaitForSeconds(2f);
+			State = StateEnum.Prying;
+		}
+
+		public void TVState(int TVState)
+        {
+			if (TVState == 1)
+			{
+				State = StateEnum.TV;
+			}
+			else if(TVState == 2)
+			{
+				State = StateEnum.Protagonist;
+			}
+			else if(TVState == 3)
+            {
+				State = StateEnum.Inventory;
+			}
+        }
+
+		public void NullState()
+        {
+			State = StateEnum.Null;
+        }
+
+		public void ProtagonistState()
+        {
+			State = StateEnum.Protagonist;
+        }
+
+		public void InventoryState()
+        {
+			State = StateEnum.Inventory;
 		}
 		#endregion
 
@@ -61,6 +138,8 @@ namespace Game {
 			protagonist = FindObjectOfType<Protagonist>(true);
 			inventoryUI = FindObjectOfType<InventoryUI>(true);
 			input = GetComponent<InputManager>();
+			sceneChange = GetComponent<SceneChange>();
+
 
 			State = StateEnum.Protagonist;
 		}

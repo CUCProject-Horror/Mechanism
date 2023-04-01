@@ -16,6 +16,7 @@ MonoBehaviour:
   - Mouse
   - Keyboard
   - Gamepad
+  - DualShockGamepad
   m_UpdateMode: 1
   m_MaxEventBytesPerUpdate: 5242880
   m_MaxQueuedEventsPerUpdate: 1000
@@ -32,6 +33,7 @@ MonoBehaviour:
   m_TapRadius: 5
   m_MultiTapDelayTime: 0.75
   m_DisableRedundantEventsMerging: 0
+  m_ShortcutKeysConsumeInputs: 0
   m_iOSSettings:
     m_MotionUsage:
       m_Enabled: 0

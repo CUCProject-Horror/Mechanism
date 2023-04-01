@@ -25,9 +25,9 @@ namespace Game {
 				activity = value;
 				if(activity) {
 					foreach(InteractableTarget target in lastFocused) {
-						if(!target.focused)
+						if(!target.focused  && target.gameObject.transform.parent.gameObject.GetComponent<DoubleTrigger>().canInteract)
 							target.OnFocus(this);
-						if(!target.activated)
+						if(!target.activated && target.gameObject.transform.parent.gameObject.GetComponent<DoubleTrigger>().canInteract)
 							target.OnActivate(this);
 					}
 				}
@@ -55,12 +55,12 @@ namespace Game {
 			Ray ray = camera.ScreenPointToRay(new Vector2(camera.pixelWidth, camera.pixelHeight) / 2);
 			var hits = new List<RaycastHit>();
 			if(raycastAll) {
-				var hitsArr = Physics.RaycastAll(ray, maxDistance, ~(1 << 3));
+				var hitsArr = Physics.RaycastAll(ray, maxDistance, 1 << 8);
 				hits.AddRange(hitsArr);
 			}
 			else {
 				RaycastHit hit;
-				Physics.Raycast(ray, out hit, maxDistance, ~(1 << 3));
+				Physics.Raycast(ray, out hit, maxDistance, 1 << 8);
 				if(hit.collider)
 					hits.Add(hit);
 			}

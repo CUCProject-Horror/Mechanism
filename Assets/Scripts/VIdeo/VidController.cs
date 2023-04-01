@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Video;
-using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 namespace Game {
     public class VidController : MonoBehaviour
@@ -10,8 +10,12 @@ namespace Game {
         VideoPlayer vp;
         public int playSpeed;
 
-        bool isPause;
+        public bool isPause;
         public long vidFrame;
+        public bool isInventory;
+
+        public UnityEvent endTVState;
+        public UnityEvent endTVStateInventory;
 
         private void Awake()
         {
@@ -19,30 +23,34 @@ namespace Game {
             playSpeed = 1;
             isPause = false;
         }
-        public void OnQuit()
+        public void Quit()
         {
+            if (isInventory)
+            { endTVStateInventory.Invoke(); }
+            else
+            { endTVState.Invoke(); }
             ScreenToPlay.SetActive(false);
             ScreenDark.SetActive(false);
             isPause = false;
             playSpeed = 1;
             vp.clip = null;
             vp.enabled = false;
-            ScreenToPlay.GetComponent<PlayerInput>().enabled = false;
+            isInventory = false;
         }
 
-        public void OnPause()
+        public void Pause()
         {
             isPause = !isPause;
         }
 
-        public void OnBackward()
+        public void Backward()
         {
 
             if(playSpeed > 0)
             playSpeed--;
         }
 
-        public void OnForward()
+        public void Forward()
         {
             if (playSpeed < 2)
             playSpeed++;
@@ -73,6 +81,14 @@ namespace Game {
             {
                 vp.frame = vp.frame - 1 * (long)vp.frameRate;
             }
+        }
+
+        public void PlayVidInBag(VideoClip clipToPlay)
+        {
+            ScreenToPlay.SetActive(true);
+            ScreenDark.SetActive(true);
+            vp.clip = clipToPlay;
+            vp.enabled = true;
         }
     }
 }

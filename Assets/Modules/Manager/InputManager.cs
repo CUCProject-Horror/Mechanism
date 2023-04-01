@@ -5,7 +5,7 @@ namespace Game {
 	[RequireComponent(typeof(PlayerInput))]
 	public class InputManager : MonoBehaviour {
 		#region Core fields
-		PlayerInput playerInput;
+		[System.NonSerialized] public PlayerInput playerInput;
 		Protagonist protagonist => GameManager.instance.protagonist;
 		#endregion
 
@@ -44,6 +44,14 @@ namespace Game {
 			{
                 protagonist.Rotate(raw);
 			}
+            else
+            {
+				protagonist.inputRotation = Vector2.zero;
+			}
+		}
+
+		public void OnEndPry() {
+			GameManager.instance.Prying = null;
 		}
 
 		public void OnInventory() {
@@ -55,13 +63,36 @@ namespace Game {
 			protagonist.SetInteractorActivity(raw > .5f);
 		}
 
-		#endregion
+        public void OnQuit()
+        {
+			//if (GameManager.instance.State == GameManager.StateEnum.TV)
+			GameManager.instance.vid.Quit();
+        }
 
-		#region Life cycle
-		void Start() {
+        public void OnPause()
+        {
+			GameManager.instance.vid.Pause();
+        }
+
+		public void OnBackward()
+        {
+			GameManager.instance.vid.Backward();
+        }
+
+		public void OnForward()
+        {
+			GameManager.instance.vid.Forward();
+        }
+
+
+
+        #endregion
+
+        #region Life cycle
+        void Start() {
 			playerInput = GetComponent<PlayerInput>();
 			canOrient = true;
 		}
-		#endregion
-	}
+        #endregion
+    }
 }

@@ -28,5 +28,10 @@ namespace Game {
 			ItemRecord newRecord = new ItemRecord(item, 1);
 			items.Add(newRecord);
 		}
+
+		public void Remove(string itemName)
+        {
+			items.RemoveAll(i => i.item.name == itemName);
+        }
 	}
 }

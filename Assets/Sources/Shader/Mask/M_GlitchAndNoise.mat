@@ -27,11 +27,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _GlitchNoiseIntensity: 4.1
-    - _GlitchStrength: 1
-    - _NoiseAmount: 9
-    - _NoiseIntensity: 0.644
-    - _ScanLineIntensity: 1
+    - _GlitchNoiseIntensity: 0
+    - _GlitchStrength: 0
+    - _NoiseAmount: 0
+    - _NoiseIntensity: 1
+    - _ScanLineIntensity: 0
     - _ScanLineStrength: 1
     - _UseGlitch: 1
     - _UseNoise: 0
