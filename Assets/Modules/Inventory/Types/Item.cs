@@ -7,5 +7,9 @@ namespace Game {
 		public GameObject prefab;
 
 		public UnityEvent onView;
+
+		public void InspectSelf() {
+			GameManager.instance.InspectItem(this);
+		}
 	}
 }

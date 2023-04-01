@@ -11,7 +11,6 @@ namespace Game {
 		[HideIf("infinite")] public bool destroyOnEmpty;
 		public UnityEvent onDeliver;
 		[HideIf("infinite")] public UnityEvent onEmpty;
-		public bool inspectOnDeliver = true;
 		#endregion
 
 		#region Public interfaces
@@ -21,7 +20,6 @@ namespace Game {
 				return;
 			}
 			inventory.Add(item);
-			onDeliver.Invoke();
 			if(!infinite) {
 				--count;
 				if(destroyOnEmpty && count == 0) {
@@ -29,8 +27,8 @@ namespace Game {
 					Destroy(gameObject);
 				}
 			}
-			if(inspectOnDeliver)
-				GameManager.instance.InspectItem(item);
+			onDeliver.Invoke();
+			item?.onView?.Invoke();
 		}
 
 		public void DeliverToProtagonist() {

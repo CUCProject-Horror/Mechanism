@@ -120,8 +120,10 @@ namespace Game {
 
 		public void SwitchCategoryTab(Category cat) {
 			currentCat = cat;
-			UpdateItems(cat);
 			anchors.items.DestroyAllChildren();
+			if(currentCat == null)
+				return;
+			UpdateItems(cat);
 			if(items.Count == 0) {
 				Item = null;
 				return;
@@ -130,18 +132,23 @@ namespace Game {
 				GameObject itemBtn = Instantiate(prefabs.itemBtn, anchors.items);
 				itemBtn.GetComponentInChildren<Text>().text = item.name;
                 Button button = itemBtn.GetComponentInChildren<Button>();
-                button.onClick.AddListener(() => Item = item);
-				button.onClick.AddListener(item.onView.Invoke);
+                button.onClick.AddListener(() => {
+					Item = item;
+					item.onView.Invoke();
+				});
 			}
 			if(Item?.GetType() != cat.type)
 				Item = items[0];
+		}
+
+		public Category CategoryOf(Item item) {
+			return categories.First(cat => cat.type == item.GetType());
 		}
 
 		public void UpdateButtons() {
 			anchors.actions.DestroyAllChildren();
 			var actions = new List<KeyValuePair<string, Action>> {
 				new KeyValuePair<string, Action>("Close", Close),
-				new KeyValuePair<string, Action>("Inspect", Inspect),
 			};
 			// Add more custom buttons
 			foreach(var pair in actions) {
@@ -165,6 +172,7 @@ namespace Game {
 			anchors.items.DestroyAllChildren();
 			anchors.actions.DestroyAllChildren();
 			Item = currentItem;
+			SwitchCategoryTab(currentCat);
 		}
 
 		void Start() {

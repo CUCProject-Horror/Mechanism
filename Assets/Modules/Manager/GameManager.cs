@@ -131,6 +131,9 @@ namespace Game {
 		}
 		
 		public void InspectItem(Item item) {
+			if(item == null)
+				return;
+			inventoryUI.SwitchCategoryTab(inventoryUI.CategoryOf(item));
 			InventoryState();
 			inventoryUI.Item = item;
 			inventoryUI.Inspect();
