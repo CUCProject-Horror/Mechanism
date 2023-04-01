@@ -2,20 +2,30 @@ using UnityEngine;
 using System.Collections.Generic;
 
 namespace Game {
-	public class UIManager : MonoBehaviour {
+	public class UiManager : MonoBehaviour {
 		public UiBase aim, inventory;
-		public IEnumerable<UiBase> all => new UiBase[] { aim, inventory };
+		public Stack<UiBase> history = new Stack<UiBase>();
 
-		public void Deactivate() {
-			foreach(var ui in all)
-				ui.Deactivate();
+		public void ForwardTo(UiBase ui) {
+			history.Push(ui);
+			ui.Activate();
 		}
 
-		public void Activate(UiBase ui) => ui.Activate();
+		public void Back() {
+			if(history.Count == 0)
+				return;
+			var top = history.Pop();
+			top.Deactivate();
+		}
+
+		public void Clear() {
+			while(history.Count > 0)
+				Back();
+		}
 
 		public void SwitchTo(UiBase ui) {
-			Deactivate();
-			Activate(ui);
+			Clear();
+			ForwardTo(ui);
 		}
 	}
 }

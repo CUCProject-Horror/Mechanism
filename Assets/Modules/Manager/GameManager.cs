@@ -24,7 +24,7 @@ namespace Game {
 		#endregion
 
 		#region Core fields
-		[NonSerialized] public UIManager ui;
+		[NonSerialized] public UiManager ui;
 		[NonSerialized] public Protagonist protagonist;
 		[NonSerialized] public InventoryUi inventoryUI;
 		[NonSerialized] public InputManager input;
@@ -45,7 +45,6 @@ namespace Game {
 						state = StateEnum.Invalid;
 						Cursor.lockState = CursorLockMode.None;
 						input.enabled = false;
-						ui.Deactivate();
 						break;
 					case StateEnum.Protagonist:
 						state = StateEnum.Protagonist;
@@ -134,7 +133,7 @@ namespace Game {
 
 		#region Life cycle
 		void Start() {
-			ui = GetComponent<UIManager>();
+			ui = GetComponent<UiManager>();
 			protagonist = FindObjectOfType<Protagonist>(true);
 			inventoryUI = FindObjectOfType<InventoryUi>(true);
 			input = GetComponent<InputManager>();
