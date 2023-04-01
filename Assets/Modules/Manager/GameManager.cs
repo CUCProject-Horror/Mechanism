@@ -129,6 +129,12 @@ namespace Game {
         {
 			State = StateEnum.Inventory;
 		}
+		
+		public void InspectItem(Item item) {
+			InventoryState();
+			inventoryUI.Item = item;
+			inventoryUI.Inspect();
+		}
 		#endregion
 
 		#region Life cycle
