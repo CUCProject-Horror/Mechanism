@@ -1020,6 +1020,7 @@ MonoBehaviour:
     categoryBtn: {fileID: 4198100522587684923, guid: 3466453215cacaf44a8c6481c6301a37, type: 3}
     itemBtn: {fileID: 1723264641998966390, guid: e032186811db3624a8935b9ce949c17c, type: 3}
     actionBtn: {fileID: 8732798907845838944, guid: 3762c2104d472154c953a0510ad94b47, type: 3}
+    itemUi: {fileID: 6457043275463327119, guid: 6491125c6f0aed348a9fcfcf0bb34f3d, type: 3}
   anchors:
     categories: {fileID: 6400678264867999333}
     items: {fileID: 8654528428562506519}

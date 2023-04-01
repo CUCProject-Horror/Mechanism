@@ -65,6 +65,7 @@ namespace Game {
 			public GameObject categoryBtn;
 			public GameObject itemBtn;
 			public GameObject actionBtn;
+			public GameObject itemUi;
 		}
 		public Prefabs prefabs;
 
@@ -95,6 +96,12 @@ namespace Game {
 		}
 
 		public void Close() => GameManager.instance.State = GameManager.StateEnum.Protagonist;
+
+		public void Inspect() {
+			GameObject itemUiObj = Instantiate(prefabs.itemUi, transform);
+			ItemUi itemUi = itemUiObj.GetComponent<ItemUi>();
+			ForwardTo(itemUi);
+		}
 		#endregion
 
 		#region Gameplay
@@ -132,6 +139,7 @@ namespace Game {
 			anchors.actions.DestroyAllChildren();
 			var actions = new List<KeyValuePair<string, Action>> {
 				new KeyValuePair<string, Action>("Close", Close),
+				new KeyValuePair<string, Action>("Inspect", Inspect),
 			};
 			// Add more custom buttons
 			foreach(var pair in actions) {
