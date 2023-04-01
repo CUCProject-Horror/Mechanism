@@ -13,6 +13,7 @@ namespace Game {
 
 		#region Core fields
 		Door door;
+		float TargetPosition => this == door.frontKnob ? 1 : 0;
 		#endregion
 
 		#region Life cycle
@@ -23,22 +24,19 @@ namespace Game {
 				float dragDiretion = drag.y;
 				if(Mathf.Abs(dragDiretion) < .1f)
 					return;
-				Debug.Log(dragDiretion);
-				if(dragDiretion == 0)
-					return;
 				if(direction != Direction.DontCare) {
 					switch(direction) {
 						case Direction.Push:
-							if(dragDiretion < 0)
+							if(dragDiretion > 0)
 								return;
 							break;
 						case Direction.Pull:
-							if(dragDiretion > 0)
+							if(dragDiretion < 0)
 								return;
 							break;
 					}
 				}
-				door?.Toggle();
+				door.TargetPosition = TargetPosition;
 			});
 		}
 		#endregion

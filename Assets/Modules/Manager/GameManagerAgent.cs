@@ -41,6 +41,10 @@ namespace Game {
 			game.InventoryState();
         }
 
+		public void InspectItem(Item item) {
+			game.InspectItem(item);
+		}
+
 		public void StartConversation(string name) 
 		{
 			game.ds.StopConversation();

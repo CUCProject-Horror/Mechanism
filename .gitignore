@@ -6,9 +6,11 @@
 [Uu]serSettings
 [Oo]bj
 
+/Assets/Sources/VidClips*
+/*.csproj
+
 .vsconfig
 .vs
 /*.sln
 
-/Assets/Sources/VidClips*
-/*.csproj
+.vscode

@@ -5,14 +5,12 @@ using NaughtyAttributes;
 namespace Game {
 	public class ItemSource : MonoBehaviour {
 		#region Inspector fields
-		public DoubleTrigger interactor;
 		public Item item;
 		public bool infinite = false;
 		[HideIf("infinite")] public uint count = 1;
 		[HideIf("infinite")] public bool destroyOnEmpty;
 		public UnityEvent onDeliver;
 		[HideIf("infinite")] public UnityEvent onEmpty;
-		public bool view = true;
 		#endregion
 
 		#region Public interfaces
@@ -22,7 +20,6 @@ namespace Game {
 				return;
 			}
 			inventory.Add(item);
-			onDeliver.Invoke();
 			if(!infinite) {
 				--count;
 				if(destroyOnEmpty && count == 0) {
@@ -30,6 +27,8 @@ namespace Game {
 					Destroy(gameObject);
 				}
 			}
+			onDeliver.Invoke();
+			item?.onView?.Invoke();
 		}
 
 		public void DeliverToProtagonist() {

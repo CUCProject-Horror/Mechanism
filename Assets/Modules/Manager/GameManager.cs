@@ -24,9 +24,9 @@ namespace Game {
 		#endregion
 
 		#region Core fields
-		[NonSerialized] public UIManager ui;
+		public UiManager ui;
 		[NonSerialized] public Protagonist protagonist;
-		[NonSerialized] public InventoryUI inventoryUI;
+		[NonSerialized] public InventoryUi inventoryUI;
 		[NonSerialized] public InputManager input;
 		[NonSerialized] public SceneChange sceneChange;
 		public DialogueSystemController ds;
@@ -45,7 +45,6 @@ namespace Game {
 						state = StateEnum.Invalid;
 						Cursor.lockState = CursorLockMode.None;
 						input.enabled = false;
-						ui.Deactivate();
 						break;
 					case StateEnum.Protagonist:
 						state = StateEnum.Protagonist;
@@ -130,13 +129,21 @@ namespace Game {
         {
 			State = StateEnum.Inventory;
 		}
+		
+		public void InspectItem(Item item) {
+			if(item == null)
+				return;
+			inventoryUI.SwitchCategoryTab(inventoryUI.CategoryOf(item));
+			InventoryState();
+			inventoryUI.Item = item;
+			inventoryUI.Inspect();
+		}
 		#endregion
 
 		#region Life cycle
 		void Start() {
-			ui = GetComponent<UIManager>();
 			protagonist = FindObjectOfType<Protagonist>(true);
-			inventoryUI = FindObjectOfType<InventoryUI>(true);
+			inventoryUI = FindObjectOfType<InventoryUi>(true);
 			input = GetComponent<InputManager>();
 			sceneChange = GetComponent<SceneChange>();
 

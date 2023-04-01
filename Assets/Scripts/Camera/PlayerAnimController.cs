@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
@@ -16,10 +14,10 @@ namespace Game
             playerMoveAmount = new Vector2(player.GetComponent<CharacterController>().velocity.x, player.GetComponent<CharacterController>().velocity.z);
             playerWalkAnim.speed = playerMoveAmount.magnitude * 0.4f;
 
-            PlayerDropAnim();//½ÇÉ«ÂäµØ¶¯»­
+            PlayerDropAnim();//ï¿½ï¿½É«ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½
         }
 
-        void PlayerDropAnim()//½ÇÉ«ÂäµØ¶¯»­
+        void PlayerDropAnim()//ï¿½ï¿½É«ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½
         {
             if (player.GetComponent<CharacterController>().isGrounded && player.GetComponent<Protagonist>().fallingHeight >= 2.0f)
             {   
