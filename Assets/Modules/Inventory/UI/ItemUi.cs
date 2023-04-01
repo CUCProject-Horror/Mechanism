@@ -1,8 +1,9 @@
-using UnityEngine;
 using UnityEngine.UI;
 
-namespace Game {
+namespace Game
+{
 	public class ItemUi : UiBase {
+		public Button closeButton;
 		public Text text;
 
 		Item item;

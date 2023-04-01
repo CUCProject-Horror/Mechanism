@@ -103,6 +103,7 @@ namespace Game {
 			ItemUi itemUi = itemUiObj.GetComponent<ItemUi>();
 			itemUi.Item = Item;
 			ForwardTo(itemUi);
+			itemUi.closeButton.Select();
 		}
 		#endregion
 
