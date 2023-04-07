@@ -59,7 +59,7 @@ namespace Game {
 						if(inventoryUI.currentCat != null)
 							inventoryUI.SwitchCategoryTab(inventoryUI.currentCat);
 							input.playerInput.SwitchCurrentActionMap("UI");
-						ui.SwitchTo(ui.inventory);
+						ui.ForwardTo(ui.inventory);
 						break;
 					case StateEnum.Prying:
 						input.enabled = true;

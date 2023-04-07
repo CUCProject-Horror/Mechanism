@@ -83,6 +83,11 @@ namespace Game {
 			GameManager.instance.vid.Forward();
         }
 
+		public void OnBack()
+        {
+            GameManager.instance.ui.Back();
+        }
+
 
 
         #endregion
