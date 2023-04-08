@@ -6,10 +6,10 @@ namespace Game {
 	public class AudioManagerAgent : ScriptableObject {
 		AudioManager audio => AudioManager.instance;
 
-		public void PlaySourceOnce(string clipArrayName)
+		public void PlaySourceOnce(AudioClipArray array)
         {
 
-			AudioClip[] clipToPlay = audio.doorOpenAud;
+			AudioClip[] clipToPlay = array.clipArray;
 			GameObject source =
 			Instantiate(audio.normalizedAudioSource, audio.audioManager.transform);
 			int randomIndex = Random.Range(0, clipToPlay.Length);

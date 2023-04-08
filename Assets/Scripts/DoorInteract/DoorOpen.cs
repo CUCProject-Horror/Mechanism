@@ -25,6 +25,7 @@ namespace Game {
 
         public UnityEvent onDoorLock;
         public UnityEvent onDoorOpen;
+        public UnityEvent endDoorClose;
         [HideInInspector] public bool canClose = false;
         [HideInInspector] public bool isOpening = false;
         [HideInInspector] public bool isClosing = false;
@@ -147,11 +148,13 @@ namespace Game {
             }
             else if (isClosing && hasDestroyedDoor)
             {
+                endDoorClose.Invoke();
                 isClosing = false; timer = 0;
                 canClose = false;
             }
             else if (isClosing)
             {
+                endDoorClose.Invoke();
                 timer = 0;
                 innerUI.SetActive(true);
                 outterUI.SetActive(true);

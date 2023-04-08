@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4acbf0e726f901643b0985c176d7d52b, type: 3}
+  m_Name: DoorCloseAudios
+  m_EditorClassIdentifier: 
+  clipArray:
+  - {fileID: 8300000, guid: b813748d4d825654e90c8f05fd287c52, type: 3}
+  - {fileID: 8300000, guid: ab4304dac2e5a624792b90f6aab8f772, type: 3}
+  - {fileID: 8300000, guid: d15a505a77093aa45826ac6b4d2ebb7b, type: 3}

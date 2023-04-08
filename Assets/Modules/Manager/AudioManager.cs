@@ -12,12 +12,6 @@ namespace Game {
 		#region Core fields
 		public GameObject audioManager;
 		public GameObject normalizedAudioSource;
-		public AudioClip[] doorOpenAud;
         #endregion
-
-		public void FindAudioClip(string clipName)
-        {
-				
-        }
     }
 }
