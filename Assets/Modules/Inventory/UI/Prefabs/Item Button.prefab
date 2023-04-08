@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 8508032403767019156}
   - component: {fileID: 4567358041472585438}
   - component: {fileID: 1402415565441147680}
+  - component: {fileID: 8180975439803421602}
   m_Layer: 5
   m_Name: Item Button
   m_TagString: Untagged
@@ -180,7 +181,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.09865332, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 0.53207546, b: 0.53207546, a: 1}
     m_SelectedColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -202,3 +203,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8180975439803421602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723264641998966390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b5ef3b8d5ceea429d5dffb8cf58b3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectTex: {fileID: 0}
+  itemTexBillboard: {fileID: 0}

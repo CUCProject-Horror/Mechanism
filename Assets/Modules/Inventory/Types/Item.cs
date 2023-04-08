@@ -5,6 +5,7 @@ namespace Game {
 	public abstract class Item : ScriptableObject {
 		public new string name;
 		public GameObject prefab;
+		public Texture selectTex;
 
 		public UnityEvent onView;
 

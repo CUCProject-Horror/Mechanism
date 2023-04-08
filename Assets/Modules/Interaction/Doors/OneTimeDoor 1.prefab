@@ -316,6 +316,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 10f0d57bfe92be646941c6cee0243b79, type: 2}
+        m_TargetAssemblyTypeName: Game.AudioManagerAgent, Assembly-CSharp
+        m_MethodName: PlaySourceOnce
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   canClose: 0
   isOpening: 0
   isClosing: 0

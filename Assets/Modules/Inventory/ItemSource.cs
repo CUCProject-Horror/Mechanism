@@ -26,9 +26,9 @@ namespace Game {
 					onEmpty.Invoke();
 					Destroy(gameObject);
 				}
-			}
-			onDeliver.Invoke();
+			}			
 			item?.onView?.Invoke();
+			onDeliver.Invoke();
 		}
 
 		public void DeliverToProtagonist() {
