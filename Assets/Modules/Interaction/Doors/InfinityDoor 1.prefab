@@ -263,15 +263,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1b838f39e8fcb429c1b3ed1dadef72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  innerUI: {fileID: 536594164172498016}
-  outterUI: {fileID: 536594164714965219}
+  innerUI: {fileID: 0}
+  outterUI: {fileID: 0}
   isLocked: 0
   timer: 0
   force: 0
   pushForce: 90
   maxAngle: 90
   closeForce: 180
-  isInfinity: 1
+  isInfinity: 0
   handleAnimTime: 0.8
   canPush: 0
   onDoorLock:
@@ -311,6 +311,45 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4037467688664618873}
+        m_TargetAssemblyTypeName: Game.DoorOpen, Assembly-CSharp
+        m_MethodName: DoorOpenAnimPlayer
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 10f0d57bfe92be646941c6cee0243b79, type: 2}
+        m_TargetAssemblyTypeName: Game.AudioManagerAgent, Assembly-CSharp
+        m_MethodName: PlaySourceOnce
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a2bd4e2a7925e844eacb02592b4ae593, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Game.AudioClipArray, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  endDoorClose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 10f0d57bfe92be646941c6cee0243b79, type: 2}
+        m_TargetAssemblyTypeName: Game.AudioManagerAgent, Assembly-CSharp
+        m_MethodName: PlaySourceOnce
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 8085c53d10d24a547bfb33ab50f054c5, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Game.AudioClipArray, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -845,7 +884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -864,8 +903,12 @@ PrefabInstance:
       value: Game.DoorOpen, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 536594164172498016}
+    - target: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: m_Enabled
@@ -905,7 +948,7 @@ PrefabInstance:
       objectReference: {fileID: 2979646059741472707, guid: 80c804f97159fbc4bbb3ba1a2eb36750, type: 3}
     - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onDrag.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -948,6 +991,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
+      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 536594164172498016}
+    - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onDrag.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -957,7 +1004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8165271050297331063, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: m_IsActive
@@ -1056,7 +1103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1075,8 +1122,12 @@ PrefabInstance:
       value: Game.DoorOpen, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 536594164714965219}
+    - target: {fileID: 7088578639931609985, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onDrag.m_PersistentCalls.m_Calls.Array.size
@@ -1112,7 +1163,7 @@ PrefabInstance:
       objectReference: {fileID: 2979646059741472707, guid: 80c804f97159fbc4bbb3ba1a2eb36750, type: 3}
     - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onDrag.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1155,6 +1206,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
+      propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 536594164714965219}
+    - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onDrag.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -1164,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7373423921937968778, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: onDeactivate.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8660181864926298156, guid: 7bdc7d634789eb443bab27cb88dd9c00, type: 3}
       propertyPath: m_LocalPosition.x
