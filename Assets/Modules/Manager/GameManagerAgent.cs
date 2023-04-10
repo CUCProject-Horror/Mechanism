@@ -72,5 +72,6 @@ namespace Game {
         {
 			game.sceneChange.cutsceneNum = cutsceneNum;
         }
+
 	}
 }

@@ -12,7 +12,9 @@ namespace Game
         public GameObject player;
         Vector2 playerMoveAmount;
         bool isPlayingAudio = false;
+        public bool canPlayFootStepAud;
 
+        public float walkAudioGap;
         public UnityEvent playFootStepAudio;
 
         void FixedUpdate()
@@ -21,11 +23,6 @@ namespace Game
             playerWalkAnim.speed = playerMoveAmount.magnitude * 0.4f;
 
             PlayerDropAnim();
-
-            if (playerMoveAmount.magnitude > 0 && !isPlayingAudio)
-            {
-                StartCoroutine(FootStepAudio());
-            }
         }
 
         void PlayerDropAnim()
@@ -38,10 +35,8 @@ namespace Game
 
         IEnumerator FootStepAudio()
         {
-            isPlayingAudio = true;
             playFootStepAudio.Invoke();
-            yield return new WaitForSeconds(1.3f / playerMoveAmount.magnitude);
-            isPlayingAudio = false;
+            yield return null;
         }
     }
 }

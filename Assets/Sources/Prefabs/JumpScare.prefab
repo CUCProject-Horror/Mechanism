@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6846245636454683999, guid: 00001ea04289f694a99ab4b6496b8d77, type: 3}
       propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6846245636454683999, guid: 00001ea04289f694a99ab4b6496b8d77, type: 3}
       propertyPath: onExit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -205,6 +205,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6846245636454683999, guid: 00001ea04289f694a99ab4b6496b8d77, type: 3}
       propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846245636454683999, guid: 00001ea04289f694a99ab4b6496b8d77, type: 3}
+      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6846245636454683999, guid: 00001ea04289f694a99ab4b6496b8d77, type: 3}
@@ -232,6 +236,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6846245636454683999, guid: 00001ea04289f694a99ab4b6496b8d77, type: 3}
+      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846245636454683999, guid: 00001ea04289f694a99ab4b6496b8d77, type: 3}
       propertyPath: onExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_protagonistCanOrient
       objectReference: {fileID: 0}
@@ -253,6 +261,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6846245636454683999, guid: 00001ea04289f694a99ab4b6496b8d77, type: 3}
       propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Game.AfterImageController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6846245636454683999, guid: 00001ea04289f694a99ab4b6496b8d77, type: 3}
+      propertyPath: onEnter.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: Game.AfterImageController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6846245636454683999, guid: 00001ea04289f694a99ab4b6496b8d77, type: 3}
