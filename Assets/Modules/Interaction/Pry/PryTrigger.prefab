@@ -51,9 +51,9 @@ MonoBehaviour:
   target: {fileID: 5742790360694095120}
   tagMask: Player
   indicator: {fileID: 3802446953060804915}
-  outerIndicator: {fileID: 21300000, guid: 3e120d52ca3e66b4eaa2871b6f65aa21, type: 3}
+  outerIndicator: {fileID: 21300000, guid: e5f2a0210461f79468fcdc6146b01961, type: 3}
   outerTrigger: {fileID: 576746587860295394}
-  innerIndicator: {fileID: 21300000, guid: cbb147d7d25ad124084d0de872360fff, type: 3}
+  innerIndicator: {fileID: 21300000, guid: 52f7459e2cad3cd4c9a412975ad4c1f8, type: 3}
   innerTrigger: {fileID: 312230952449670423}
   canInteract: 0
   onInteract:
