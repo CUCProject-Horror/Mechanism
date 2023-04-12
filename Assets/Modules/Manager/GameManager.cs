@@ -16,6 +16,7 @@ namespace Game {
 			Prying,
 			TV,
 			Null,
+			Console,
 		}
 
 		#region Inspector fields
@@ -73,6 +74,10 @@ namespace Game {
 						input.enabled = true;
 						input.playerInput.SwitchCurrentActionMap("Do Nothing");
 						break;
+					case StateEnum.Console:
+						input.enabled = true;
+						input.playerInput.SwitchCurrentActionMap("Console");
+						break;
 				}
 			}
 		}
@@ -120,6 +125,17 @@ namespace Game {
 			State = StateEnum.Null;
         }
 
+		public void ConsoleState(bool isConsoleState)
+        {
+            if (isConsoleState)
+            {
+				State = StateEnum.Console;
+            }
+			if (! isConsoleState)
+            {
+				State = StateEnum.Protagonist;
+            }
+        }
 		public void ProtagonistState()
         {
 			State = StateEnum.Protagonist;

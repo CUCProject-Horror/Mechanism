@@ -11,7 +11,7 @@ namespace Game
         public Animator playerWalkAnim;
         public GameObject player;
         Vector2 playerMoveAmount;
-        bool isPlayingAudio = false;
+        //bool isPlayingAudio = false;
         public bool canPlayFootStepAud;
 
         public float walkAudioGap;
