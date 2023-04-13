@@ -548,6 +548,21 @@ MonoBehaviour:
   playerFallAnim: {fileID: 5619525464516716002}
   playerWalkAnim: {fileID: 6118756461595693964}
   player: {fileID: 3215353861071126044}
+  playFootStepAudio:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 10f0d57bfe92be646941c6cee0243b79, type: 2}
+        m_TargetAssemblyTypeName: Game.AudioManagerAgent, Assembly-CSharp
+        m_MethodName: PlaySourceOnce
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: ea95c53a4281d82498b5c20f3863198b, type: 2}
+          m_ObjectArgumentAssemblyTypeName: Game.AudioClipArray, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7154319441986446295
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 
 namespace Game {
@@ -96,8 +97,6 @@ namespace Game {
 			renderer.renderingLayerMask = 2;
 		}
 
-		public void Close() => GameManager.instance.State = GameManager.StateEnum.Protagonist;
-
 		public void Inspect() {
 			GameObject itemUiObj = Instantiate(prefabs.itemUi, GameManager.instance.ui.transform);
 			ItemUi itemUi = itemUiObj.GetComponent<ItemUi>();
@@ -132,11 +131,14 @@ namespace Game {
 			foreach(Item item in items) {
 				GameObject itemBtn = Instantiate(prefabs.itemBtn, anchors.items);
 				itemBtn.GetComponentInChildren<Text>().text = item.name;
+				itemBtn.GetComponentInChildren<ItemButtonSelect>().selectTex = item.selectTex;
                 Button button = itemBtn.GetComponentInChildren<Button>();
                 button.onClick.AddListener(() => {
 					Item = item;
 					item.onView.Invoke();
 				});
+				
+
 			}
 			if(Item?.GetType() != cat.type)
 				Item = items[0];
@@ -149,7 +151,7 @@ namespace Game {
 		public void UpdateButtons() {
 			anchors.actions.DestroyAllChildren();
 			var actions = new List<KeyValuePair<string, Action>> {
-				new KeyValuePair<string, Action>("Close", Close),
+				new KeyValuePair<string, Action>("Close", Back),
 			};
 			// Add more custom buttons
 			foreach(var pair in actions) {
@@ -168,12 +170,22 @@ namespace Game {
 		}
 		#endregion
 
-		#region Life cycle
-		void OnEnable() {
+		#region Auxiliary
+		IEnumerator OnEnableCoroutine() {
+			yield return new WaitForEndOfFrame();
+			var firstSelectable = anchors.categories.transform.GetChild(0)
+				?.GetComponentInChildren<Selectable>();
+			firstSelectable?.Select();
+		}
+        #endregion
+
+        #region Life cycle
+        void OnEnable() {
 			anchors.items.DestroyAllChildren();
 			anchors.actions.DestroyAllChildren();
 			Item = currentItem;
 			SwitchCategoryTab(currentCat);
+			StartCoroutine(OnEnableCoroutine());
 		}
 
 		void Start() {

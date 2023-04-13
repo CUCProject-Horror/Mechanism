@@ -41,6 +41,11 @@ namespace Game {
 			game.InventoryState();
         }
 
+		public void ConsoleStateChange(bool isConsoleState)
+        {
+			game.ConsoleState(isConsoleState);
+        }
+
 		public void InspectItem(Item item) {
 			game.InspectItem(item);
 		}
@@ -72,5 +77,6 @@ namespace Game {
         {
 			game.sceneChange.cutsceneNum = cutsceneNum;
         }
+
 	}
 }

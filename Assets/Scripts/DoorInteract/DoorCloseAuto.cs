@@ -24,6 +24,11 @@ namespace Game {
             }
         }
 
+        public void changeInfinityState(bool state)
+        {
+            dr.isInfinity = state;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Player" && !dr.isClosing)

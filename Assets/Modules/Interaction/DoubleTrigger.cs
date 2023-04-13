@@ -36,12 +36,28 @@ namespace Game {
 		}
 
 		public void OnOuterChange(bool enter) {
-			indicator.sprite = enter ? outerIndicator : null;
+			//indicator.sprite = enter ? outerIndicator : null;
+
+			if(enter){
+				indicator.GetComponent<Animator>().SetBool("OutterChange", true);
+			}
+			else if(!enter){ 
+				indicator.sprite = null;
+				indicator.GetComponent<Animator>().SetBool("OutterChange", false);
+			}
+
 			indicator.enabled = enter;
 		}
 
 		public void OnInnerChange(bool enter) {
-			indicator.sprite = enter ? innerIndicator : outerIndicator;
+			//indicator.sprite = enter ? innerIndicator : outerIndicator;
+
+			if(enter){
+				indicator.GetComponent<Animator>().SetBool("InnerChange", true);
+			}
+			else if (!enter){
+				indicator.GetComponent<Animator>().SetBool("InnerChange", false);
+			}
 			canInteract = enter;
 		}
 

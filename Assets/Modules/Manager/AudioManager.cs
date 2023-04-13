@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Game {
 	public class AudioManager : MonoBehaviour {
@@ -7,5 +8,10 @@ namespace Game {
 		void Start() {
 			instance = this;
 		}
-	}
+
+		#region Core fields
+		public GameObject audioManager;
+		public GameObject normalizedAudioSource;
+        #endregion
+    }
 }

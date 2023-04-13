@@ -16,6 +16,7 @@ namespace Game {
 			Prying,
 			TV,
 			Null,
+			Console,
 		}
 
 		#region Inspector fields
@@ -52,6 +53,7 @@ namespace Game {
 						input.playerInput.SwitchCurrentActionMap("Protagonist");
 						Cursor.lockState = CursorLockMode.Locked;
 						ui.SwitchTo(ui.aim);
+						Time.timeScale = 1f;
 						break;
 					case StateEnum.Inventory:
 						Cursor.lockState = CursorLockMode.None;
@@ -59,7 +61,8 @@ namespace Game {
 						if(inventoryUI.currentCat != null)
 							inventoryUI.SwitchCategoryTab(inventoryUI.currentCat);
 							input.playerInput.SwitchCurrentActionMap("UI");
-						ui.SwitchTo(ui.inventory);
+						ui.ForwardTo(ui.inventory);
+						Time.timeScale = 0;
 						break;
 					case StateEnum.Prying:
 						input.enabled = true;
@@ -72,6 +75,10 @@ namespace Game {
 					case StateEnum.Null:
 						input.enabled = true;
 						input.playerInput.SwitchCurrentActionMap("Do Nothing");
+						break;
+					case StateEnum.Console:
+						input.enabled = true;
+						input.playerInput.SwitchCurrentActionMap("Console");
 						break;
 				}
 			}
@@ -120,6 +127,17 @@ namespace Game {
 			State = StateEnum.Null;
         }
 
+		public void ConsoleState(bool isConsoleState)
+        {
+            if (isConsoleState)
+            {
+				State = StateEnum.Console;
+            }
+			if (! isConsoleState)
+            {
+				State = StateEnum.Protagonist;
+            }
+        }
 		public void ProtagonistState()
         {
 			State = StateEnum.Protagonist;

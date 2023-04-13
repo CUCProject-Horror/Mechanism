@@ -25,41 +25,67 @@ namespace Game {
 
         public UnityEvent onDoorLock;
         public UnityEvent onDoorOpen;
+        public UnityEvent endDoorClose;
         [HideInInspector] public bool canClose = false;
         [HideInInspector] public bool isOpening = false;
         [HideInInspector] public bool isClosing = false;
         [HideInInspector] public bool hasDestroyedDoor = false;
         //public bool hasPassedDoor = false;
 
-        InputManager inputManager;
+        //InputManager inputManager;
 
         private void Start()
         {
             isBlocked = false;
+            InnerIndicatorRevert(innerUI, outterUI);
         }
 
-        public void InteractDoorOutter()
+        public void InteractDoorOutter(GameObject targetIndicator)
         {
             canPush = true;
             force = pushForce;
+            targetIndicator.GetComponent<Animator>().SetBool("InteractChange", true);
         }
 
-        public void DeactivateDoorOutter()
+        public void DeactivateDoorOutter(GameObject targetIndicator)
         {
             canPush = false;
             force = 0;
+            targetIndicator.GetComponent<Animator>().SetBool("InteractChange", false);
         }
 
-        public void InteractDoorInner()
+        public void InteractDoorInner(GameObject targetIndicator)
         {
             canPush = true;
             force = -pushForce;
+            targetIndicator.GetComponent<Animator>().SetBool("InteractChange", true);
         }
 
-        public void DeactivateDoorInner()
+        public void DeactivateDoorInner(GameObject targetIndicator)
         {
             canPush = false;
             force = 0;
+            targetIndicator.GetComponent<Animator>().SetBool("InteractChange", false);
+        }
+
+        public void DoorOpenAnimPlayer(GameObject targetIndicator)
+        {
+            if (force > 0)
+            {
+                targetIndicator = outterUI;
+            }
+            else if (force < 0)
+            {
+                targetIndicator = innerUI;
+            }
+            StartCoroutine(DoorOpenAnim(targetIndicator));       
+        }
+
+        IEnumerator DoorOpenAnim(GameObject targetIndicator)
+        {
+            targetIndicator.GetComponent<Animator>().SetBool("DragChange", true);
+            yield return new WaitForSeconds(handleAnimTime);
+            targetIndicator.GetComponent<Animator>().SetBool("DragChange", false);
         }
 
         public void OpenTheDoor()
@@ -69,6 +95,8 @@ namespace Game {
             isOpening = true;
             canClose = true;
         }
+
+
 
         public void Drag(Component source, Vector3 drag)
         {
@@ -116,6 +144,16 @@ namespace Game {
             }
         }
 
+        public void InnerIndicatorRevert(GameObject InnerIndicator, GameObject OutterIndicator)
+        {
+            if(pushForce >= 0){
+                InnerIndicator.transform.localScale = new Vector3(1, -1, 1);
+            }
+            else if(pushForce < 0){
+                OutterIndicator.transform.localScale = new Vector3(1, -1, 1);
+            }
+        }
+
         public void OnReleaseInteract()
         {
             canPush = false;
@@ -147,11 +185,13 @@ namespace Game {
             }
             else if (isClosing && hasDestroyedDoor)
             {
+                endDoorClose.Invoke();
                 isClosing = false; timer = 0;
                 canClose = false;
             }
             else if (isClosing)
             {
+                endDoorClose.Invoke();
                 timer = 0;
                 innerUI.SetActive(true);
                 outterUI.SetActive(true);
