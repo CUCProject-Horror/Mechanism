@@ -17,16 +17,23 @@ namespace Game {
         public UnityEvent endTVState;
         public UnityEvent endTVStateInventory;
 
+        Animator tvScreenAnim;
+
         private void Awake()
         {
             vp = ScreenToPlay.GetComponent<VideoPlayer>();
+            tvScreenAnim = GetComponent<Animator>();
+
+            tvScreenAnim.updateMode = AnimatorUpdateMode.UnscaledTime;
             playSpeed = 1;
             isPause = false;
         }
         public void Quit()
         {
             if (isInventory)
-            { endTVStateInventory.Invoke(); }
+            { 
+                endTVStateInventory.Invoke();
+            }
             else
             { endTVState.Invoke(); }
             ScreenToPlay.SetActive(false);

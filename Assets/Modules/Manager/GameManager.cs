@@ -53,6 +53,7 @@ namespace Game {
 						input.playerInput.SwitchCurrentActionMap("Protagonist");
 						Cursor.lockState = CursorLockMode.Locked;
 						ui.SwitchTo(ui.aim);
+						Time.timeScale = 1f;
 						break;
 					case StateEnum.Inventory:
 						Cursor.lockState = CursorLockMode.None;
@@ -61,6 +62,7 @@ namespace Game {
 							inventoryUI.SwitchCategoryTab(inventoryUI.currentCat);
 							input.playerInput.SwitchCurrentActionMap("UI");
 						ui.ForwardTo(ui.inventory);
+						Time.timeScale = 0;
 						break;
 					case StateEnum.Prying:
 						input.enabled = true;
