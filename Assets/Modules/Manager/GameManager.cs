@@ -12,7 +12,6 @@ namespace Game {
 		public enum StateEnum {
 			Invalid = 0,
 			Protagonist = 1,
-			Inventory,
 			Prying,
 			TV,
 			Null,
@@ -25,9 +24,7 @@ namespace Game {
 		#endregion
 
 		#region Core fields
-		public UiManager ui;
 		[NonSerialized] public Protagonist protagonist;
-		[NonSerialized] public InventoryUi inventoryUI;
 		[NonSerialized] public InputManager input;
 		[NonSerialized] public SceneChange sceneChange;
 		public DialogueSystemController ds;
@@ -52,17 +49,8 @@ namespace Game {
 						input.enabled = true;
 						input.playerInput.SwitchCurrentActionMap("Protagonist");
 						Cursor.lockState = CursorLockMode.Locked;
-						ui.SwitchTo(ui.aim);
+						//ui.SwitchTo(ui.aim);
 						Time.timeScale = 1f;
-						break;
-					case StateEnum.Inventory:
-						Cursor.lockState = CursorLockMode.None;
-						input.enabled = false;
-						if(inventoryUI.currentCat != null)
-							inventoryUI.SwitchCategoryTab(inventoryUI.currentCat);
-							input.playerInput.SwitchCurrentActionMap("UI");
-						ui.ForwardTo(ui.inventory);
-						Time.timeScale = 0;
 						break;
 					case StateEnum.Prying:
 						input.enabled = true;
@@ -118,7 +106,7 @@ namespace Game {
 			}
 			else if(TVState == 3)
             {
-				State = StateEnum.Inventory;
+				//State = StateEnum.Inventory;
 			}
         }
 
@@ -142,26 +130,11 @@ namespace Game {
         {
 			State = StateEnum.Protagonist;
         }
-
-		public void InventoryState()
-        {
-			State = StateEnum.Inventory;
-		}
-		
-		public void InspectItem(Item item) {
-			if(item == null)
-				return;
-			inventoryUI.SwitchCategoryTab(inventoryUI.CategoryOf(item));
-			InventoryState();
-			inventoryUI.Item = item;
-			inventoryUI.Inspect();
-		}
 		#endregion
 
 		#region Life cycle
 		void Start() {
 			protagonist = FindObjectOfType<Protagonist>(true);
-			inventoryUI = FindObjectOfType<InventoryUi>(true);
 			input = GetComponent<InputManager>();
 			sceneChange = GetComponent<SceneChange>();
 

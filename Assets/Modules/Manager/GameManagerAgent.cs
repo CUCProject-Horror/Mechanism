@@ -38,7 +38,7 @@ namespace Game {
 
 		public void InventoryStateChange()
         {
-			game.InventoryState();
+			//game.InventoryState();
         }
 
 		public void ConsoleStateChange(bool isConsoleState)
@@ -47,7 +47,7 @@ namespace Game {
         }
 
 		public void InspectItem(Item item) {
-			game.InspectItem(item);
+			//game.InspectItem(item);
 		}
 
 		public void StartConversation(string name) 

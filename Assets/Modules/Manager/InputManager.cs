@@ -54,7 +54,7 @@ namespace Game {
 		}
 
 		public void OnInventory() {
-			GameManager.instance.State = GameManager.StateEnum.Inventory;
+			//GameManager.instance.State = GameManager.StateEnum.Inventory;
 		}
 
 		public void OnInteract(InputValue value) {
@@ -85,7 +85,7 @@ namespace Game {
 
 		public void OnBack()
         {
-            GameManager.instance.ui.Back();
+            //GameManager.instance.ui.Back();
         }
 
 

@@ -10,7 +10,7 @@ namespace Game {
 		public UnityEvent onView;
 
 		public void InspectSelf() {
-			GameManager.instance.InspectItem(this);
+			//GameManager.instance.InspectItem(this);
 		}
 	}
 }
