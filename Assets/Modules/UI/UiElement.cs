@@ -11,20 +11,20 @@ namespace Game.Ui {
 	[RequireComponent(typeof(RectTransform))]
 	[ExecuteAlways]
 	public class UiElement : MonoBehaviour {
-#region Internal fields
+		#region Internal fields
 		Text legacyText;
-#endregion
+		#endregion
 
-#region Serialized fields
+		#region Serialized fields
 		[SerializeField] bool selectable = true;
 		public UiElementNavigation navigation;
 		public UnityEvent onSelect;
 		public UnityEvent onDeselect;
 		public UnityEvent onUse;
-#endregion
+		#endregion
 
-#region Core methods
-		IEnumerable<UiElement> FindDirectChildren(RectTransform root) {
+		#region Core methods
+		public static IEnumerable<UiElement> FindDirectChildren(RectTransform root) {
 			foreach(RectTransform child in root) {
 				if(child == null)
 					continue;
@@ -41,9 +41,9 @@ namespace Game.Ui {
 			legacyText = null;
 			legacyText = GetComponentInChildren<Text>();
 		}
-#endregion
+		#endregion
 
-#region Public interfaces
+		#region Public interfaces
 		public RectTransform Transform => transform as RectTransform;
 		public UiElement Parent {
 			get {
@@ -67,7 +67,11 @@ namespace Game.Ui {
 
 		public virtual bool Selectable {
 			get => selectable;
-			set => selectable = value;
+			set {
+				foreach(var child in DirectChildren)
+					child.Selectable = value;
+				selectable = value;
+			}
 		}
 		public bool Selected => Page?.SelectedElement == this;
 
@@ -84,17 +88,22 @@ namespace Game.Ui {
 		}
 
 		public UiElement Navigate(Vector2 direction) {
-			UiElement result = this;
+			UiElement result = null;
 			if(direction.magnitude != 0) {
-				direction = direction.normalized * Mathf.Sqrt(2);
-				if(Mathf.Abs(direction.x) > 1)
-					result = direction.x < 0 ? navigation.left : navigation.right;
-				else if(Mathf.Abs(direction.y) > 1)
-					result = direction.y < 0 ? navigation.down : navigation.up;
+				var d = direction.normalized * Mathf.Sqrt(2);
+				if(Mathf.Abs(d.x) > 1)
+					result = d.x < 0 ? navigation.left : navigation.right;
+				else if(Mathf.Abs(d.y) > 1)
+					result = d.y < 0 ? navigation.down : navigation.up;
 			}
-			if(Page)
-				Page.SelectedElement = result;
-			return result;
+			if(!result || result == this)
+				return this;
+			if(result.isActiveAndEnabled) {
+				if(Page)
+					Page.SelectedElement = result;
+				return result;
+			}
+			return result.Navigate(direction);
 		}
 		#endregion
 
@@ -102,9 +111,13 @@ namespace Game.Ui {
 		public virtual void OnSelect() => onSelect?.Invoke();
 		public virtual void OnDeselect() => onDeselect?.Invoke();
 		public virtual void OnUse() => onUse?.Invoke();
-#endregion
+		#endregion
 
-#region Life cycle
-#endregion
+		#region Life cycle
+		void OnDisable() {
+			if(Selected)
+				Page.SelectedElement = null;
+		}
+		#endregion
 	}
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1145742169783174462}
   - component: {fileID: 99274938901948916}
   - component: {fileID: 915465261252055480}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba56fbaa340e85b4f9ab57ef7d616bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectable: 1
+  selectable: 0
   onSelect:
     m_PersistentCalls:
       m_Calls: []

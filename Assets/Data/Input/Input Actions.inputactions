@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Inventory",
+                    "name": "Menu",
                     "type": "Button",
                     "id": "294f47dd-6b22-4447-a2d6-ad3ceb8620e2",
                     "expectedControlType": "Button",
@@ -238,7 +238,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "Inventory",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -249,7 +249,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "Inventory",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -348,17 +348,8 @@
             "id": "3169c246-6470-4419-9f1f-99eabad19f9a",
             "actions": [
                 {
-                    "name": "Point",
-                    "type": "PassThrough",
-                    "id": "7001c15f-e978-485d-9b3f-74c5cc07c971",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Click",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "914aff12-c05a-4709-8b2b-ae51c86e22d1",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -366,38 +357,20 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "UIMove",
+                    "name": "Navigate",
                     "type": "Value",
                     "id": "4b01fb27-b9f5-4238-a382-5f5989a9c223",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": true
-                },
-                {
-                    "name": "Submit",
-                    "type": "Button",
-                    "id": "ca90f35a-55cc-4dd9-8913-e640936a93b3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Back",
-                    "type": "Button",
-                    "id": "839b6f5b-2fee-4eb5-941f-8a6ec9761daa",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "71438197-6052-42d6-88fd-49cf4f1dc665",
-                    "path": "<Mouse>/leftButton",
+                    "id": "004c879f-3758-4e1c-8dd8-f6748db565c9",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
@@ -407,12 +380,12 @@
                 },
                 {
                     "name": "",
-                    "id": "40b2121a-a837-4904-bb24-7a187c2e9b3a",
-                    "path": "<Mouse>/position",
+                    "id": "86dee57c-1729-4393-bfb8-28efa9ebd138",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "PC",
-                    "action": "Point",
+                    "groups": "Controller",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -423,7 +396,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "UIMove",
+                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -434,75 +407,64 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Controller",
-                    "action": "UIMove",
+                    "action": "Navigate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "19b4c6ee-066b-48a2-9c6e-658738fd960c",
-                    "path": "<Gamepad>/buttonSouth",
+                    "name": "Keyboard",
+                    "id": "c7753b4c-6a75-4a01-ad3d-d526160bc02f",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Submit",
-                    "isComposite": false,
+                    "action": "Navigate",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "3becbeea-c6b8-44d8-b1f7-da5062f73a18",
-                    "path": "<DualShockGamepad>/buttonSouth",
+                    "name": "up",
+                    "id": "2eb5e61f-c966-46df-a912-6412022b6a8d",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Submit",
+                    "groups": "PC",
+                    "action": "Navigate",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "596bf6e2-4296-4eef-ad5a-642a6ac75485",
-                    "path": "<Mouse>/rightButton",
+                    "name": "down",
+                    "id": "dfad2e83-2782-4a33-b252-039daecbcce2",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Back",
+                    "groups": "PC",
+                    "action": "Navigate",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "6a391698-a6b9-43c0-843d-8b435c734365",
-                    "path": "<Keyboard>/escape",
+                    "name": "left",
+                    "id": "77c9a73e-a71b-4052-a9f9-6c440ccfbc93",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Back",
+                    "groups": "PC",
+                    "action": "Navigate",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "b5a27988-3965-4fce-a258-8d176255bb3c",
-                    "path": "<Gamepad>/buttonEast",
+                    "name": "right",
+                    "id": "647a252b-8be4-4300-868c-3d665c83ffc5",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Back",
+                    "groups": "PC",
+                    "action": "Navigate",
                     "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5db5e0ac-6fe9-49f3-9bc3-dda079bdc766",
-                    "path": "<DualShockGamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Back",
-                    "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 }
             ]
         },
@@ -830,12 +792,6 @@
                     "isPartOfComposite": false
                 }
             ]
-        },
-        {
-            "name": "Do Nothing",
-            "id": "9ff3ef9f-8ec9-480a-8336-55cc3951fb19",
-            "actions": [],
-            "bindings": []
         }
     ],
     "controlSchemes": [

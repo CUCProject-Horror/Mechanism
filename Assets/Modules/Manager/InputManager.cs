@@ -10,7 +10,7 @@ namespace Game {
 		#endregion
 
 		#region Input handler
-		public bool canOrient = true;
+		#region Protagonist
 		public void OnMove(InputValue value) {
 			Vector2 raw = value.Get<Vector2>();
 			protagonist.inputVelocity = new Vector3 {
@@ -39,30 +39,40 @@ namespace Game {
 				}
 			}
 			// Protagonist orientation
-			if (canOrient)
-			{
-                protagonist.inputRotation = raw;
-			}
-            else
-            {
-				protagonist.inputRotation = Vector2.zero;
-			}
+			protagonist.inputRotation = raw;
 		}
 
-		public void OnEndPry() {
-			GameManager.instance.Prying = null;
-		}
-
-		public void OnInventory() {
-			//GameManager.instance.State = GameManager.StateEnum.Inventory;
+		public void OnMenu(InputValue _) {
+			GameManager.instance.OpenPauseMenu();
 		}
 
 		public void OnInteract(InputValue value) {
 			float raw = value.Get<float>();
 			protagonist.SetInteractorActivity(raw > .5f);
 		}
+		#endregion
 
-        public void OnQuit()
+		#region UI
+		public void OnNavigate(InputValue value) {
+			Vector2 raw = value.Get<Vector2>();
+			if(raw.magnitude < .5f)
+				return;
+			GameManager.instance.ui.Current?.Navigate(raw);
+		}
+
+		public void OnClick(InputValue _) {
+			GameManager.instance.ui.Current?.Use();
+		}
+		#endregion
+
+		#region Prying
+		public void OnEndPry() {
+			GameManager.instance.Prying = null;
+		}
+		#endregion
+
+		#region TV
+		public void OnQuit()
         {
 			//if (GameManager.instance.State == GameManager.StateEnum.TV)
 			GameManager.instance.vid.Quit();
@@ -82,20 +92,12 @@ namespace Game {
         {
 			GameManager.instance.vid.Forward();
         }
+		#endregion
+		#endregion
 
-		public void OnBack()
-        {
-            //GameManager.instance.ui.Back();
-        }
-
-
-
-        #endregion
-
-        #region Life cycle
-        void Start() {
+		#region Life cycle
+		void Start() {
 			playerInput = GetComponent<PlayerInput>();
-			canOrient = true;
 		}
         #endregion
     }

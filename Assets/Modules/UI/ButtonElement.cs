@@ -1,15 +1,12 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Game.Ui {
-	public class ButtonElement : UiElement, ISelectHandler {
+	public class ButtonElement : UiElement {
 		#region Serialized fields
 		public UnityEngine.UI.Button legacyButton;
 		#endregion
 
 		#region Public interface
-		// Make Unity selection happy
-		public void OnSelect(BaseEventData eventData) => OnSelect();
 		#endregion
 
 		#region Life cycle
