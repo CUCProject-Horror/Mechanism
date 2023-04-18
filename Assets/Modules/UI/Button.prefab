@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -145,6 +145,7 @@ MonoBehaviour:
   onUse:
     m_PersistentCalls:
       m_Calls: []
+  legacyButton: {fileID: 1746455445755384739}
 --- !u!1001 &804677827969258360
 PrefabInstance:
   m_ObjectHideFlags: 0

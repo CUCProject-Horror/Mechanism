@@ -9,6 +9,7 @@ namespace Game.Ui {
 	}
 
 	[RequireComponent(typeof(RectTransform))]
+	[ExecuteAlways]
 	public class UiElement : MonoBehaviour {
 #region Internal fields
 		Text legacyText;
@@ -98,15 +99,12 @@ namespace Game.Ui {
 		#endregion
 
 		#region Message handlers
-		public void OnSelect() => onSelect?.Invoke();
-		public void OnDeselect() => onDeselect?.Invoke();
-		public void OnUse() => onUse?.Invoke();
+		public virtual void OnSelect() => onSelect?.Invoke();
+		public virtual void OnDeselect() => onDeselect?.Invoke();
+		public virtual void OnUse() => onUse?.Invoke();
 #endregion
 
 #region Life cycle
-		void OnEnable() {
-			Selectable = Selectable;
-		}
 #endregion
 	}
 }

@@ -78,5 +78,8 @@ namespace Game {
 			game.sceneChange.cutsceneNum = cutsceneNum;
         }
 
+		public void Log(string message) {
+			Debug.Log(message);
+		}
 	}
 }
