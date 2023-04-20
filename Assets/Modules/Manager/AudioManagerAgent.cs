@@ -6,6 +6,7 @@ namespace Game {
 	public class AudioManagerAgent : ScriptableObject {
 		AudioManager audio => AudioManager.instance;
 
+
 		public void PlaySourceOnce(AudioClipArray array)
         {
 
@@ -15,6 +16,7 @@ namespace Game {
 			int randomIndex = Random.Range(0, clipToPlay.Length);
 
 			source.GetComponent<AudioSource>().clip = clipToPlay[randomIndex];
+			source.GetComponent<AudioSource>().volume = array.volume;
 			source.GetComponent<AudioSource>().Play();
         }
 	}

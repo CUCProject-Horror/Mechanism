@@ -8,5 +8,7 @@ namespace Game
     public class AudioClipArray : ScriptableObject
     {
         public AudioClip[] clipArray;
+
+        public float volume;
     }
 }

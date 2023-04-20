@@ -2,7 +2,7 @@ Shader "FullScreen/S_LensRotate"
 {
     Properties
     {
-        _RotateScale("RotateScale", Range(0, 20)) = 0
+        _RotateScale("RotateScale", Range(-20, 20)) = 0
         _RotateCenter("RotateCenter", vector) = (0, 0, 0, 0)
     }
     HLSLINCLUDE
