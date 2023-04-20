@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u80CC\u5305"
       objectReference: {fileID: 0}
+    - target: {fileID: 881447831485259952, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2033453427837416293, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -5,7 +5,6 @@ namespace Game.Ui {
 	public class CategoryUi : UiController {
 		ItemType category;
 		List<ItemRecord> records;
-		List<UiElement> entries;
 
 		public string emptyText = "£¿£¿£¿";
 
@@ -17,46 +16,52 @@ namespace Game.Ui {
 					.inventory.GetRecordsByType(value);
 				if(records == null)
 					throw new UnityException($"Cannot find category \"${category}\" in protagonist inventory");
-				SetUpHierarchy();
+				SetUpEntries();
 			}
 		}
 
-		void SetUpHierarchy() {
+		void CleanUpEntries() {
 			Bp.backButton.navigation.down = null;
 			Utils.DestroyAllChildren(Bp.entryList.transform);
+		}
+
+		void SetUpEntries() {
+			CleanUpEntries();
 			if(records == null)
 				return;
-			entries = new List<UiElement>();
+			var entries = new List<UiElement>();
 			foreach(var record in records) {
 				var entryObj = Instantiate(Bp.entryButtonPrefab, Bp.entryList.transform);
 				var entry = entryObj.GetComponent<UiElement>();
 				entries.Add(entry);
 				if(!record.possessed) {
-					entry.Text = emptyText;
 					entry.Selectable = false;
+					entry.Text = emptyText;
 				}
 				else {
+					entry.Selectable = true;
 					entry.Text = record.item.name;
-					// entry.onUse = TODO
 				}
 			}
-			Bp.selectedElement = Bp.backButton;
-			for(var i = 0; i < entries.Count; ++i) {
+			Bp.SelectedElement = Bp.backButton;
+			for(int i = 0; i < entries.Count; ++i) {
 				var entry = entries[i];
 				if(i == 0) {
 					Bp.SelectedElement = entry;
-					entry.navigation.up = Bp.backButton;
 					Bp.backButton.navigation.down = entry;
+					entry.navigation.up = Bp.backButton;
 				}
-				if(i > 0)
-					entry.navigation.up = entries[i - 1];
-				if(i < entries.Count - 1)
-					entry.navigation.down = entries[i + 1];
+				// TODO
 			}
+			Bp.SetUpEntriesNagivation();
 		}
 
 		protected void OnEnable() {
-			Category = Category;
+			SetUpEntries();
+		}
+
+		protected void OnDisable() {
+			CleanUpEntries();
 		}
 	}
 }

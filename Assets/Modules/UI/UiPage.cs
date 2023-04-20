@@ -1,7 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Game.Ui {
 	[RequireComponent(typeof(RectTransform))]
@@ -14,7 +15,7 @@ namespace Game.Ui {
 		#endregion
 
 		#region Serialized fields
-		public UiElement selectedElement;
+		[SerializeField] UiElement selectedElement;
 		public UnityEvent onOpen;
 		public UnityEvent onClose;
 		#endregion
@@ -26,9 +27,11 @@ namespace Game.Ui {
 		public UiElement SelectedElement {
 			get => selectedElement;
 			set {
-				if(value == previouslySelectedElement)
-					return;
+				if(value == null)
+					value = DirectChildren.FirstOrDefault(child => child.Selectable);
 				if(!(value?.Selectable ?? false))
+					return;
+				if(value == previouslySelectedElement)
 					return;
 				if(previouslySelectedElement)
 					previouslySelectedElement.OnDeselect();
@@ -70,6 +73,8 @@ namespace Game.Ui {
 
 		#region Life cycle
 		protected virtual void EditorUpdate() {
+			if(SelectedElement == null)
+				SelectedElement = SelectedElement;
 		}
 
 		protected virtual void Update() {

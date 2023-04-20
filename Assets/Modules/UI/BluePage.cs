@@ -14,19 +14,19 @@ namespace Game.Ui {
 		public LayoutGroup entryList;
 		#endregion
 
-		#region Internal functions
-		void SetUpEntriesNagivation() {
+		#region Public functions
+		public void SetUpEntriesNagivation() {
 			var children = UiElement.FindDirectChildren(entryList.transform as RectTransform).ToArray();
 			for(var i = 0; i < children.Length; ++i) {
 				var child = children[i];
 				if(i == 0) {
-					child.navigation.up = backButton;
-					backButton.navigation.down = child;
+					child.navigation.up ??= backButton;
+					backButton.navigation.down ??= child;
 				}
 				if(i > 0)
-					child.navigation.up = children[i - 1];
+					child.navigation.up ??= children[i - 1];
 				if(i < children.Length - 1)
-					child.navigation.down = children[i + 1];
+					child.navigation.down ??= children[i + 1];
 			}
 		}
 		#endregion
