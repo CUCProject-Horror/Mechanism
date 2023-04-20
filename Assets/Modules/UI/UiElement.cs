@@ -2,8 +2,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 
 namespace Game.Ui {
+	[Serializable]
 	public struct UiElementNavigation {
 		public UiElement left, up, right, down;
 	}
@@ -66,7 +68,7 @@ namespace Game.Ui {
 		public UiPage Page => GetComponentInParent<UiPage>();
 
 		public virtual bool Selectable {
-			get => selectable;
+			get => isActiveAndEnabled && selectable;
 			set {
 				foreach(var child in DirectChildren)
 					child.Selectable = value;
@@ -98,7 +100,7 @@ namespace Game.Ui {
 			}
 			if(!result || result == this)
 				return this;
-			if(result.isActiveAndEnabled) {
+			if(result.Selectable) {
 				if(Page)
 					Page.SelectedElement = result;
 				return result;

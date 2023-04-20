@@ -111,7 +111,7 @@ namespace Game {
 			if(State == StateEnum.UI)
 				return;
 			State = StateEnum.UI;
-			ui.Open(ui.pauseUi);
+			ui.Open(ui.pauseUi.Bp);
 		}
 		#endregion
 

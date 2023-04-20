@@ -18,8 +18,10 @@ namespace Game {
 
 	[CreateAssetMenu(menuName = "Game/Inventory")]
 	public class Inventory : ScriptableObject {
+		public List<ItemRecord> collectives;
+		public List<ItemRecord> props;
 		[Label("CDs")] public List<ItemRecord> cds;
-		public List<ItemRecord> collectives, props, treasures;
+		public List<ItemRecord> treasures;
 
 		public IEnumerable<IEnumerable<ItemRecord>> ItemRecordLists => new IEnumerable<ItemRecord>[] {
 			cds, collectives, props, treasures
@@ -30,6 +32,20 @@ namespace Game {
 					foreach(var i in l)
 						yield return i;
 			}
+		}
+
+		public List<ItemRecord> GetRecordsByType(ItemType type) {
+			switch(type) {
+				case ItemType.Collective:
+					return collectives;
+				case ItemType.Prop:
+					return props;
+				case ItemType.CD:
+					return cds;
+				case ItemType.Treasure:
+					return treasures;
+			}
+			return null;
 		}
 
 		public void Possess(Item item) => ItemRecords.First(r => r.item == item).possessed = true;

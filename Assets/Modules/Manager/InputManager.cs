@@ -57,7 +57,8 @@ namespace Game {
 			Vector2 raw = value.Get<Vector2>();
 			if(raw.magnitude < .5f)
 				return;
-			GameManager.instance.ui.Current?.Navigate(raw);
+			var currentPage = GameManager.instance.ui.Current;
+			currentPage?.Navigate(raw);
 		}
 
 		public void OnClick(InputValue _) {

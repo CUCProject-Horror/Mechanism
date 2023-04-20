@@ -16,7 +16,7 @@ namespace Game.Ui {
 
 		#region Internal functions
 		void SetUpEntriesNagivation() {
-			var children = DirectChildren.ToArray();
+			var children = UiElement.FindDirectChildren(entryList.transform as RectTransform).ToArray();
 			for(var i = 0; i < children.Length; ++i) {
 				var child = children[i];
 				if(i == 0) {

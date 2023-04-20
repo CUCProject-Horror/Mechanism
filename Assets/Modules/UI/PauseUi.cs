@@ -1,12 +1,10 @@
 using UnityEngine;
 
 namespace Game.Ui {
-	[RequireComponent(typeof(BluePage))]
-	public class PauseUi : MonoBehaviour {
-		BluePage bluePage;
-
-		void Start() {
-			bluePage = GetComponent<BluePage>();
+	public class PauseUi : UiController {
+		public void OpenInventory() {
+			var ui = GameManager.instance.ui;
+			ui.Open(ui.inventoryUi.Page);
 		}
 	}
 }

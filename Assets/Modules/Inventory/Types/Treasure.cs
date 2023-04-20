@@ -1,9 +1,8 @@
 using UnityEngine;
 
-namespace Game
-{
+namespace Game {
 	[CreateAssetMenu(menuName = "Game/Item/Treasure")]
-	public class Treasure : Item
-	{
+	public class Treasure : Item {
+		public Treasure() => type = ItemType.Treasure;
 	}
 }

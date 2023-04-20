@@ -9,7 +9,9 @@ namespace Game {
 		#endregion
 
 		#region Serialized fields
-		public UiPage pauseUi;
+		public PauseUi pauseUi;
+		public InventoryUi inventoryUi;
+		public CategoryUi categoryUi;
 		#endregion
 
 		#region Public interfaces

@@ -28,6 +28,8 @@ namespace Game.Ui {
 			set {
 				if(value == previouslySelectedElement)
 					return;
+				if(!(value?.Selectable ?? false))
+					return;
 				if(previouslySelectedElement)
 					previouslySelectedElement.OnDeselect();
 				value = value?.isActiveAndEnabled ?? false ? value : null;

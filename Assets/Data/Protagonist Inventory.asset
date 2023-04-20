@@ -12,4 +12,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5c8ba4ce61dc640bf8c5bc8831fa42, type: 3}
   m_Name: Protagonist Inventory
   m_EditorClassIdentifier: 
-  itemRecords: []
+  collectives:
+  - item: {fileID: 11400000, guid: 41f0e82e10d7a9948ae6192e222743ed, type: 2}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  props:
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  cds:
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  treasures:
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
