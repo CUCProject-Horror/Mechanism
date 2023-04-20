@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5c8ba4ce61dc640bf8c5bc8831fa42, type: 3}
+  m_Name: Protagonist Inventory
+  m_EditorClassIdentifier: 
+  collectives:
+  - item: {fileID: 11400000, guid: 41f0e82e10d7a9948ae6192e222743ed, type: 2}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  props:
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  cds:
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  treasures:
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0
+  - item: {fileID: 0}
+    possessed: 0

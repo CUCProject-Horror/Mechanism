@@ -10,5 +10,9 @@ namespace Game {
 			foreach(Transform child in children)
 				Object.Destroy(child.gameObject);
 		}
+
+		public static T StringToEnum<T>(string name) where T : System.Enum {
+			return (T)System.Enum.Parse(typeof(T), name);
+		}
 	}
 }

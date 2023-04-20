@@ -19,7 +19,7 @@ namespace Game {
 				Debug.LogWarning("Item to deliver is null");
 				return;
 			}
-			inventory.Add(item);
+			inventory.Possess(item);
 			if(!infinite) {
 				--count;
 				if(destroyOnEmpty && count == 0) {

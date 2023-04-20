@@ -25,8 +25,7 @@ namespace Game {
 		protected float lastGroundHeight;
 		#endregion
 
-		[Header("Inventory")]
-		public Inventory inventory = new Inventory();
+		[Expandable] public Inventory inventory;
 		[HideInInspector] public float fallingHeight;
 		#endregion
 
@@ -81,6 +80,7 @@ namespace Game {
 		#region Life cycle
 		protected void Start() {
 			controller = GetComponent<CharacterController>();
+			inventory = inventory ? Instantiate(inventory) : ScriptableObject.CreateInstance<Inventory>();
 		}
 
 		void FixedUpdate() {

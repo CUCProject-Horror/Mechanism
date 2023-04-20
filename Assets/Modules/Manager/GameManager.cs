@@ -8,26 +8,16 @@ namespace Game {
 		public static GameManager instance;
 		public GameManager() => instance = this;
 
-
 		public enum StateEnum {
 			Invalid = 0,
 			Protagonist = 1,
-			Inventory,
 			Prying,
 			TV,
-			Null,
-			Console,
+			UI,
 		}
 
-		#region Inspector fields
-		public float inventoryViewingDistance;
-		public float inspectingDistance;
-		#endregion
-
-		#region Core fields
-		public UiManager ui;
+		#region Internal fields
 		[NonSerialized] public Protagonist protagonist;
-		[NonSerialized] public InventoryUi inventoryUI;
 		[NonSerialized] public InputManager input;
 		[NonSerialized] public SceneChange sceneChange;
 		public DialogueSystemController ds;
@@ -37,131 +27,97 @@ namespace Game {
 		StateEnum state = StateEnum.Protagonist;
 		#endregion
 
+		#region Serialized fields
+		public float inventoryViewingDistance;
+		public float inspectingDistance;
+		public UiManager ui;
+		#endregion
+
+		#region Internal functions
+		void SwitchState(StateEnum value) {
+			// Exiting
+			switch(state) {
+				case StateEnum.Invalid:
+					input.enabled = false;
+					break;
+			}
+			// Entering
+			switch(value) {
+				case StateEnum.Invalid:
+					state = StateEnum.Invalid;
+					Cursor.lockState = CursorLockMode.None;
+					input.enabled = false;
+					break;
+				case StateEnum.Protagonist:
+					state = StateEnum.Protagonist;
+					input.playerInput.SwitchCurrentActionMap("Protagonist");
+					Cursor.lockState = CursorLockMode.Locked;
+					Time.timeScale = 1f;
+					break;
+				case StateEnum.Prying:
+					input.playerInput.SwitchCurrentActionMap("Pry");
+					break;
+				case StateEnum.TV:
+					input.playerInput.SwitchCurrentActionMap("TV");
+					break;
+				case StateEnum.UI:
+					Time.timeScale = 0f;
+					input.playerInput.SwitchCurrentActionMap("UI");
+					break;
+			}
+			state = value;
+		}
+
+		IEnumerator StartPryCoroutine() {
+			yield return new WaitForSeconds(2f);
+			State = StateEnum.Prying;
+		}
+		#endregion
+
 		#region Public interfaces
 		public StateEnum State {
 			get => state;
-			set {
-				switch(state = value) {
-					case StateEnum.Invalid:
-						state = StateEnum.Invalid;
-						Cursor.lockState = CursorLockMode.None;
-						input.enabled = false;
-						break;
-					case StateEnum.Protagonist:
-						state = StateEnum.Protagonist;
-						input.enabled = true;
-						input.playerInput.SwitchCurrentActionMap("Protagonist");
-						Cursor.lockState = CursorLockMode.Locked;
-						ui.SwitchTo(ui.aim);
-						Time.timeScale = 1f;
-						break;
-					case StateEnum.Inventory:
-						Cursor.lockState = CursorLockMode.None;
-						input.enabled = false;
-						if(inventoryUI.currentCat != null)
-							inventoryUI.SwitchCategoryTab(inventoryUI.currentCat);
-							input.playerInput.SwitchCurrentActionMap("UI");
-						ui.ForwardTo(ui.inventory);
-						Time.timeScale = 0;
-						break;
-					case StateEnum.Prying:
-						input.enabled = true;
-						input.playerInput.SwitchCurrentActionMap("Pry");
-						break;
-					case StateEnum.TV:
-						input.enabled = true;
-						input.playerInput.SwitchCurrentActionMap("TV");
-						break;
-					case StateEnum.Null:
-						input.enabled = true;
-						input.playerInput.SwitchCurrentActionMap("Do Nothing");
-						break;
-					case StateEnum.Console:
-						input.enabled = true;
-						input.playerInput.SwitchCurrentActionMap("Console");
-						break;
-				}
-			}
+			set => SwitchState(value);
 		}
 
 		public PlayerPry Prying {
 			get => currentPrying;
 			set {
-				if (currentPrying == value)
+				if(currentPrying == value)
 					return;
 				currentPrying?.Deactivate();
 				State = StateEnum.Protagonist;
-				if (currentPrying = value)
-				{
+				if(currentPrying = value) {
 					currentPrying.Activate();
-					State = StateEnum.Null;
-					StartCoroutine(PryState());
+					State = StateEnum.Invalid;
+					StartCoroutine(StartPryCoroutine());
 				}
 			}
 		}
 
-		public IEnumerator PryState()
-		{	
-			yield return new WaitForSeconds(2f);
-			State = StateEnum.Prying;
-		}
-
-		public void TVState(int TVState)
-        {
-			if (TVState == 1)
-			{
+		public void TVState(int TVState) {
+			if(TVState == 1) {
 				State = StateEnum.TV;
 			}
-			else if(TVState == 2)
-			{
+			else if(TVState == 2) {
 				State = StateEnum.Protagonist;
 			}
-			else if(TVState == 3)
-            {
-				State = StateEnum.Inventory;
+			else if(TVState == 3) {
+				//State = StateEnum.Inventory;
 			}
-        }
-
-		public void NullState()
-        {
-			State = StateEnum.Null;
-        }
-
-		public void ConsoleState(bool isConsoleState)
-        {
-            if (isConsoleState)
-            {
-				State = StateEnum.Console;
-            }
-			if (! isConsoleState)
-            {
-				State = StateEnum.Protagonist;
-            }
-        }
-		public void ProtagonistState()
-        {
-			State = StateEnum.Protagonist;
-        }
-
-		public void InventoryState()
-        {
-			State = StateEnum.Inventory;
 		}
-		
-		public void InspectItem(Item item) {
-			if(item == null)
+
+		public void OpenPauseMenu() {
+			if(State == StateEnum.UI)
 				return;
-			inventoryUI.SwitchCategoryTab(inventoryUI.CategoryOf(item));
-			InventoryState();
-			inventoryUI.Item = item;
-			inventoryUI.Inspect();
+			State = StateEnum.UI;
+			ui.Open(ui.pauseUi.Bp);
 		}
 		#endregion
 
 		#region Life cycle
 		void Start() {
 			protagonist = FindObjectOfType<Protagonist>(true);
-			inventoryUI = FindObjectOfType<InventoryUi>(true);
 			input = GetComponent<InputManager>();
 			sceneChange = GetComponent<SceneChange>();
 
