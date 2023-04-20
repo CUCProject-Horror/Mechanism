@@ -8,9 +8,5 @@ namespace Game {
 		public Texture selectTex;
 
 		public UnityEvent onView;
-
-		public void InspectSelf() {
-			//GameManager.instance.InspectItem(this);
-		}
 	}
 }

@@ -38,12 +38,6 @@ namespace Game {
 			game.ds.StopConversation();
 		}
 
-		public void RemoveItem(string itemName) {
-			Inventory inventory = game.protagonist.inventory;
-
-			inventory.Remove(itemName);
-		}
-
 		public void SwitchScene(int sceneNum) {
 			game.sceneChange.sceneNum = sceneNum;
 		}

@@ -993,7 +993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6950f23a5a98f0d448bbb54d73447b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canOrient: 0
 --- !u!114 &74930685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5775,6 +5774,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3215353861071126017, guid: d1c2da03ab149df41812a60a7b4147a0, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: 74d53d716a613aa46a338b2e97a17e6b, type: 2}
+    - target: {fileID: 3215353861071126017, guid: d1c2da03ab149df41812a60a7b4147a0, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -5916,11 +5919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3317021872930874552, guid: d1c2da03ab149df41812a60a7b4147a0, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 21
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3317021872930874552, guid: d1c2da03ab149df41812a60a7b4147a0, type: 3}
       propertyPath: m_Lens.m_SensorSize.y
-      value: 15.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3329852748096077096, guid: d1c2da03ab149df41812a60a7b4147a0, type: 3}
       propertyPath: m_RootOrder
