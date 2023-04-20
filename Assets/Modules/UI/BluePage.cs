@@ -9,6 +9,8 @@ namespace Game.Ui {
 		public Color foregroundColor, backgroundColor;
 		public Graphic background;
 		public ButtonElement backButton;
+		public ScrollRect scroll;
+		public RectTransform entryListContainer;
 
 		public GameObject entryButtonPrefab;
 		public LayoutGroup entryList;
@@ -41,6 +43,17 @@ namespace Game.Ui {
 			base.EditorUpdate();
 			if(background) {
 				background.color = backgroundColor;
+			}
+		}
+
+		protected override void OnSelect(UiElement element) {
+			base.OnSelect(element);
+			if(element.transform.parent == entryList.transform) {
+				int i = element.transform.GetSiblingIndex();
+				int n = entryList.transform.childCount;
+				float p = (float)i / (n - 1);
+				p = 1 - p;
+				scroll.verticalScrollbar.value = p;
 			}
 		}
 		#endregion

@@ -25,7 +25,7 @@ namespace Game.Ui {
 			base.OnDeselect();
 			selectionIcon.enabled = false;
 			entryText.color = Bp.foregroundColor;
-			textBackground.color = Bp.backgroundColor;
+			textBackground.color = new Color(0, 0, 0, 0);
 		}
 		#endregion
 

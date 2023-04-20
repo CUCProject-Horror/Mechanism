@@ -14,25 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectives:
   - item: {fileID: 11400000, guid: 41f0e82e10d7a9948ae6192e222743ed, type: 2}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
+    possessed: 1
+  - item: {fileID: 11400000, guid: 891588ab27be1544d8edeca683fd1cae, type: 2}
+    possessed: 1
+  - item: {fileID: 11400000, guid: 20ea2e0bf1a69b747865ccbbac417404, type: 2}
+    possessed: 1
+  - item: {fileID: 11400000, guid: 255f6e276abb3724ea1726d101053c33, type: 2}
+    possessed: 1
+  - item: {fileID: 11400000, guid: a505325011118bd459d2045406ecdb67, type: 2}
+    possessed: 1
+  - item: {fileID: 11400000, guid: 8f36982ef4705424995fb83bed2a9981, type: 2}
+    possessed: 1
+  - item: {fileID: 11400000, guid: 67f4d944bae3ec449966839d4727cd49, type: 2}
+    possessed: 1
+  - item: {fileID: 11400000, guid: efe1a9e2a16a8c14d9db6b0782a4e2e3, type: 2}
+    possessed: 1
+  - item: {fileID: 11400000, guid: ac5f9093259286a4dbbeb0ac92521b60, type: 2}
+    possessed: 1
+  - item: {fileID: 11400000, guid: 1b4617bc43c2c5c4d9f024b71ae882d4, type: 2}
+    possessed: 1
   props:
   - item: {fileID: 0}
     possessed: 0

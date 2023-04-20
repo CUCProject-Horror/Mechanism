@@ -86,6 +86,8 @@ namespace Game.Ui {
 			}
 		}
 
+		protected virtual void OnSelect(UiElement element) { }
+
 		protected virtual void OnEnable() {
 			onOpen?.Invoke();
 		}
