@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2954942391980530290}
   - component: {fileID: 2954942391980530288}
   - component: {fileID: 2954942391980530291}
+  - component: {fileID: 2776744730240411231}
   - component: {fileID: 2954942391980530289}
   - component: {fileID: 8092122333747507851}
   m_Layer: 0
@@ -85,6 +86,75 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2776744730240411231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2954942391980530189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45114923610b612499f2fa1740155b54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 0}
+  LensRotateMat: {fileID: 0}
+  Begin: 0
+  BeginTime_LR: 0
+  EndTime_LR: 0
+  AC_LR:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  BeginValue_LR: 0
+  EndValue_LR: 0
+  BeginTime_PostExposure_CAS: 0
+  EndTime_PostExposure_CAS: 0
+  AC_PostExposure_CAS:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  BeginValue_PostExposure_CAS: 0
+  EndValue_PostExposure_CAS: 0
+  BeginTime_ColorFilter_CAS: 0
+  EndTime_ColorFilter_CAS: 0
+  AC_ColorFilter_CAS:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  BeginColor_ColorFilter_CAS: {r: 0, g: 0, b: 0, a: 0}
+  EndColor_ColorFilter_CAS: {r: 0, g: 0, b: 0, a: 0}
+  BeginTime_DOF: 0
+  EndTime_DOF: 0
+  AC_DOF:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  BeginValue_FocusDist_DOF: 0
+  EndValue_FocusDist_DOF: 0
+  BeginValue_FarBlur_SampleCount_DOF: 0
+  EndValue_FarBlur_SampleCount_DOF: 0
+  BeginValue_FarBlur_MaxRadius_DOF: 0
+  EndValue_FarBlur_MaxRadius_DOF: 0
+  BeginTime_CA: 0
+  EndTime_CA: 0
+  AC_CA:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  BeginValue_CA: 0
+  EndValue_CA: 0
 --- !u!114 &2954942391980530289
 MonoBehaviour:
   m_ObjectHideFlags: 0

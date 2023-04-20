@@ -17,7 +17,8 @@ namespace Game
 
         public void StartScare()
         {
-            StartCoroutine(JumpScare1_1());
+            //StartCoroutine(JumpScare1_1());
+            OnStartScare.Invoke();
         }
 
         public void EndScare()

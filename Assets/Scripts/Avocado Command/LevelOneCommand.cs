@@ -10,7 +10,7 @@ using UnityEngine;
 
         private void Awake()
         {
-            DeveloperConsole.Instance.AddCommand(new DevCommand("GoJS1_1", "go to jump scare1_1 position", () => {
+            DeveloperConsole.Instance.AddCommand(new DevCommand("TP_JumpScare1_1", "Teleport to jump scare1_1 position", () => {
                 player.GetComponent<CharacterController>().enabled = false;
                 player.transform.position = jumpScareOne.position;
                 player.GetComponent<CharacterController>().enabled = true;
