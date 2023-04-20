@@ -41,7 +41,7 @@ namespace Avocado.DeveloperCheatConsole.Scripts.Core {
             var exit = new DevCommand("exit", "disable console", () => {
                 ShowConsole = false;
             });
-            
+
             AddCommand(help);
             AddCommand(exit);
         }
