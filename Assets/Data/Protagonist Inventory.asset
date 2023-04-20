@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectives:
   - item: {fileID: 11400000, guid: 41f0e82e10d7a9948ae6192e222743ed, type: 2}
-    possessed: 0
+    possessed: 1
   - item: {fileID: 0}
     possessed: 0
   - item: {fileID: 0}

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class JumpScareOne : MonoBehaviour
+public class JumpScareNormalized : MonoBehaviour
 {
     public UnityEvent OnStartScare;
+    public UnityEvent OnScare;
     public UnityEvent OnEndScare;
 
     public float ScareTime;
@@ -13,7 +14,7 @@ public class JumpScareOne : MonoBehaviour
 
     public void StartScare()
     {
-        OnStartScare.Invoke();
+        StartCoroutine(JumpScare1_1());
     }
 
     public void EndScare()
@@ -23,6 +24,7 @@ public class JumpScareOne : MonoBehaviour
 
     public IEnumerator JumpScare1_1()
     {
+        OnStartScare.Invoke();
         yield return new WaitForSeconds(ScareTime);
 
         yield return new WaitForSeconds(screenTwistTime);
