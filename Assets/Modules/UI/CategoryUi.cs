@@ -6,7 +6,7 @@ namespace Game.Ui {
 		ItemType category;
 		List<ItemRecord> records;
 
-		public string emptyText = "£¿£¿£¿";
+		public string emptyText = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 
 		public ItemType Category {
 			get => category;
@@ -54,6 +54,18 @@ namespace Game.Ui {
 				// TODO
 			}
 			Bp.SetUpEntriesNagivation();
+		}
+
+		void OnEntrySelect() {
+			var entry = Bp.SelectedElement;
+			// TODO
+		}
+
+		protected void Start() {
+			// Could be set in inspector
+			Bp.onEntrySelect.AddListener(() => {
+				OnEntrySelect();
+			});
 		}
 
 		protected void OnEnable() {
