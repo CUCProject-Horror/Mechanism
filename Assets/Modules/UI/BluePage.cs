@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.Events;
 
 namespace Game.Ui {
 	[ExecuteAlways]
@@ -14,6 +15,8 @@ namespace Game.Ui {
 
 		public GameObject entryButtonPrefab;
 		public LayoutGroup entryList;
+
+		public UnityEvent onEntrySelect;
 		#endregion
 
 		#region Public functions
@@ -46,15 +49,21 @@ namespace Game.Ui {
 			}
 		}
 
+		protected virtual void OnEntrySelect(UiElement entry) {
+			// Update scrollbar value
+			int i = entry.transform.GetSiblingIndex();
+			int n = entryList.transform.childCount;
+			float p = (float)i / (n - 1);
+			p = 1 - p;
+			scroll.verticalScrollbar.value = p;
+
+			onEntrySelect?.Invoke();
+		}
+
 		protected override void OnSelect(UiElement element) {
 			base.OnSelect(element);
-			if(element.transform.parent == entryList.transform) {
-				int i = element.transform.GetSiblingIndex();
-				int n = entryList.transform.childCount;
-				float p = (float)i / (n - 1);
-				p = 1 - p;
-				scroll.verticalScrollbar.value = p;
-			}
+			if(element.transform.parent == entryList.transform)
+				OnEntrySelect(element);
 		}
 		#endregion
 	}
