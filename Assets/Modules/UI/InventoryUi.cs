@@ -7,7 +7,6 @@ namespace Game.Ui {
 			CategoryUi cat = ui.categoryUi;
 			cat.Category = type;
 			ui.Open(cat.Page);
-			Debug.Log("type");
 		}
 		public void ViewCategory(string typeName) {
 			var type = Utils.StringToEnum<ItemType>(typeName);

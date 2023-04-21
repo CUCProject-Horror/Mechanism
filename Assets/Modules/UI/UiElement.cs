@@ -110,7 +110,10 @@ namespace Game.Ui {
 		#endregion
 
 		#region Message handlers
-		public virtual void OnSelect() => onSelect?.Invoke();
+		public virtual void OnSelect() {
+			onSelect?.Invoke();
+			Page?.SendMessage("OnSelect", this);
+		}
 		public virtual void OnDeselect() => onDeselect?.Invoke();
 		public virtual void OnUse() => onUse?.Invoke();
 		#endregion
