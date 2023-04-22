@@ -112,6 +112,7 @@ namespace Game {
 				return;
 			State = StateEnum.UI;
 			ui.Open(ui.pauseUi.Bp);
+			ui.uiBackground.SetActive(true);
 		}
 		#endregion
 

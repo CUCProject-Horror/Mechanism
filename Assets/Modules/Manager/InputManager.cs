@@ -4,8 +4,12 @@ using UnityEngine.InputSystem;
 namespace Game {
 	[RequireComponent(typeof(PlayerInput))]
 	public class InputManager : MonoBehaviour {
-		#region Core fields
-		[System.NonSerialized] public PlayerInput playerInput;
+		#region Internal fields
+		[HideInInspector] public bool canOrient;
+        #endregion
+
+        #region Core fields
+        [System.NonSerialized] public PlayerInput playerInput;
 		Protagonist protagonist => GameManager.instance.protagonist;
 		#endregion
 
@@ -28,18 +32,25 @@ namespace Game {
 			protagonist.Crouching = !protagonist.Crouching;
 		}
 
-		public void OnOrient(InputValue value)
-		{
+		public void OnOrient(InputValue value) {
 			Vector2 raw = value.Get<Vector2>();
 			// Direction & dragging
 			{
-                CameraInteractor interactor = protagonist.interactor;
-                foreach (var interactable in interactor.lastFocused) {
+				CameraInteractor interactor = protagonist.interactor;
+				foreach (var interactable in interactor.lastFocused)
+				{
 					interactable.OnDrag(interactor, raw);
 				}
 			}
-			// Protagonist orientation
-			protagonist.inputRotation = raw;
+
+			if (canOrient) {
+				// Protagonist orientation
+				protagonist.inputRotation = raw;
+			}
+			else if(!canOrient) {
+				// Protagonist cannot orient
+				protagonist.inputRotation = Vector2.zero;
+			}
 		}
 
 		public void OnMenu(InputValue _) {
@@ -99,6 +110,7 @@ namespace Game {
 		#region Life cycle
 		void Start() {
 			playerInput = GetComponent<PlayerInput>();
+			canOrient = true;
 		}
         #endregion
     }

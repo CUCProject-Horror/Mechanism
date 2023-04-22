@@ -49,5 +49,10 @@ namespace Game {
 		public void Log(string message) {
 			Debug.Log(message);
 		}
+
+		public void CanOrient(bool canOrient)
+        {
+			game.input.canOrient = canOrient;
+        }
 	}
 }

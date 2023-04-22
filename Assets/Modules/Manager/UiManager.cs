@@ -9,6 +9,7 @@ namespace Game {
 		#endregion
 
 		#region Serialized fields
+		public GameObject uiBackground;
 		public PauseUi pauseUi;
 		public InventoryUi inventoryUi;
 		public CategoryUi categoryUi;
