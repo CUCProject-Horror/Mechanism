@@ -114,6 +114,12 @@ namespace Game {
 			ui.Open(ui.pauseUi.Bp);
 			ui.uiBackground.SetActive(true);
 		}
+
+		public void OpenInventoryDirectly()
+        {
+			OpenPauseMenu();
+			ui.Open(ui.inventoryUi.Bp);
+        }
 		#endregion
 
 		#region Life cycle

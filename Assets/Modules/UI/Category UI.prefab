@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\u80CC\u5305\u5185\u5BB9"
       objectReference: {fileID: 0}
+    - target: {fileID: 5457595459469718935, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
+      propertyPath: onOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Category
+      objectReference: {fileID: 0}
     - target: {fileID: 5979116380479134730, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

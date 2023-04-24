@@ -7,7 +7,12 @@ namespace Game
 {
     public class NormalizedAudioSource : MonoBehaviour
     {
-        bool isPlayingAudio = false;
+        bool isPlayingAudio;
+
+        private void Awake()
+        {
+            isPlayingAudio = false;
+        }
 
         public void Update()
         {
@@ -18,7 +23,7 @@ namespace Game
 
             if(!this.GetComponent<AudioSource>().isPlaying && isPlayingAudio)
             {
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
             }
         }
     }

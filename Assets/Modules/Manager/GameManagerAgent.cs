@@ -54,5 +54,15 @@ namespace Game {
         {
 			game.input.canOrient = canOrient;
         }
+
+		public void UiChangeState(string thisState)
+        {
+			game.ui.AddState(thisState);
+        }//打开某个UI加一个string来代表当前UIState
+
+		public void UiRemoveCurrentState()
+        {
+			game.ui.RemoveLastState();
+        }//关闭某个UI时删除最后的State
 	}
 }

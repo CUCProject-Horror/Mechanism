@@ -35,7 +35,7 @@ namespace Game.Ui {
 				var entry = entryObj.GetComponent<UiElement>();
 				entries.Add(entry);
 				if(!record.possessed) {
-					entry.Selectable = false;
+					entry.Selectable = true;
 					entry.Text = emptyText;
 				}
 				else {

@@ -4,12 +4,10 @@ using UnityEngine.InputSystem;
 namespace Game {
 	[RequireComponent(typeof(PlayerInput))]
 	public class InputManager : MonoBehaviour {
-		#region Internal fields
-		[HideInInspector] public bool canOrient;
-        #endregion
 
-        #region Core fields
-        [System.NonSerialized] public PlayerInput playerInput;
+		#region Core fields
+		[System.NonSerialized] public PlayerInput playerInput;
+		[HideInInspector] public bool canOrient;
 		Protagonist protagonist => GameManager.instance.protagonist;
 		#endregion
 
@@ -47,7 +45,7 @@ namespace Game {
 				// Protagonist orientation
 				protagonist.inputRotation = raw;
 			}
-			else if(!canOrient) {
+			else if (!canOrient) {
 				// Protagonist cannot orient
 				protagonist.inputRotation = Vector2.zero;
 			}
@@ -56,6 +54,10 @@ namespace Game {
 		public void OnMenu(InputValue _) {
 			GameManager.instance.OpenPauseMenu();
 		}
+
+		public void OnInventory(InputValue _) {
+			GameManager.instance.OpenInventoryDirectly();
+		}//Open iventory Directly without opening pause menu
 
 		public void OnInteract(InputValue value) {
 			float raw = value.Get<float>();
@@ -66,7 +68,7 @@ namespace Game {
 		#region UI
 		public void OnNavigate(InputValue value) {
 			Vector2 raw = value.Get<Vector2>();
-			if(raw.magnitude < .5f)
+			if (raw.magnitude < .5f)
 				return;
 			var currentPage = GameManager.instance.ui.Current;
 			currentPage?.Navigate(raw);
@@ -75,6 +77,25 @@ namespace Game {
 		public void OnClick(InputValue _) {
 			GameManager.instance.ui.Current?.Use();
 		}
+
+		public void OnBack(InputValue _) {
+			UiManager ui = GameManager.instance.ui;
+			string UiState = GetComponent<UiManager>().currentState;
+			switch (UiState)
+			{
+				case "Category":
+					ui.categoryUi.Bp.backButton.onUse.Invoke();
+					break;
+				case "Inventory":
+					ui.inventoryUi.Bp.backButton.onUse.Invoke();
+					break;
+				case "Pause":
+					ui.pauseUi.Bp.backButton.onUse.Invoke();
+					break;
+				default:
+					break;
+			}
+        }
 		#endregion
 
 		#region Prying

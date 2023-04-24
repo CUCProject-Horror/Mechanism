@@ -50,5 +50,10 @@ namespace Game {
 
 		public void Possess(Item item) => ItemRecords.First(r => r.item == item).possessed = true;
 		public void Lose(Item item) => ItemRecords.First(r => r.item == item).possessed = false;
+
+		public void DeleteItemInProps(string itemName)
+        {
+			
+        }
 	}
 }

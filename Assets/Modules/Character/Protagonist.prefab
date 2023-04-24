@@ -149,8 +149,7 @@ MonoBehaviour:
   orientingSpeed: 7.45
   pitchRange: {x: -60, y: 60}
   fallingLimit: 2
-  inventory:
-    items: []
+  inventory: {fileID: 0}
   fallingHeight: 0
   inputVelocity: {x: 0, y: 0, z: 0}
   inputRotation: {x: 0, y: 0}
@@ -548,10 +547,12 @@ MonoBehaviour:
   playerFallAnim: {fileID: 5619525464516716002}
   playerWalkAnim: {fileID: 6118756461595693964}
   player: {fileID: 3215353861071126044}
+  canPlayFootStepAud: 0
+  walkAudioGap: 0
   playFootStepAudio:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 10f0d57bfe92be646941c6cee0243b79, type: 2}
+      - m_Target: {fileID: 11400000, guid: e06d29bd470900f4cb79af1057a7b5d8, type: 2}
         m_TargetAssemblyTypeName: Game.AudioManagerAgent, Assembly-CSharp
         m_MethodName: PlaySourceOnce
         m_Mode: 2

@@ -13,6 +13,8 @@ namespace Game {
 		public PauseUi pauseUi;
 		public InventoryUi inventoryUi;
 		public CategoryUi categoryUi;
+		[HideInInspector]public List<string> stateList;
+		public string currentState;
 		#endregion
 
 		#region Public interfaces
@@ -45,6 +47,28 @@ namespace Game {
 			}
 			pageStack.Peek().Selectable = true;
 		}
-		#endregion
-	}
+
+		public void AddState(string stateName)
+        {
+			stateList.Add(stateName);
+        }
+
+		public void RemoveLastState()
+        {
+			stateList.RemoveAt(stateList.Count - 1);
+        }
+        #endregion
+
+        #region Life cycle
+        private void Start()
+        {
+			stateList.Add("Null");
+		}
+
+        private void Update()
+        {
+			currentState = stateList[stateList.Count - 1];
+        }
+        #endregion
+    }
 }

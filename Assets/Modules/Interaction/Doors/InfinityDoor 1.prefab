@@ -328,7 +328,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 10f0d57bfe92be646941c6cee0243b79, type: 2}
+      - m_Target: {fileID: 11400000, guid: e06d29bd470900f4cb79af1057a7b5d8, type: 2}
         m_TargetAssemblyTypeName: Game.AudioManagerAgent, Assembly-CSharp
         m_MethodName: PlaySourceOnce
         m_Mode: 2
@@ -343,7 +343,7 @@ MonoBehaviour:
   endDoorClose:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 10f0d57bfe92be646941c6cee0243b79, type: 2}
+      - m_Target: {fileID: 11400000, guid: e06d29bd470900f4cb79af1057a7b5d8, type: 2}
         m_TargetAssemblyTypeName: Game.AudioManagerAgent, Assembly-CSharp
         m_MethodName: PlaySourceOnce
         m_Mode: 2

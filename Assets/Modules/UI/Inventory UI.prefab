@@ -413,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 3161549352954656864}
     - target: {fileID: 881447831485259952, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2033453427837416293, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
       propertyPath: m_Pivot.x
@@ -503,6 +503,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2250309319711756482, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250309319711756482, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2957740220877754710, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -547,6 +555,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3556230954179779792, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4901511209897972659, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
       propertyPath: m_Text
       value: "\u80CC\u5305"
@@ -562,7 +574,11 @@ PrefabInstance:
     - target: {fileID: 5457595459469718935, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
       propertyPath: selectedElement
       value: 
-      objectReference: {fileID: 1133300340742612564}
+      objectReference: {fileID: 4113743370980061896}
+    - target: {fileID: 5457595459469718935, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
+      propertyPath: onOpen.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Inventory
+      objectReference: {fileID: 0}
     - target: {fileID: 5979116380479134730, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -966,11 +982,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6824068098941161214, guid: e1e47e0e334e8b54ead728ae46fc08df, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6824068098941161214, guid: e1e47e0e334e8b54ead728ae46fc08df, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7365784250194866615, guid: e1e47e0e334e8b54ead728ae46fc08df, type: 3}
       propertyPath: m_Pivot.x
@@ -1057,12 +1073,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7972748495570310248, guid: e1e47e0e334e8b54ead728ae46fc08df, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972748495570310248, guid: e1e47e0e334e8b54ead728ae46fc08df, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972748495570310248, guid: e1e47e0e334e8b54ead728ae46fc08df, type: 3}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7972748495570310248, guid: e1e47e0e334e8b54ead728ae46fc08df, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8476310211090006835, guid: e1e47e0e334e8b54ead728ae46fc08df, type: 3}
       propertyPath: navigation.up
@@ -1106,7 +1130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8599380746675126767, guid: e1e47e0e334e8b54ead728ae46fc08df, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1e47e0e334e8b54ead728ae46fc08df, type: 3}
