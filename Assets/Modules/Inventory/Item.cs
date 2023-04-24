@@ -10,7 +10,7 @@ namespace Game {
 		public new string name;
 		public ItemType type;
 		public GameObject prefab;
-		public Texture selectTex;
+		public Sprite selectSprite;
 
 		public UnityEvent onView;
 	}

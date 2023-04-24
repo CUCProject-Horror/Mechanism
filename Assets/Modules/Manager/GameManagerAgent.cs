@@ -64,5 +64,10 @@ namespace Game {
         {
 			game.ui.RemoveLastState();
         }//关闭某个UI时删除最后的State
+
+		public void RemoveItem(Item item)
+        {
+			game.protagonist.inventory.Deprive(item);
+        }
 	}
 }

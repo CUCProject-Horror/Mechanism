@@ -23,7 +23,7 @@ namespace Game {
 		[Label("CDs")] public List<ItemRecord> cds;
 		public List<ItemRecord> treasures;
 
-		public IEnumerable<IEnumerable<ItemRecord>> ItemRecordLists => new IEnumerable<ItemRecord>[] {
+		public IEnumerable<List<ItemRecord>> ItemRecordLists => new List<ItemRecord>[] {
 			cds, collectives, props, treasures
 		};
 		public IEnumerable<ItemRecord> ItemRecords {
@@ -48,12 +48,26 @@ namespace Game {
 			return null;
 		}
 
-		public void Possess(Item item) => ItemRecords.First(r => r.item == item).possessed = true;
-		public void Lose(Item item) => ItemRecords.First(r => r.item == item).possessed = false;
+		/// <summary>
+		/// 将物品的获得状态设为 true。
+		/// </summary>
+		public void Possess(Item item) =>
+			ItemRecords.First(r => r.item == item).possessed = true;
 
-		public void DeleteItemInProps(string itemName)
-        {
-			
-        }
+		/// <summary>
+		/// 将物品的获得状态设为 false。
+		/// </summary>
+		public void Lose(Item item) =>
+			ItemRecords.First(r => r.item == item).possessed = false;
+
+		/// <summary>
+		/// 从物品栏中删除物品的位置。
+		/// </summary>
+		public void Deprive(Item item)
+		{
+			foreach (var recordList in ItemRecordLists)
+				recordList.RemoveAll(r => r.item == item);
+		}
+
 	}
 }

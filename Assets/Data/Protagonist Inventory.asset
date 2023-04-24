@@ -15,84 +15,38 @@ MonoBehaviour:
   collectives:
   - item: {fileID: 11400000, guid: 41f0e82e10d7a9948ae6192e222743ed, type: 2}
     possessed: 0
-  - item: {fileID: 11400000, guid: 891588ab27be1544d8edeca683fd1cae, type: 2}
-    possessed: 0
   - item: {fileID: 11400000, guid: 20ea2e0bf1a69b747865ccbbac417404, type: 2}
-    possessed: 0
-  - item: {fileID: 11400000, guid: 255f6e276abb3724ea1726d101053c33, type: 2}
-    possessed: 0
-  - item: {fileID: 11400000, guid: a505325011118bd459d2045406ecdb67, type: 2}
-    possessed: 0
-  - item: {fileID: 11400000, guid: 8f36982ef4705424995fb83bed2a9981, type: 2}
-    possessed: 0
-  - item: {fileID: 11400000, guid: 67f4d944bae3ec449966839d4727cd49, type: 2}
     possessed: 0
   - item: {fileID: 11400000, guid: efe1a9e2a16a8c14d9db6b0782a4e2e3, type: 2}
     possessed: 0
   - item: {fileID: 11400000, guid: ac5f9093259286a4dbbeb0ac92521b60, type: 2}
     possessed: 0
-  - item: {fileID: 11400000, guid: 1b4617bc43c2c5c4d9f024b71ae882d4, type: 2}
+  - item: {fileID: 11400000, guid: b487cadf59677274a81117b332800352, type: 2}
+    possessed: 0
+  - item: {fileID: 11400000, guid: c9aa1a413a8bfc54ebce3457a3f9682d, type: 2}
     possessed: 0
   props:
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 891588ab27be1544d8edeca683fd1cae, type: 2}
     possessed: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 255f6e276abb3724ea1726d101053c33, type: 2}
     possessed: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 8f36982ef4705424995fb83bed2a9981, type: 2}
     possessed: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 9baa91214eecb4d41b1f8c3463ff42f8, type: 2}
     possessed: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: a6fa9dd5f87f0f140ad0f7c5e2206a56, type: 2}
     possessed: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 80024c4fd92d0304da771f75081279f4, type: 2}
     possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 7e6ca7159a5758041a351b38bf67438f, type: 2}
     possessed: 0
   cds:
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: a505325011118bd459d2045406ecdb67, type: 2}
     possessed: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 67f4d944bae3ec449966839d4727cd49, type: 2}
     possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 066624c487c79c242a4fd753cfad2347, type: 2}
     possessed: 0
   treasures:
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
-    possessed: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 1b4617bc43c2c5c4d9f024b71ae882d4, type: 2}
     possessed: 0

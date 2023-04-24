@@ -80,21 +80,12 @@ namespace Game {
 
 		public void OnBack(InputValue _) {
 			UiManager ui = GameManager.instance.ui;
-			string UiState = GetComponent<UiManager>().currentState;
-			switch (UiState)
-			{
-				case "Category":
-					ui.categoryUi.Bp.backButton.onUse.Invoke();
-					break;
-				case "Inventory":
-					ui.inventoryUi.Bp.backButton.onUse.Invoke();
-					break;
-				case "Pause":
-					ui.pauseUi.Bp.backButton.onUse.Invoke();
-					break;
-				default:
-					break;
-			}
+			if(ui.categoryUi.itemIntroduceText.activeInHierarchy)
+            {
+				ui.categoryUi.itemIntroduceText.SetActive(false);
+            }
+			else
+			ui.Current.Close();
         }
 		#endregion
 
