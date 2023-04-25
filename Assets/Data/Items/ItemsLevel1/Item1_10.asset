@@ -13,19 +13,11 @@ MonoBehaviour:
   m_Name: Item1_10
   m_EditorClassIdentifier: 
   name: Item1_10
+  type: 3
   prefab: {fileID: 4106006863227306478, guid: b61c7631dfa45304f8a237aa21eb056f, type: 3}
+  selectSprite: {fileID: 0}
+  showDescription: 1
+  description: 
   onView:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000}
-        m_TargetAssemblyTypeName: Game.Item, Assembly-CSharp
-        m_MethodName: InspectSelf
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []

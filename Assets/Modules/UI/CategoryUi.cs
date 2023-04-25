@@ -98,7 +98,7 @@ namespace Game.Ui
         public int GetRecordIndexByEntryButton(UiElement button)
             => GetRecordIndexByItem(GetRecordByEntryButton(button)?.item);
 
-        public void ShowItemInfo(Item item)
+        public void ViewItem(Item item)
         {
             if (item == null)
             {
@@ -106,6 +106,20 @@ namespace Game.Ui
                 return;
             }
             // 正常显示
+            if (item.showDescription)
+            {
+                itemIntroduceText.SetActive(true);
+                itemIntroduceText.GetComponent<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
+                // 如果用Sprite则调用这个
+                // 
+                // 如果用Text则调用这个
+                // Text = item.description;
+            }
+            switch (item) {
+                case CD cd:
+                    cd.playVid.Invoke();
+                    break;
+            }
             Debug.Log(item.name);
         }
 
@@ -118,13 +132,13 @@ namespace Game.Ui
             var record = records[i];
             if (record.possessed)
             {
-                ShowItemInfo(record.item);
+                ViewItem(record.item);
                 itemSprite.sprite = record.item.selectSprite;
             }
             else
             {
                 // 把已经显示的东西刷掉
-                ShowItemInfo(null);
+                ViewItem(null);
             }
         }
 
@@ -150,14 +164,9 @@ namespace Game.Ui
             var i = GetRecordIndexByEntryButton(entry);
             if (i == -1)
                 return;
-            // TODO
             var record = records[i];
             if (record.possessed)
-            {
-                itemIntroduceText.SetActive(true);
-                itemIntroduceText.GetComponent<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
-                //itemIntroduceText.GetComponent<Image>().sprite = 
-            }
+                ViewItem(record.item);
         }
 
         protected void OnEnable()

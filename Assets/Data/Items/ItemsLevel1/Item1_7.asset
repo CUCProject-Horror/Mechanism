@@ -13,8 +13,15 @@ MonoBehaviour:
   m_Name: Item1_7
   m_EditorClassIdentifier: 
   name: Item1_7
+  type: 2
   prefab: {fileID: 4106006863227306478, guid: 8691a7c6c401c3b468876b55ed397ed5, type: 3}
+  selectSprite: {fileID: 0}
+  showDescription: 0
+  description: 
   onView:
+    m_PersistentCalls:
+      m_Calls: []
+  playVid:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 0f55051470011c44e87907385a03340d, type: 2}
