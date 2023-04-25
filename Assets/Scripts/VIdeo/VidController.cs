@@ -20,7 +20,7 @@ namespace Game {
         Animator tvScreenAnim;
 
         private void Awake()
-        {
+        {   
             vp = ScreenToPlay.GetComponent<VideoPlayer>();
             tvScreenAnim = GetComponent<Animator>();
 
@@ -39,7 +39,7 @@ namespace Game {
             ScreenToPlay.SetActive(false);
             ScreenDark.SetActive(false);
             isPause = false;
-            playSpeed = 1;
+            vp.playbackSpeed = 1;
             vp.clip = null;
             vp.enabled = false;
             isInventory = false;
@@ -48,46 +48,28 @@ namespace Game {
         public void Pause()
         {
             isPause = !isPause;
+            if (isPause)
+            {
+                vp.Pause();
+                vp.playbackSpeed = 1;
+            }
+            else if (!isPause)
+            {
+                vp.Play();
+            }
         }
 
         public void Backward()
         {
 
-            if(playSpeed > 0)
-            playSpeed--;
+            if (vp.playbackSpeed > -1)
+                vp.playbackSpeed--;
         }
 
         public void Forward()
         {
-            if (playSpeed < 2)
-            playSpeed++;
-        }
-
-        void FixedUpdate()
-        {
-            vidFrame = vp.frame;
-            if (isPause)
-            {
-                vp.Pause();
-                playSpeed = 1;
-            }
-            else if(!isPause)
-            {
-                vp.Play();   
-            }
-
-            if (playSpeed == 1)
-            {
-                vp.playbackSpeed = 1;
-            }
-            else if (playSpeed == 2)
-            {
-                vp.playbackSpeed = 2;
-            }
-            else if(playSpeed == 0)
-            {
-                vp.frame = vp.frame - 1 * (long)vp.frameRate;
-            }
+            if (vp.playbackSpeed < 2)
+                vp.playbackSpeed++;
         }
 
         public void PlayVidInBag(VideoClip clipToPlay)

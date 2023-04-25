@@ -318,6 +318,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2108990493115599335, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2159195173399713006, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
       propertyPath: m_Name
       value: Category UI
@@ -456,6 +460,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6930486004975178845, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180382860744331721, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8414129266595242589, guid: c39dd6e922628304eb8e4d0495adf800, type: 3}

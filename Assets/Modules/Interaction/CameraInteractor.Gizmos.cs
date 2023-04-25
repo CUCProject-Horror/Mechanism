@@ -15,10 +15,18 @@ namespace Game
             Gizmos.color = Color.white;
             Gizmos.DrawRay(ray);
             Gizmos.color = Color.red;
-            foreach (var target in lastFocused) {
+            foreach (var target in lastFocused)
+            {
+                if (!target)
+                    continue;
                 MeshFilter meshFilter = target.GetComponent<MeshFilter>();
-                if(meshFilter)
-                    Gizmos.DrawMesh(meshFilter.sharedMesh, target.transform.position);
+                if (meshFilter)
+                    Gizmos.DrawMesh(
+                        meshFilter.sharedMesh,
+                        target.transform.position,
+                        target.transform.rotation,
+                        target.transform.lossyScale * 1.01f
+                        );
             }
         }
     }

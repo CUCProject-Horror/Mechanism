@@ -98,6 +98,9 @@ namespace Game.Ui
         public int GetRecordIndexByEntryButton(UiElement button)
             => GetRecordIndexByItem(GetRecordByEntryButton(button)?.item);
 
+        public UiElement GetEntryButtonByRecordIndex(int i)
+            => Bp.entryList.transform.GetChild(i)?.GetComponent<UiElement>();
+
         public void ViewItem(Item item)
         {
             if (item == null)
@@ -120,7 +123,6 @@ namespace Game.Ui
                     cd.playVid.Invoke();
                     break;
             }
-            Debug.Log(item.name);
         }
 
         void OnEntrySelect()
@@ -132,13 +134,7 @@ namespace Game.Ui
             var record = records[i];
             if (record.possessed)
             {
-                ViewItem(record.item);
                 itemSprite.sprite = record.item.selectSprite;
-            }
-            else
-            {
-                // 把已经显示的东西刷掉
-                ViewItem(null);
             }
         }
 

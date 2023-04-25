@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Item1_1
   type: 0
   prefab: {fileID: 4106006863227306478, guid: b61c7631dfa45304f8a237aa21eb056f, type: 3}
-  selectSprite: {fileID: 21300000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
+  selectSprite: {fileID: 21300000, guid: b5998aa5b23e969459944775272c813e, type: 3}
   showDescription: 1
   description: 
   onView:

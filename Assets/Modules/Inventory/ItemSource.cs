@@ -6,6 +6,7 @@ namespace Game {
 	public class ItemSource : MonoBehaviour {
 		#region Inspector fields
 		public Item item;
+		[HideInInspector]public GameManager game;
 		public bool infinite = false;
 		[HideIf("infinite")] public uint count = 1;
 		[HideIf("infinite")] public bool destroyOnEmpty;
@@ -14,6 +15,8 @@ namespace Game {
 		#endregion
 
 		#region Public interfaces
+
+		
 		public void Deliver(Inventory inventory) {
 			if(item == null) {
 				Debug.LogWarning("Item to deliver is null");
@@ -29,6 +32,22 @@ namespace Game {
 			}			
 			item?.onView?.Invoke();
 			onDeliver.Invoke();
+			SelectItemOnDeliver(item);
+		}
+
+		public void SelectItemOnDeliver(Item item)
+		{
+			if (item.type != ItemType.CD)
+			{
+				var category = game.ui.categoryUi;
+
+				//打开CategoryUI，并将SelectedElement变成该Item对应的按钮
+				game.OpenInventoryDirectly();
+				category.Category = item.type;
+				game.ui.Open(category.Bp);
+				int i = category.GetRecordIndexByItem(item);
+				category.Bp.SelectedElement = category.GetEntryButtonByRecordIndex(i);
+			}
 		}
 
 		public void DeliverToProtagonist() {
@@ -42,6 +61,7 @@ namespace Game {
 		#region Life cycle
 		void Start() {
 			Instantiate(item.prefab, transform);
+			game = FindObjectOfType<GameManager>();
 		}
 
 		void OnDrawGizmos() {

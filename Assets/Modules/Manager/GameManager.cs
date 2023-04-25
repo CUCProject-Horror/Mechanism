@@ -103,7 +103,7 @@ namespace Game {
 				State = StateEnum.Protagonist;
 			}
 			else if(TVState == 3) {
-				//State = StateEnum.Inventory;
+				State = StateEnum.UI;
 			}
 		}
 

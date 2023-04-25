@@ -574,6 +574,28 @@
                 },
                 {
                     "name": "",
+                    "id": "3e0f53c9-6d77-4895-b4ab-2128164cc372",
+                    "path": "<Gamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2fa78ca3-0196-4e5b-b273-b664be7006e1",
+                    "path": "<DualShockGamepad>/dpad",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ce0e3e7c-60e2-4a04-a7b8-19d7e4361e13",
                     "path": "<Keyboard>/escape",
                     "interactions": "",

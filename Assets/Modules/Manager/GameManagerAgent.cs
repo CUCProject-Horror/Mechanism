@@ -69,5 +69,6 @@ namespace Game {
         {
 			game.protagonist.inventory.Deprive(item);
         }
+
 	}
 }
