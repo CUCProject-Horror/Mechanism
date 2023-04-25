@@ -21,6 +21,11 @@ namespace Game {
 		}
 		public void ProtagonistStateChange() => game.State = GameManager.StateEnum.Protagonist;
 
+		public void ChangeInputState(int state)
+		{
+			game.ChangeInputState(state);
+		}
+
 		public void InventoryStateChange() {
 			//game.InventoryState();
 		}

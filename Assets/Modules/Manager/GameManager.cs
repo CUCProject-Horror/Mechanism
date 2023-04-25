@@ -95,6 +95,11 @@ namespace Game {
 			}
 		}
 
+		public void ChangeInputState(int stateToChange)
+		{
+			State = (StateEnum)stateToChange;
+		}
+
 		public void TVState(int TVState) {
 			if(TVState == 1) {
 				State = StateEnum.TV;
