@@ -23,7 +23,7 @@ namespace Game
 
             if(!this.GetComponent<AudioSource>().isPlaying && isPlayingAudio)
             {
-                //Destroy(this.gameObject);
+                Destroy(this.gameObject);
             }
         }
     }

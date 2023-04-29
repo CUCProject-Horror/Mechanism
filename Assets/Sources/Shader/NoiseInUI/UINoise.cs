@@ -37,7 +37,7 @@ public class UINoise : MonoBehaviour
     {
         if(Begin)
         {
-            timer += Time.deltaTime;
+            timer += Time.unscaledDeltaTime;
             StartCoroutine(Counter());
             Glitch();
         }
@@ -45,7 +45,9 @@ public class UINoise : MonoBehaviour
         {
             StopAllCoroutines();
             timer = 0;
-        }       
+        }
+
+        mat.SetFloat("_ShakeTime", Time.unscaledDeltaTime);
     }
 
     public void Glitch()
@@ -67,7 +69,7 @@ public class UINoise : MonoBehaviour
 
     private IEnumerator Counter()
     {
-        yield return new WaitForSeconds(GlitchTime);
+        yield return new WaitForSecondsRealtime(GlitchTime);
         Begin = false;
         mat.SetFloat("_ScanLineJitter", InitScanLineJitter);
         mat.SetFloat("_HorizontalShake", InitHorizontalShake);
