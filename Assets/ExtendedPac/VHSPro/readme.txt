@@ -25,7 +25,7 @@ Use Linear color space (Edit->Project Settings->Player->Color Space: Linear)
 -HDRP (High Definition Render Pipeline) 
 	1. Go to "Edit->Project Settings" and select the "HDRP Global Settings" tab.
 	2. Scroll down until you find the "Custom Post Process Orders" section. This section contains three lists, one for each injection point.
-	3. Add VHS Pro to "After Post Process" list so that HDRP can render them.
+	3. Add VHS Pro to "After Post Process" list so that HDRP can render them
 	4. Add VHS Pro to your Post-Processing Volume. 
 	more info https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@14.0/manual/Custom-Post-Process.html 
 

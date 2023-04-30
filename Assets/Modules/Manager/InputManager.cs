@@ -90,8 +90,13 @@ namespace Game {
 		#endregion
 
 		#region Prying
-		public void OnEndPry() {
+		public void OnEndPry(InputValue _) {
 			GameManager.instance.Prying = null;
+		}
+
+		public void OnMovePryTex(InputValue value) {
+			Vector2 raw = value.Get<Vector2>();
+			GameManager.instance.Prying.MovePryObject(raw);
 		}
 		#endregion
 

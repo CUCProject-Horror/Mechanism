@@ -15,7 +15,7 @@ namespace Game
         public Camera pryCam;
         public GameObject pryCamRenderTex;
         public SpriteRenderer indcator;
-        public GameObject pryCanvas;
+        public GameObject pryObject;
         public GameObject blinkImage;
         public Sprite pryTex;
         public Sprite blinkStartTex;
@@ -93,8 +93,8 @@ namespace Game
         {
             if (isPrying)
             {
-                pryCanvas.SetActive(true);
-                pryCanvas.GetComponent<Image>().sprite = pryTex;
+                pryObject.SetActive(true);
+                pryObject.GetComponent<Image>().sprite = pryTex;
             }
         }
 
@@ -102,8 +102,8 @@ namespace Game
         {
             OnLeavePry.Invoke();
             isPrying = false;
-            pryCanvas.SetActive(false);
-            pryCanvas.GetComponent<Image>().sprite = null;
+            pryObject.SetActive(false);
+            pryObject.GetComponent<Image>().sprite = null;
         }
 
         public void PryAnimator()
@@ -129,6 +129,12 @@ namespace Game
             { SwitchCamera(pryCamera); }
             else if (!camState)
             { SwitchCamera(playerCam); }
+        }
+
+
+        public void MovePryObject(Vector2 moveAmount)
+        {
+            pryObject.transform.parent.Translate(moveAmount.x, moveAmount.y, 0);
         }
 
     }
