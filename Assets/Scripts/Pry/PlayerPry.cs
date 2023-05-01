@@ -59,6 +59,7 @@ namespace Game
         {
             if (!isPrying)
             {
+                OnEnterPry.Invoke();
                 StartCoroutine(ChangeCinemachineState(true)); 
                 isPrying = true;
                 Invoke("PryAnimator", 1.5f);
@@ -95,6 +96,7 @@ namespace Game
             if (isPrying)
             {
                 pryObject.SetActive(true);
+                pryCamRenderTex.SetActive(false);
                 //pryObject.transform.parent.transform.position = Vector3.zero;
                 pryObject.GetComponent<Image>().sprite = pryTex;
             }

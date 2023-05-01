@@ -7,6 +7,7 @@ namespace Game {
 	public class GameManager : MonoBehaviour {
 		public static GameManager instance;
 		public GameManager() => instance = this;
+		public StateEnum currentState;
 
 		public enum StateEnum {
 			Invalid = 0,
@@ -136,6 +137,11 @@ namespace Game {
 
 			State = StateEnum.Protagonist;
 		}
-		#endregion
-	}
+
+        private void Update()
+        {
+			currentState = State;
+        }
+        #endregion
+    }
 }
