@@ -32,6 +32,7 @@ namespace Game
 
         public UnityEvent OnEnterPry;
         public UnityEvent OnLeavePry;
+        [HideInInspector]public Vector2 imgMoveAmount;
 
         void Start()
         {
@@ -94,6 +95,7 @@ namespace Game
             if (isPrying)
             {
                 pryObject.SetActive(true);
+                //pryObject.transform.parent.transform.position = Vector3.zero;
                 pryObject.GetComponent<Image>().sprite = pryTex;
             }
         }
@@ -132,9 +134,14 @@ namespace Game
         }
 
 
-        public void MovePryObject(Vector2 moveAmount)
+        public void MovePryObject()
         {
-            pryObject.transform.parent.Translate(moveAmount.x, moveAmount.y, 0);
+            pryObject.transform.parent.Translate(imgMoveAmount.x, imgMoveAmount.y, 0);
+        }
+
+        public void FixedUpdate()
+        {
+            MovePryObject();
         }
 
     }

@@ -96,7 +96,7 @@ namespace Game {
 
 		public void OnMovePryTex(InputValue value) {
 			Vector2 raw = value.Get<Vector2>();
-			GameManager.instance.Prying.MovePryObject(raw);
+			GameManager.instance.Prying.imgMoveAmount = - raw;
 		}
 		#endregion
 
