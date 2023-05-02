@@ -65,10 +65,10 @@ namespace Game.Ui {
 			}
 		}
 		public IEnumerable<UiElement> DirectChildren => FindDirectChildren(Transform);
-		public UiPage Page => GetComponentInParent<UiPage>();
+		public UiPage Page => this == null ? null : GetComponentInParent<UiPage>();
 
 		public virtual bool Selectable {
-			get => isActiveAndEnabled && selectable;
+			get => selectable;
 			set {
 				foreach(var child in DirectChildren)
 					child.Selectable = value;

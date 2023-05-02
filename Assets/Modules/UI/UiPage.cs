@@ -38,11 +38,11 @@ namespace Game.Ui {
 					value = DirectChildren.FirstOrDefault(child => child.Selectable);
 				if(!(value?.Selectable ?? false))
 					return;
-				if(value == previouslySelectedElement)
-					return;
-				if(previouslySelectedElement)
+				if(previouslySelectedElement) {
+					//if(value == previouslySelectedElement)
+					//	return;
 					previouslySelectedElement.OnDeselect();
-				value = value?.isActiveAndEnabled ?? false ? value : null;
+				}
 				previouslySelectedElement = selectedElement = value;
 				if(value)
 					lastSelectedBeforeClose = value;
