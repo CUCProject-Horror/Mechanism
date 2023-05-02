@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using System.Linq;
+using NaughtyAttributes;
 
 namespace Game.Ui {
 	[RequireComponent(typeof(RectTransform))]
@@ -9,6 +10,7 @@ namespace Game.Ui {
 	public class UiPage : MonoBehaviour {
 		#region Internal fields
 		UiElement previouslySelectedElement;
+		UiElement lastSelectedBeforeClose;
 		bool selectable = true;
 		#endregion
 
@@ -16,6 +18,13 @@ namespace Game.Ui {
 		[SerializeField] UiElement selectedElement;
 		public UnityEvent onOpen;
 		public UnityEvent onClose;
+		public enum OnOpenBehaviour {
+			FirstElement,
+			RestoreLastSelected,
+			FixedElement,
+		}
+		public OnOpenBehaviour onOpenBehaviour;
+		[ShowIf("onOpenBehaviour", OnOpenBehaviour.FixedElement)] public UiElement fixedElementToOpen;
 		#endregion
 
 		#region Core methods
@@ -35,12 +44,14 @@ namespace Game.Ui {
 					previouslySelectedElement.OnDeselect();
 				value = value?.isActiveAndEnabled ?? false ? value : null;
 				previouslySelectedElement = selectedElement = value;
+				if(value)
+					lastSelectedBeforeClose = value;
 				if(selectedElement)
 					selectedElement.OnSelect();
 			}
 		}
 		public IEnumerable<UiElement> DirectChildren => UiElement.FindDirectChildren(transform as RectTransform);
-		
+
 		public bool Selectable {
 			get => selectable;
 			set {
@@ -88,9 +99,23 @@ namespace Game.Ui {
 
 		protected virtual void OnEnable() {
 			onOpen?.Invoke();
+			switch(onOpenBehaviour) {
+				case OnOpenBehaviour.FirstElement:
+					SelectedElement = DirectChildren.FirstOrDefault();
+					break;
+				case OnOpenBehaviour.RestoreLastSelected:
+					if(lastSelectedBeforeClose == null)
+						lastSelectedBeforeClose = DirectChildren.FirstOrDefault();
+					SelectedElement = lastSelectedBeforeClose;
+					break;
+				case OnOpenBehaviour.FixedElement:
+					SelectedElement = fixedElementToOpen;
+					break;
+			}
 		}
 
 		protected virtual void OnDisable() {
+			SelectedElement = null;
 			onClose?.Invoke();
 		}
 		#endregion

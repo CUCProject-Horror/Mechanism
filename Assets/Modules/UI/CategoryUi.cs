@@ -56,13 +56,11 @@ namespace Game.Ui
                     entry.Text = record.item.name;
                 }
             }
-            Bp.SelectedElement = Bp.backButton;
             for (int i = 0; i < entries.Count; ++i)
             {
                 var entry = entries[i];
                 if (i == 0)
                 {
-                    Bp.SelectedElement = entry;
                     Bp.backButton.navigation.down = entry;
                     entry.navigation.up = Bp.backButton;
                 }
