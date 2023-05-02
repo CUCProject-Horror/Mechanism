@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.Events;
+using System.Collections;
 
 namespace Game.Ui {
 	[ExecuteAlways]
@@ -18,6 +19,19 @@ namespace Game.Ui {
 		public LayoutGroup entryList;
 
 		public UnityEvent onEntrySelect;
+		#endregion
+
+		#region Internal functions
+		IEnumerator OnEnableCoroutine() {
+			yield return new WaitForEndOfFrame();
+			{
+				// Reset scroll bar value
+				bool originallyEnabled = scroll.verticalScrollbar.enabled;
+				scroll.verticalScrollbar.enabled = true;
+				scroll.verticalScrollbar.value = 1;
+				scroll.verticalScrollbar.enabled = originallyEnabled;
+			}
+		}
 		#endregion
 
 		#region Public functions
@@ -41,6 +55,7 @@ namespace Game.Ui {
 		protected override void OnEnable() {
 			SetUpEntriesNagivation();
 			base.OnEnable();
+			StartCoroutine(OnEnableCoroutine());
 		}
 
 		protected override void EditorUpdate() {
@@ -51,6 +66,9 @@ namespace Game.Ui {
 		}
 
 		protected virtual void OnEntrySelect(UiElement entry) {
+			if(entry == null)
+				return;
+
 			// Update scrollbar value
 			int i = entry.transform.GetSiblingIndex();
 			int n = entryList.transform.childCount;

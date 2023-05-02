@@ -31,7 +31,7 @@ namespace Game.Ui {
 				if(child == null)
 					continue;
 				var ui = child.GetComponent<UiElement>();
-				if(ui != null)
+				if(ui != null && ui.gameObject.activeSelf)
 					yield return ui;
 				foreach(var childUi in FindDirectChildren(child))
 					yield return childUi;
@@ -65,7 +65,7 @@ namespace Game.Ui {
 			}
 		}
 		public IEnumerable<UiElement> DirectChildren => FindDirectChildren(Transform);
-		public UiPage Page => this == null ? null : GetComponentInParent<UiPage>();
+		public UiPage Page => this == null ? null : GetComponentInParent<UiPage>(true);
 
 		public virtual bool Selectable {
 			get => selectable;
@@ -112,7 +112,7 @@ namespace Game.Ui {
 		#region Message handlers
 		public virtual void OnSelect() {
 			onSelect?.Invoke();
-			Page?.SendMessage("OnSelect", this);
+			Page?.SendMessage("OnSelect", this, SendMessageOptions.DontRequireReceiver);
 		}
 		public virtual void OnDeselect() => onDeselect?.Invoke();
 		public virtual void OnUse() => onUse?.Invoke();
