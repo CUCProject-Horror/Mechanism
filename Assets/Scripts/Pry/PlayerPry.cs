@@ -32,6 +32,7 @@ namespace Game
 
         public UnityEvent OnEnterPry;
         public UnityEvent OnLeavePry;
+        public UnityEvent OnStartPry;
         [HideInInspector]public Vector2 imgMoveAmount;
 
         void Start()
@@ -95,6 +96,7 @@ namespace Game
         {
             if (isPrying)
             {
+                OnStartPry.Invoke();
                 pryObject.SetActive(true);
                 pryCamRenderTex.SetActive(false);
                 //pryObject.transform.parent.transform.position = Vector3.zero;

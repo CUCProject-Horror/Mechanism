@@ -24,6 +24,7 @@ namespace Game {
 		public DialogueSystemController ds;
 		PlayerPry currentPrying;
 		public VidController vid;
+		public 
 
 		StateEnum state = StateEnum.Protagonist;
 		#endregion
