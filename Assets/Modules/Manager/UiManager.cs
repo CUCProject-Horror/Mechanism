@@ -2,6 +2,7 @@ using UnityEngine;
 using Game.Ui;
 using System.Collections.Generic;
 using System.Linq;
+using System.Collections;
 
 namespace Game {
 	public class UiManager : MonoBehaviour {
@@ -15,6 +16,22 @@ namespace Game {
 		public PauseUi pauseUi;
 		public InventoryUi inventoryUi;
 		public CategoryUi categoryUi;
+		#endregion
+
+		#region Internal functions
+		IEnumerator ViewItemCoroutine(Item item) {
+			if(!item)
+				yield break;
+			GameManager.instance.OpenInventoryDirectly();
+			categoryUi.Category = item.type;
+			Open(categoryUi.Page);
+
+			yield return new WaitForEndOfFrame();
+
+			UiElement itemButton = categoryUi.GetEntryButtonByRecordIndex(categoryUi.GetRecordIndexByItem(item));
+			if(itemButton)
+				categoryUi.Page.SelectedElement = itemButton;
+		}
 		#endregion
 
 		#region Public interfaces
@@ -61,6 +78,10 @@ namespace Game {
 
 		public void RemoveLastState() {
 			stateList.RemoveAt(stateList.Count - 1);
+		}
+
+		public void ViewItem(Item item) {
+			StartCoroutine(ViewItemCoroutine(item));
 		}
 		#endregion
 	}

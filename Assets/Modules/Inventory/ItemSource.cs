@@ -15,8 +15,6 @@ namespace Game {
 		#endregion
 
 		#region Public interfaces
-
-		
 		public void Deliver(Inventory inventory) {
 			if(item == null) {
 				Debug.LogWarning("Item to deliver is null");
@@ -37,17 +35,9 @@ namespace Game {
 
 		public void SelectItemOnDeliver(Item item)
 		{
-			if (item.type != ItemType.CD)
-			{
-				var category = game.ui.categoryUi;
-
-				//打开CategoryUI，并将SelectedElement变成该Item对应的按钮
-				game.OpenInventoryDirectly();
-				category.Category = item.type;
-				game.ui.Open(category.Bp);
-				int i = category.GetRecordIndexByItem(item);
-				category.Bp.SelectedElement = category.GetEntryButtonByRecordIndex(i);
-			}
+			if(item.type == ItemType.CD)
+				return;
+			GameManager.instance.ui.ViewItem(item);
 		}
 
 		public void DeliverToProtagonist() {
