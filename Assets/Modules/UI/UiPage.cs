@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,7 +10,6 @@ namespace Game.Ui {
 		#region Internal fields
 		UiElement previouslySelectedElement;
 		bool selectable = true;
-		GraphicRaycaster raycaster;
 		#endregion
 
 		#region Serialized fields
@@ -94,10 +92,6 @@ namespace Game.Ui {
 
 		protected virtual void OnDisable() {
 			onClose?.Invoke();
-		}
-
-		void Start() {
-			raycaster = GetComponentInParent<GraphicRaycaster>();
 		}
 		#endregion
 	}

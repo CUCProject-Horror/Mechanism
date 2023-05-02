@@ -96,8 +96,7 @@ namespace Game {
 			}
 		}
 
-		public void ChangeInputState(int stateToChange)
-		{
+		public void ChangeInputState(int stateToChange) {
 			State = (StateEnum)stateToChange;
 		}
 
@@ -118,14 +117,12 @@ namespace Game {
 				return;
 			State = StateEnum.UI;
 			ui.Open(ui.pauseUi.Bp);
-			ui.uiBackground.SetActive(true);
 		}
 
-		public void OpenInventoryDirectly()
-        {
+		public void OpenInventoryDirectly() {
 			OpenPauseMenu();
 			ui.Open(ui.inventoryUi.Bp);
-        }
+		}
 		#endregion
 
 		#region Life cycle
@@ -138,10 +135,9 @@ namespace Game {
 			State = StateEnum.Protagonist;
 		}
 
-        private void Update()
-        {
+		private void Update() {
 			currentState = State;
-        }
-        #endregion
-    }
+		}
+		#endregion
+	}
 }

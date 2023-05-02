@@ -977,6 +977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900c9355d3015074fa80705179af251f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   ds: {fileID: 74930686}
   vid: {fileID: 1941042208}
   inventoryViewingDistance: 5
@@ -6439,6 +6440,10 @@ PrefabInstance:
     - target: {fileID: 412065978522753747, guid: 9ea335d21f7834f45aef36cba8655f5d, type: 3}
       propertyPath: m_Name
       value: PryTrigger1_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 412065978522753747, guid: 9ea335d21f7834f45aef36cba8655f5d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 527595890016220120, guid: 9ea335d21f7834f45aef36cba8655f5d, type: 3}
       propertyPath: m_RootOrder

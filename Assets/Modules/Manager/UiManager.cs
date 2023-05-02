@@ -1,11 +1,13 @@
 using UnityEngine;
 using Game.Ui;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Game {
 	public class UiManager : MonoBehaviour {
 		#region Internal fields
 		Stack<UiPage> pageStack = new Stack<UiPage>();
+		List<string> stateList = new List<string>();
 		#endregion
 
 		#region Serialized fields
@@ -13,12 +15,11 @@ namespace Game {
 		public PauseUi pauseUi;
 		public InventoryUi inventoryUi;
 		public CategoryUi categoryUi;
-		[HideInInspector]public List<string> stateList;
-		public string currentState;
 		#endregion
 
 		#region Public interfaces
 		public UiPage Current => pageStack.Count == 0 ? null : pageStack.Peek();
+		public string CurrentState => stateList.Count == 0 ? "Null" : stateList.Last();
 
 		public void Open(UiPage page) {
 			if(pageStack.Contains(page)) {
@@ -29,6 +30,10 @@ namespace Game {
 			if(pageStack.Count != 0) {
 				var top = pageStack.Peek();
 				top.Selectable = false;
+			}
+			else {
+				if(uiBackground)
+					uiBackground.SetActive(true);
 			}
 			pageStack.Push(page);
 			page.gameObject.SetActive(true);
@@ -43,32 +48,20 @@ namespace Game {
 			top.gameObject.SetActive(false);
 			if(pageStack.Count == 0) {
 				GameManager.instance.State = GameManager.StateEnum.Protagonist;
+				if(uiBackground)
+					uiBackground.SetActive(false);
 				return;
 			}
 			pageStack.Peek().Selectable = true;
 		}
 
-		public void AddState(string stateName)
-        {
+		public void AddState(string stateName) {
 			stateList.Add(stateName);
-        }
-
-		public void RemoveLastState()
-        {
-			stateList.RemoveAt(stateList.Count - 1);
-        }
-        #endregion
-
-        #region Life cycle
-        private void Start()
-        {
-			stateList.Add("Null");
 		}
 
-        private void Update()
-        {
-			currentState = stateList[stateList.Count - 1];
-        }
-        #endregion
-    }
+		public void RemoveLastState() {
+			stateList.RemoveAt(stateList.Count - 1);
+		}
+		#endregion
+	}
 }
