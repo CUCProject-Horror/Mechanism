@@ -8,6 +8,7 @@ namespace Game.Ui {
 	public class BluePage : UiPage {
 		#region Serialized fields
 		public Color foregroundColor, backgroundColor;
+		public UiElement title;
 		public Graphic background;
 		public ButtonElement backButton;
 		public ScrollRect scroll;

@@ -72,10 +72,12 @@ public class LensRotateAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Begin = false;       
-        volume.profile.TryGet<ChromaticAberration>(out _CA);
-        volume.profile.TryGet<ColorAdjustments>(out _CAS);
-        volume.profile.TryGet<DepthOfField>(out _DOF);        
+        Begin = false;
+        if(volume?.profile) {
+            volume.profile.TryGet<ChromaticAberration>(out _CA);
+            volume.profile.TryGet<ColorAdjustments>(out _CAS);
+            volume.profile.TryGet<DepthOfField>(out _DOF);
+        }
     }
 
     // Update is called once per frame
