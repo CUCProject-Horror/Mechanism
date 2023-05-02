@@ -1118,13 +1118,13 @@
             ]
         },
         {
-            "name": "Null",
-            "id": "8c6adb0a-bbc4-4efe-a668-d796a448b6ea",
+            "name": "Invalid",
+            "id": "ec2f6ccf-c9f0-42a7-ac5f-6d004a47be9a",
             "actions": [
                 {
                     "name": "New action",
                     "type": "Button",
-                    "id": "62f53169-4d28-44e1-8960-09b80b2af4c1",
+                    "id": "b750ee60-4ab7-4f10-91b8-c35952a33abb",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -1134,7 +1134,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "9e4cc180-54b5-4764-8018-b083b1891e2e",
+                    "id": "9903a2f4-f37a-4e0c-a68f-02bf711c1282",
                     "path": "",
                     "interactions": "",
                     "processors": "",

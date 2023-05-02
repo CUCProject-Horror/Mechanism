@@ -11,11 +11,13 @@ namespace Game
 {
     public class PlayerPry : MonoBehaviour
     {
+        #region Serialized Fields
         public Camera mainCam;
         public Camera pryCam;
         public GameObject pryCamRenderTex;
         public SpriteRenderer indcator;
         public GameObject pryObject;
+        RectTransform pryObjTransform;
         public GameObject blinkImage;
         public Sprite pryTex;
         public Sprite blinkStartTex;
@@ -32,29 +34,10 @@ namespace Game
 
         public UnityEvent OnEnterPry;
         public UnityEvent OnLeavePry;
+        public UnityEvent OnEndPry;
         public UnityEvent OnStartPry;
         [HideInInspector]public Vector2 imgMoveAmount;
-
-        void Start()
-        {
-            mainCam = Camera.main;
-            //pryAnim = GetComponent<Animator>();
-            currentCam = startCam;
-
-            for (int i = 0; i < cameras.Length; i++)
-            {
-                if (cameras[i] == currentCam)
-                {
-                    cameras[i].Priority = 20;
-                }
-                else
-                {
-                    cameras[i].Priority = 10;
-                }
-            }
-
-        }
-
+        #endregion
 
         public void Activate()
         {
@@ -73,10 +56,10 @@ namespace Game
         public void Deactivate()
         {
             StartCoroutine(ChangeCinemachineState(false));
-            EndPryAnimator();
-            Invoke("EndPryMethod", 0.5f);
+            StartCoroutine(EndPry());
         }
 
+        #region Internal Functions
         public void SwitchCamera(CinemachineVirtualCamera newCam)
         {
             currentCam = newCam;
@@ -99,7 +82,8 @@ namespace Game
                 OnStartPry.Invoke();
                 pryObject.SetActive(true);
                 pryCamRenderTex.SetActive(false);
-                //pryObject.transform.parent.transform.position = Vector3.zero;
+                pryObjTransform.anchoredPosition3D = Vector3.zero;
+                //每次开始pry时重置坐标的办法？
                 pryObject.GetComponent<Image>().sprite = pryTex;
             }
         }
@@ -118,9 +102,14 @@ namespace Game
             pryAnim.SetBool("Pry", true);
         }
 
-        public void EndPryAnimator()
+        public IEnumerator EndPry()
         {
             pryAnim.SetBool("Pry", false);
+            yield return new WaitForSeconds(0.5f);
+            EndPryMethod();
+            yield return new WaitForSeconds(0.5f);
+            OnEndPry.Invoke();
+            yield return null;
         }
 
         public IEnumerator ChangeCinemachineState(bool camState)
@@ -142,11 +131,50 @@ namespace Game
         {
             pryObject.transform.parent.Translate(imgMoveAmount.x, imgMoveAmount.y, 0);
         }
+        #endregion
+
+        #region Life Cycle
+        void Start()
+        {
+            mainCam = Camera.main;
+            //pryAnim = GetComponent<Animator>();
+            currentCam = startCam;
+            pryObjTransform = pryObject.transform.parent.gameObject.GetComponent<RectTransform>();
+
+            for (int i = 0; i < cameras.Length; i++)
+            {
+                if (cameras[i] == currentCam)
+                {
+                    cameras[i].Priority = 20;
+                }
+                else
+                {
+                    cameras[i].Priority = 10;
+                }
+            }
+
+        }
 
         public void FixedUpdate()
         {
+            if(Mathf.Abs(pryObjTransform.anchoredPosition3D.x) >= 1750 && Mathf.Abs(pryObjTransform.anchoredPosition3D.y) >= 960)
+            {
+                return;
+                //此判断要重写
+            }
+            else if ((pryObjTransform.anchoredPosition3D.x >= 1750 && imgMoveAmount.x > 0) || (pryObjTransform.anchoredPosition3D.x <= -1750 && imgMoveAmount.x < 0))
+            {
+                pryObject.transform.parent.Translate(0, imgMoveAmount.y, 0);
+            }
+            else if ((pryObjTransform.anchoredPosition3D.y >= 960 && imgMoveAmount.y > 0) || (pryObjTransform.anchoredPosition3D.y <= -960 && imgMoveAmount.y < 0))
+            {
+                pryObject.transform.parent.Translate(imgMoveAmount.x, 0, 0);
+            }
+            else
             MovePryObject();
-        }
 
+            //添加限制条件（坐标）
+        }
+        #endregion
     }
 }

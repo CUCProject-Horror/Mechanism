@@ -75,5 +75,10 @@ namespace Game {
 			game.protagonist.inventory.Deprive(item);
         }
 
+		public void ShowLog(string log)
+        {
+			Debug.Log(log);
+        }
+
 	}
 }

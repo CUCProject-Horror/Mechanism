@@ -40,15 +40,15 @@ namespace Game {
 			// Exiting
 			switch(state) {
 				case StateEnum.Invalid:
-					input.enabled = false;
+					input.playerInput.SwitchCurrentActionMap("Invalid");
 					break;
 			}
 			// Entering
 			switch(value) {
 				case StateEnum.Invalid:
 					state = StateEnum.Invalid;
-					Cursor.lockState = CursorLockMode.None;
-					input.enabled = false;
+					//Cursor.lockState = CursorLockMode.None;
+					input.playerInput.SwitchCurrentActionMap("Invalid");
 					break;
 				case StateEnum.Protagonist:
 					state = StateEnum.Protagonist;
@@ -88,7 +88,7 @@ namespace Game {
 				if(currentPrying == value)
 					return;
 				currentPrying?.Deactivate();
-				State = StateEnum.Protagonist;
+				State = StateEnum.Invalid;
 				if(currentPrying = value) {
 					currentPrying.Activate();
 					State = StateEnum.Invalid;
