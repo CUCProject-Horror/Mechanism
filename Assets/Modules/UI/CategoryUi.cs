@@ -165,6 +165,7 @@ namespace Game.Ui
 
         protected void OnEnable()
         {
+            Bp.title.Text = Item.itemTypeNames[category];
             SetUpEntries();
         }
 
