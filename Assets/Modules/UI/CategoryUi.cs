@@ -12,7 +12,7 @@ namespace Game.Ui
         public Image itemSprite;
         private Sprite defaultItemSprite;
         public GameObject itemIntroduceText;
-        public string emptyText = "������";
+        public string emptyText;
 
         public ItemType Category
         {
