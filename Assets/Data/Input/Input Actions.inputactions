@@ -1109,7 +1109,7 @@
                     "id": "0eeee56b-bfcc-4faa-9da5-16c733ecfcfe",
                     "path": "<Mouse>/delta",
                     "interactions": "",
-                    "processors": "ScaleVector2(x=0.15,y=0.15)",
+                    "processors": "ScaleVector2(x=0.05,y=0.05)",
                     "groups": "PC",
                     "action": "MovePryTex",
                     "isComposite": false,

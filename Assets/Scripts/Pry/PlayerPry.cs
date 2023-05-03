@@ -155,23 +155,35 @@ namespace Game
 
         }
 
-        public void FixedUpdate()
+        public void Update()
         {
-            if(Mathf.Abs(pryObjTransform.anchoredPosition3D.x) >= 1750 && Mathf.Abs(pryObjTransform.anchoredPosition3D.y) >= 960)
-            {
-                return;
-                //此判断要重写
-            }
-            else if ((pryObjTransform.anchoredPosition3D.x >= 1750 && imgMoveAmount.x > 0) || (pryObjTransform.anchoredPosition3D.x <= -1750 && imgMoveAmount.x < 0))
-            {
-                pryObject.transform.parent.Translate(0, imgMoveAmount.y, 0);
-            }
-            else if ((pryObjTransform.anchoredPosition3D.y >= 960 && imgMoveAmount.y > 0) || (pryObjTransform.anchoredPosition3D.y <= -960 && imgMoveAmount.y < 0))
-            {
-                pryObject.transform.parent.Translate(imgMoveAmount.x, 0, 0);
-            }
-            else
+            
+            //if ((pryObjTransform.anchoredPosition3D.x + imgMoveAmount.x >= 1750) || (pryObjTransform.anchoredPosition3D.x + imgMoveAmount.x <= -1750))
+            //{
+            //    pryObject.transform.parent.Translate(0, imgMoveAmount.y, 0);
+            //}
+            //else
+            //这样判断为什么会有误差呢？
+
+
             MovePryObject();
+
+            if (pryObjTransform.anchoredPosition3D.x > 1750)
+            {
+                pryObjTransform.anchoredPosition3D = new Vector3(1750, pryObjTransform.anchoredPosition3D.y, pryObjTransform.anchoredPosition3D.z);
+            }
+            if (pryObjTransform.anchoredPosition3D.x < -1750)
+            {
+                pryObjTransform.anchoredPosition3D = new Vector3(-1750, pryObjTransform.anchoredPosition3D.y, pryObjTransform.anchoredPosition3D.z);
+            }
+            if (pryObjTransform.anchoredPosition3D.y > 960)
+            {
+                pryObjTransform.anchoredPosition3D = new Vector3(pryObjTransform.anchoredPosition3D.x, 960, pryObjTransform.anchoredPosition3D.z);
+            }
+            if (pryObjTransform.anchoredPosition3D.y < -960)
+            {
+                pryObjTransform.anchoredPosition3D = new Vector3(pryObjTransform.anchoredPosition3D.x, -960, pryObjTransform.anchoredPosition3D.z);
+            }
 
             //添加限制条件（坐标）
         }
